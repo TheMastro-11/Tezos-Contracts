@@ -14,13 +14,13 @@ class CrowdFunding(sp.Contract):
     
     @sp.entry_point
     def contribute(self):
-        #verifico che non sia stato raggiungo il tetto dei contributi
+        #check if ceiling is reached
         sp.verify(sp.balance + sp.amount <= self.data.ceiling, message = "Ceiling reached")   
-        #verifico che l'importo sia tra il minimo e massimo
+        #check if amount is between min and max
         sp.verify(sp.amount >= self.data.minAmount, message = "Amount too low")
         sp.verify(sp.amount <= self.data.maxAmount, message = "Amount too high")
         
-        #aggiungo nella lista
+        #add on list
         sp.if (self.data.contributors.contains(sp.sender)): 
             self.data.contributors[sp.sender].push(sp.amount) #se esiste già
         sp.else:
@@ -29,7 +29,9 @@ class CrowdFunding(sp.Contract):
     
     @sp.entry_point
     def checkFloor(self):
+        #check if floor is reached
         sp.if sp.balance < self.data.floor:
+            #if not refund all donators
             addressList = sp.local("addressList", self.data.contributors.keys())
             sp.for i in addressList.value:
                 with sp.match_cons(addressList.value) as x1:
@@ -37,6 +39,7 @@ class CrowdFunding(sp.Contract):
                     addressList.value = x1.tail
                     sp.send(address, self.checkTotal(self.data.contributors[address]))
         sp.else:
+            #otherwise crowdfunding is finish successfully
             self.data.isSuccess = True
     
     def checkTotal(self, list_):
@@ -50,6 +53,7 @@ class CrowdFunding(sp.Contract):
 
     @sp.entry_point
     def endFunding(self, cAddress):
+        #airdrop new token
         c = sp.contract(sp.TMap(sp.TAddress, sp.TList(sp.TMutez)), cAddress, entry_point = "airdrop").open_some()
         sp.transfer(self.data.contributors, sp.balance, c)
 
@@ -77,28 +81,36 @@ class TokenGen(sp.Contract):
 
 @sp.add_test(name = "Crowdfunding")
 def testCrowd():
-    #inizializzo scenario
-    scenario = sp.test_scenario()
-    #creo oggetto crowdfunding
+    #set scenario
+    sc = sp.test_scenario()
+    #create object crowdfunding
     crowdFunding = CrowdFunding(14)
-    #creo oggetto tokenGen
+    #create object tokenGen
     tokenGen = TokenGen()
-    #avvio scenario
-    scenario += crowdFunding
-    scenario += tokenGen
+    #start scenario
+    sc += crowdFunding
+    sc += tokenGen
 
-    #creo users
+    #create users
     pippo = sp.test_account("pippo")
     sofia = sp.test_account("sofia")
     sergio = sp.test_account("sergio")
 
-    time = sp.timestamp(0) #calcoliamo il tempo di esecuzione
+    time = sp.timestamp(0) #calculate execution time
     time = time.add_hours(1)
+    sc.h1("Check Time")
     crowdFunding.checkTime(time)
+    sc.h1("Pippo Contribute")
     crowdFunding.contribute().run(sender = pippo, amount = sp.mutez(10))
+    sc.h1("Sofia Contribute")
     crowdFunding.contribute().run(sender = sofia, amount = sp.mutez(100))
+    sc.h1("Pippo Contribute Again")
     crowdFunding.contribute().run(sender = pippo, amount = sp.mutez(10))
+    sc.h1("Sergio Contribute")
     crowdFunding.contribute().run(sender = sergio, amount = sp.mutez(1000))
+    sc.h1("Attempt to Contribute")
     crowdFunding.contribute().run(sender = sofia, amount = sp.mutez(10000)).run(valid = False)
+    sc.h1("check floor")
     crowdFunding.checkFloor()
+    sc.h1("End Funding")
     crowdFunding.endFunding(tokenGen.address)
