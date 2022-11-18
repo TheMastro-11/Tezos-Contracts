@@ -37,9 +37,29 @@ Nella versione di smarty troviamo due SC:
 	* `isSuccess = sp.bool()` : indicatore successo al termine della raccolta 
 	
  * EntryPoints:
-	* # checktime() : diffTime = time - self.data.startDate sp.verify(diffTime <= self.getWeeks(), message = "The time is over")
+	* ```
+	 # checktime() : diffTime = time - self.data.startDate sp.verify(diffTime <= self.getWeeks(), message = "The time is over")
+	 ```
 	controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
- 	* contribute() : invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna 'contributors'
+	
+	* # contribute() : #check if ceiling is reached 
+	#	sp.verify(sp.balance + sp.amount <= self.data.ceiling, message = "Ceiling reached")  
+ 
+    #    #check if amount is between min and max
+    #    sp.verify(sp.amount >= self.data.minAmount, message = "Amount too low")
+        sp.verify(sp.amount <= self.data.maxAmount, message = "Amount too high")
+        
+        #add on list
+        sp.if (self.data.contributors.contains(sp.sender)): 
+            #check if it will reach the max amount with other donation
+            prvDons = sp.local("prvDons", sp.mutez(0))
+            prvDons = self.checkTotal(self.data.contributors[sp.sender])
+            sp.verify( prvDons + sp.amount < self.data.maxAmount, message = "Max Amount Reached") 
+            self.data.contributors[sp.sender].push(sp.amount) #se esiste già
+        sp.else:
+            self.data.contributors[sp.sender] =  sp.list([sp.amount], t = sp.TMutez) #inserisco indirizzo contribuente
+    
+	invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna 'contributors'
 	* checkFloor() :
 
 
