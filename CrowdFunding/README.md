@@ -42,11 +42,12 @@ Nella versione di smarty troviamo due SC:
 	```
 	controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
 	
+	```
 	# contribute() : #check if ceiling is reached 
-	#	sp.verify(sp.balance + sp.amount <= self.data.ceiling, message = "Ceiling reached")  
- 
-    #    #check if amount is between min and max
-    #    sp.verify(sp.amount >= self.data.minAmount, message = "Amount too low")
+		sp.verify(sp.balance + sp.amount <= self.data.ceiling, message = "Ceiling reached")  
+	
+        #check if amount is between min and max
+        sp.verify(sp.amount >= self.data.minAmount, message = "Amount too low")
         sp.verify(sp.amount <= self.data.maxAmount, message = "Amount too high")
         
         #add on list
@@ -58,7 +59,8 @@ Nella versione di smarty troviamo due SC:
             self.data.contributors[sp.sender].push(sp.amount) #se esiste già
         sp.else:
             self.data.contributors[sp.sender] =  sp.list([sp.amount], t = sp.TMutez) #inserisco indirizzo contribuente
-    
+    ```
+	
 	invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna 'contributors'
 	* checkFloor() :
 
