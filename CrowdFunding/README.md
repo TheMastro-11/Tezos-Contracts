@@ -1,3 +1,6 @@
+## DISCLAIMER
+it's just a draft -> NOT definitive
+
 # CROWDFUNDNG
 Il seguente è uno Smart Contract realizzato con l'obiettivo di essere pubblicato sulla blockchain Tezos.
 Per questo motivo è stato implementato con tutti e tre i linguaggi disponibili:
@@ -24,16 +27,16 @@ Gli attori saranno tre:
 Nella versione di smarty troviamo due SC:
 * **CrowdFunding**:
  -Attributes(
-	-'startDate' : data di inizio
-	-'endDate' : data di fine
-	-'contributors' : mappa dei donatori (address -> list(mutez))	
-	-'minAmount' : minima donazion
-	-'maxAmount' : massima donazione
-	-'ceiling' : obiettivo economico
-	-'floor' : tetto minimo
-	-'isSuccess' : se il crowdfunding ha avuto successo al termine 
+	* 'startDate' : data di inizio
+	* 'endDate' : data di fine
+	* 'contributors' : mappa dei donatori (address -> list(mutez))	
+	* 'minAmount' : minima donazion
+	* 'maxAmount' : massima donazione
+	* 'ceiling' : obiettivo economico
+	* 'floor' : tetto minimo
+	* 'isSuccess' : se il crowdfunding ha avuto successo al termine 
 	)
  -EntryPoints
-	-checktime() : controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
- 	-contribute() : invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna 'contributors'
-	-checkFloor() :
+	* checktime() : controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
+ 	* contribute() : invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna 'contributors'
+	* checkFloor() :
