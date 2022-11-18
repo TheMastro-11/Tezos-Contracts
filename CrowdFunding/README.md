@@ -37,12 +37,12 @@ Nella versione di smarty troviamo due SC:
 	* `isSuccess = sp.bool()` : indicatore successo al termine della raccolta 
 	
  * EntryPoints:
-	* ```
+	```
 	 # checktime() : diffTime = time - self.data.startDate sp.verify(diffTime <= self.getWeeks(), message = "The time is over")
-
+	```
 	controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
 	
-	* # contribute() : #check if ceiling is reached 
+	# contribute() : #check if ceiling is reached 
 	#	sp.verify(sp.balance + sp.amount <= self.data.ceiling, message = "Ceiling reached")  
  
     #    #check if amount is between min and max
