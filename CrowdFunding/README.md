@@ -1,5 +1,6 @@
 ## DISCLAIMER
 it's just a draft -> NOT definitive
+It has to be translated in English.
 
 # CROWDFUNDING
 Crowdfunding è uno Smart Contract realizzato con l'obiettivo di imparare a programmare sulla blockchain Tezos.
@@ -24,7 +25,7 @@ Gli attori saranno tre:
 * se alla scadenza non viene raggiunto un tetto minimo(floor) tutti i contribuenti verrano rimborsati e il crowdfunding avrà fallito
 
 # SMARTPY
-[Link](https://smartpy.io/)
+[Link](https://smartpy.io/)  <br />
 Nella versione di smarty troviamo due SC:
 * **CrowdFunding**:
  * Attributes:
@@ -135,4 +136,4 @@ Nella versione di smarty troviamo due SC:
 
 ## Test Scenario
 	Lo scenario in SP ci permette di testare gli entry_points e le classi da noi realizzate prima di un'effettiva pubblicazione sulla chain 
-	[Link](https://smartpy.io/docs/scenarios/testing/)
+[Link](https://smartpy.io/docs/scenarios/testing/)
