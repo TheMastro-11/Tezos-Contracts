@@ -26,17 +26,21 @@ Gli attori saranno tre:
 # SMARTPY
 Nella versione di smarty troviamo due SC:
 * **CrowdFunding**:
- *Attributes(
-	* `startDate` : data di inizio
-	* `endDate` : data di fine
-	* `contributors` : mappa dei donatori (address -> list(mutez))	
-	* `minAmount` : minima donazion
-	* `maxAmount` : massima donazione
-	* `ceiling` : obiettivo economico
-	* `floor` : tetto minimo
-	* `isSuccess` : se il crowdfunding ha avuto successo al termine 
-	)
- -EntryPoints
-	* checktime() : controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
+ * Attributes:
+	* `startDate = sp.timestamp(0)` : data di inizio
+	* `endDate = x` : data di fine
+	* `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TList(sp.TMutez) )` : mappa dei donatori 
+	* `minAmount = sp.mutez(10)` : minima donazione
+	* `maxAmount = sp.mutez(1000)` : massima donazione
+	* `ceiling = sp.mutez(100000)` : obiettivo economico
+	* `floor = sp.mutez(200)` : tetto minimo da raggiungere
+	* `isSuccess = sp.bool()` : indicatore successo al termine della raccolta 
+	
+ * EntryPoints:
+	* # checktime() : diffTime = time - self.data.startDate sp.verify(diffTime <= self.getWeeks(), message = "The time is over")
+	controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
  	* contribute() : invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna 'contributors'
 	* checkFloor() :
+
+
+
