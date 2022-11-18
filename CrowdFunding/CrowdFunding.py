@@ -7,10 +7,10 @@ class CrowdFunding(sp.Contract):
     @sp.entry_point
     def checkTime(self, time):
         diffTime = time - self.data.startDate
-        sp.verify(diffTime <= self.getWeeks(), message = "The time is over")
+        sp.verify(diffTime <= self.getHours(), message = "The time is over")
 
-    def getWeeks(self):
-        return sp.compute(self.data.endDate * 86400)
+    def getHours(self):
+        return sp.compute(self.data.endDate * 24)
     
     @sp.entry_point
     def contribute(self):
