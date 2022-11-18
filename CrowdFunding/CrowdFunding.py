@@ -20,12 +20,13 @@ class CrowdFunding(sp.Contract):
         #check if amount is between min and max
         sp.verify(sp.amount >= self.data.minAmount, message = "Amount too low")
         sp.verify(sp.amount <= self.data.maxAmount, message = "Amount too high")
-
-        #check if it will reach the max amount with other donation
-        sp.verify(self.checkTotal[self.data.contributors[sp.sender]] + sp.amount > self.data.maxAmount, message = "Max Amount Reached") 
         
         #add on list
         sp.if (self.data.contributors.contains(sp.sender)): 
+            #check if it will reach the max amount with other donation
+            prvDons = sp.local("prvDons", sp.mutez(0))
+            prvDons = self.checkTotal(self.data.contributors[sp.sender])
+            sp.verify( prvDons + sp.amount < self.data.maxAmount, message = "Max Amount Reached") 
             self.data.contributors[sp.sender].push(sp.amount) #se esiste già
         sp.else:
             self.data.contributors[sp.sender] =  sp.list([sp.amount], t = sp.TMutez) #inserisco indirizzo contribuente
@@ -109,7 +110,7 @@ def testCrowd():
     sc.h1("Sofia Contribute")
     crowdFunding.contribute().run(sender = sofia, amount = sp.mutez(100))
     sc.h1("Pippo Contribute Again")
-    crowdFunding.contribute().run(sender = pippo, amount = sp.mutez(10))
+    crowdFunding.contribute().run(sender = pippo, amount = sp.mutez(100))
     sc.h1("Sergio Contribute")
     crowdFunding.contribute().run(sender = sergio, amount = sp.mutez(1000))
     sc.h1("Attempt to Contribute")
