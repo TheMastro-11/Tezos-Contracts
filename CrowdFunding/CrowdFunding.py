@@ -15,10 +15,14 @@ class CrowdFunding(sp.Contract):
     @sp.entry_point
     def contribute(self):
         #check if ceiling is reached
-        sp.verify(sp.balance + sp.amount <= self.data.ceiling, message = "Ceiling reached")   
+        sp.verify(sp.balance + sp.amount <= self.data.ceiling, message = "Ceiling reached")  
+ 
         #check if amount is between min and max
         sp.verify(sp.amount >= self.data.minAmount, message = "Amount too low")
         sp.verify(sp.amount <= self.data.maxAmount, message = "Amount too high")
+
+        #check if it will reach the max amount with other donation
+        sp.verify(self.checkTotal[self.data.contributors[sp.sender]] + sp.amount > self.data.maxAmount, message = "Max Amount Reached") 
         
         #add on list
         sp.if (self.data.contributors.contains(sp.sender)): 
@@ -39,7 +43,7 @@ class CrowdFunding(sp.Contract):
                     addressList.value = x1.tail
                     sp.send(address, self.checkTotal(self.data.contributors[address]))
         sp.else:
-            #otherwise crowdfunding is finish successfully
+            #otherwise crowdfunding is finished successfully
             self.data.isSuccess = True
     
     def checkTotal(self, list_):
