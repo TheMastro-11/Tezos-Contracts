@@ -8,7 +8,7 @@ Per questo motivo è stato implementato con tutti e tre i linguaggi disponibili:
 -Archetype
 -Ligo
 
-Il programma si occupa di gestire un'attività CrowdFunding: un utente (che rappresenterà il nostro admin),
+Il programma si occupa di gestire un'attività di CrowdFunding: un utente (che rappresenterà il nostro admin),
 indirrà una raccolta fondi a cui chiunque può partecipare, con la promessa di una ricompensa per gli investitori una volta raggiunto l'obiettivo o la scadenza. (Nel nostro caso simuleremo l'airdrop di un nuovo token)
 L'obiettivo di denaro e la scadenza vengono definiti prima di aprire la raccolta e non possono essere modificati.
 
@@ -24,11 +24,12 @@ Gli attori saranno tre:
 * se alla scadenza non viene raggiunto un tetto minimo(floor) tutti i contribuenti verrano rimborsati e il crowdfunding avrà fallito
 
 # SMARTPY
+[Link](https://smartpy.io/)
 Nella versione di smarty troviamo due SC:
 * **CrowdFunding**:
  * Attributes:
 	* `startDate = sp.timestamp(0)` : data di inizio
-	* `endDate = x` : data di fine
+	* `endDate = x` : data di fine espressa in giorni
 	* `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TList(sp.TMutez) )` : mappa dei donatori 
 	* `minAmount = sp.mutez(10)` : minima donazione
 	* `maxAmount = sp.mutez(1000)` : massima donazione
@@ -41,14 +42,16 @@ Nella versione di smarty troviamo due SC:
 	@sp.entry_point
     def checkTime(self, time):
         diffTime = time - self.data.startDate
-        sp.verify(diffTime <= self.getWeeks(), message = "The time is over")
+        sp.verify(diffTime <= self.getHours(), message = "The time is over")
 	```
 	controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
 	
 	```
-	contribute() : #check if ceiling is reached 
-		sp.verify(sp.balance + sp.amount <= self.data.ceiling, message = "Ceiling reached")  
-	
+	@sp.entry_point
+    def contribute(self):
+        #check if ceiling is reached
+        sp.verify(sp.balance + sp.amount <= self.data.ceiling, message = "Ceiling reached")  
+ 
         #check if amount is between min and max
         sp.verify(sp.amount >= self.data.minAmount, message = "Amount too low")
         sp.verify(sp.amount <= self.data.maxAmount, message = "Amount too high")
@@ -63,9 +66,73 @@ Nella versione di smarty troviamo due SC:
         sp.else:
             self.data.contributors[sp.sender] =  sp.list([sp.amount], t = sp.TMutez) #inserisco indirizzo contribuente
     ```
+	invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna `contributors`
+	
+	```
+	@sp.entry_point
+    def checkFloor(self):
+        #check if floor is reached
+        sp.if sp.balance < self.data.floor:
+            #if not refund all donators
+            addressList = sp.local("addressList", self.data.contributors.keys())
+            sp.for i in addressList.value:
+                with sp.match_cons(addressList.value) as x1:
+                    address = x1.head
+                    addressList.value = x1.tail
+                    sp.send(address, self.checkTotal(self.data.contributors[address]))
+        sp.else:
+            #otherwise crowdfunding is finished successfully
+            self.data.isSuccess = True
+	```
+	verifica che `floor` sia raggiunto, in caso positivo aggiorna `isSuccess` altrimenti rimborsa i `contributors`
 
-	invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna 'contributors'
-	* checkFloor() :
+	```
+	@sp.entry_point
+    def endFunding(self, cAddress):
+        #airdrop new token
+        c = sp.contract(sp.TMap(sp.TAddress, sp.TList(sp.TMutez)), cAddress, entry_point = "airdrop").open_some()
+        sp.transfer(self.data.contributors, sp.balance, c)
+	```
+	si occupa di richiamare lo SC che si occupa dell'airdrop
+	*↓↓↓ **TokenGen** descritto sotto ↓↓↓*
+
+ * Methods:
+	```
+	def getHours(self):
+        return sp.compute(self.data.endDate * 24)
+	```
+	trasforma x giorni nel numero di ore corrispondenti
+
+	```
+	def checkTotal(self, list_):
+        total = sp.local("totale", sp.mutez(0))
+        sp.for j in list_:
+            with sp.match_cons(list_) as x1:
+                total.value += x1.head
+                list_ = x1.tail
+        return total.value
+	```
+	calcola il totale che è stato raccolto
+
+* **TokenGen**:
+ * Attributes:
+	* `supply = 120000000` : indica la totale supply del token
+	* `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TNat` : tiene conto dei donatori e del numero di token che riceveranno
+
+ * EntryPoints:
+	```
+	@sp.entry_point
+    def airdrop(self, adMap):
+        adList = sp.local("adList", adMap.keys())
+        sp.for i in adList.value:
+            with sp.match_cons(adList.value) as x1:
+                address = x1.head
+                adList.value = x1.tail
+                self.data.contributors[address] = sp.utils.mutez_to_nat(self.checkTotal(adMap[address])) * 1200
+	```
+	l'invio dei token è simulato inserendo l'ammontare corrispondente nella map
 
 
-
+## Test Scenario
+	Lo scenario in SP ci permette di testare gli entry_points e le classi da noi realizzate prima di un'effettiva pubblicazione sulla chain 
+	[Link](https://smartpy.io/docs/scenarios/testing/)
