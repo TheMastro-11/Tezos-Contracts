@@ -39,7 +39,7 @@ Nella versione di smarty troviamo due SC:
  * EntryPoints:
 	* ```
 	 # checktime() : diffTime = time - self.data.startDate sp.verify(diffTime <= self.getWeeks(), message = "The time is over")
-	 ```
+
 	controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
 	
 	* # contribute() : #check if ceiling is reached 
