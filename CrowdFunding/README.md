@@ -255,3 +255,9 @@ l'invio dei token è simulato inserendo l'ammontare corrispondente nella map
 
   
   
+
+## Test Scenario
+
+Lo scenario in SP ci permette di testare gli entry_points e le classi da noi realizzate prima di un'effettiva pubblicazione sulla chain
+
+[Link](https://smartpy.io/docs/scenarios/testing/)
