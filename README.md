@@ -33,16 +33,18 @@ Nello specifico si proporrà un insieme di use cases che verranno implementati n
 
 ## Programming Languages
 
-*  **Archetype**: <br>
+*  **Archetype**:
 Archetype is an elegant generic-purpose language to develop Smart Contracts
 on the Tezos blockchain.
 It supports all Michelson features, but also provides exclusive high-level features for a precise and concise source code, that make contracts easier to develop, read and maintain.
 [Link](https://archetype-lang.org/)
 <br>
+
 *  **Ligo**:
 LIGO is a smart contract language available in multiple, familiar syntaxes. With this flexible, minimalist language, you can choose from JsLIGO, CameLIGO, PascaLIGO, and ReasonLIGO
 [Link](https://tezos.com/developers/ligo/)
 <br>
+
 *  **SmartPy**:
 The SmartPy language is available through a Python library for building and analyzing Tezos smart contracts. 
 It comes with various tools: a compiler that generates Michelson code, a simulation engine, a contract explorer, etc.
