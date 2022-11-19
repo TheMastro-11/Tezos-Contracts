@@ -11,10 +11,10 @@ states =
 constant startDate : date = now
 constant endDate : date = now + 1d
 variable contributors : map<address, list<tez>> = []
-constant minAmount : tez = 0.00001tz
-constant maxAmount : tez = 0.001tz
-constant ceiling : tez = 0.1tz
-constant floorPrice : tez = 0.0002tz
+constant minAmount : tez = 10utz
+constant maxAmount : tez = 1000utz
+constant ceiling : tez = 100000utz
+constant floorPrice : tez = 200utz
 variable isSuccess : bool = false
 
 
@@ -22,8 +22,7 @@ variable isSuccess : bool = false
 transition airdrop_1 () {
     from funding 
         to airdrop
-    when {balance >= ceiling}
-    with effect {isSuccess := true}
+    with effect{isSuccess := true}
 }
 
 transition time_Over () {
@@ -47,6 +46,18 @@ transition refund_ () {
 
 //entrypoints
 entry contribute () {
+    //check if ceiling is reached
+    if balance + transferred >= ceiling then
+        //call transition
+        transfer 0tz to entry self.airdrop_1()
+    else
+    
+    //check if amount is between min and max
+    if transferred < minAmount or transferred > maxAmount then
+        fail("Amount incorrect");
+    
     //add donator on map
-    contributors.put(caller, [transferred])
+    contributors.put(caller, [transferred]);
+
+    
 }
