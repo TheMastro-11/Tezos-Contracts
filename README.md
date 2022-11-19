@@ -49,10 +49,4 @@ LIGO is a smart contract language available in multiple, familiar syntaxes. With
 The SmartPy language is available through a Python library for building and analyzing Tezos smart contracts. 
 It comes with various tools: a compiler that generates Michelson code, a simulation engine, a contract explorer, etc.
 [Link](https://smartpy.io/)
-
-	*Features*:
-
-	    Test Scenario:
-        Lo scenario in SP ci permette di testare gli entry_points e le classi
-        da noi realizzate prima di un'effettiva pubblicazione sulla chain.
-[Link](https://smartpy.io/docs/scenarios/testing/) 
+ 
