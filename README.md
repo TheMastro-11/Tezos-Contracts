@@ -15,26 +15,33 @@ Nello specifico si proporrà un insieme di use cases che verranno implementati n
 * (in progress)
 
 ## Programming Languages
-* Archetype:
-Archetype is an elegant generic-purpose language to develop Smart Contracts on the Tezos blockchain.
+* **Archetype**:
+&nbsp;&nbsp;Archetype is an elegant generic-purpose language to develop Smart Contracts 
+&nbsp;&nbsp;on the Tezos blockchain.
 
-It supports all Michelson features, but also provides exclusive high-level features for a precise and concise source code, that make contracts easier to develop, read and maintain.
-[Link](https://archetype-lang.org/)
+&nbsp;&nbsp;It supports all Michelson features, but also provides exclusive high-level
+&nbsp;&nbsp;features for a precise and concise source code, that make contracts easier 
+&nbsp;&nbsp;to develop, read and maintain.
+&nbsp;&nbsp;[Link](https://archetype-lang.org/)
 
-* Ligo:
-LIGO is a smart contract language available in multiple, familiar syntaxes. With this flexible, minimalist language, you can choose from JsLIGO, CameLIGO, PascaLIGO, and ReasonLIGO
-[Link](https://tezos.com/developers/ligo/)
+* **Ligo**:
+&nbsp;&nbsp;LIGO is a smart contract language available in multiple, familiar syntaxes. 
+&nbsp;&nbsp;With this flexible, minimalist language, you can choose from JsLIGO, 
+&nbsp;&nbsp;CameLIGO, PascaLIGO, and ReasonLIGO
+&nbsp;&nbsp;[Link](https://tezos.com/developers/ligo/)
 
-* SmartPy:
-The SmartPy language is available through a Python library for building and analyzing Tezos smart contracts.
+* **SmartPy**:
+&nbsp;&nbsp;The SmartPy language is available through a Python library for building and 
+&nbsp;&nbsp;analyzing Tezos smart contracts.
 
-It comes with various tools: a compiler that generates Michelson code, a simulation engine, a contract explorer, etc.
-[Link](https://smartpy.io/)
+&nbsp;&nbsp;It comes with various tools: a compiler that generates Michelson code, 
+&nbsp;&nbsp;a simulation engine, a contract explorer, etc.
+&nbsp;&nbsp;[Link](https://smartpy.io/)
 
 &nbsp; Features:
 &nbsp;&nbsp; ## Test Scenario
 
-&nbsp;&nbsp;Lo scenario in SP ci permette di testare gli entry_points e le classi da noi 
-&nbsp;&nbsp;realizzate prima di un'effettiva pubblicazione sulla chain
+&nbsp;&nbsp;Lo scenario in SP ci permette di testare gli entry_points e le classi
+&nbsp;&nbsp;da noi realizzate prima di un'effettiva pubblicazione sulla chain
 
 &nbsp;&nbsp;[Link](https://smartpy.io/docs/scenarios/testing/)
