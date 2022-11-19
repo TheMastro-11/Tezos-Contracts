@@ -50,16 +50,9 @@ The SmartPy language is available through a Python library for building and anal
 It comes with various tools: a compiler that generates Michelson code, a simulation engine, a contract explorer, etc.
 [Link](https://smartpy.io/)
 
-	Features:
+	*Features*:
 
-	 Test Scenario
-
-  
-
-&nbsp;&nbsp;Lo scenario in SP ci permette di testare gli entry_points e le classi
-
-&nbsp;&nbsp;da noi realizzate prima di un'effettiva pubblicazione sulla chain
-
-  
-
-&nbsp;&nbsp;[Link](https://smartpy.io/docs/scenarios/testing/)
+	    Test Scenario:
+        Lo scenario in SP ci permette di testare gli entry_points e le classi
+        da noi realizzate prima di un'effettiva pubblicazione sulla chain.
+[Link](https://smartpy.io/docs/scenarios/testing/) 
