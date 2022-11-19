@@ -1,0 +1,52 @@
+archetype crowdfunding
+
+//state machine
+states = 
+| funding initial 
+| timeOver
+| airdrop
+| refund
+
+//declare variable, constant and asset
+constant startDate : date = now
+constant endDate : date = now + 1d
+variable contributors : map<address, list<tez>> = []
+constant minAmount : tez = 0.00001tz
+constant maxAmount : tez = 0.001tz
+constant ceiling : tez = 0.1tz
+constant floorPrice : tez = 0.0002tz
+variable isSuccess : bool = false
+
+
+//transitions
+transition airdrop_1 () {
+    from funding 
+        to airdrop
+    when {balance >= ceiling}
+    with effect {isSuccess := true}
+}
+
+transition time_Over () {
+    from funding 
+        to timeOver
+    when {now > endDate}
+}
+
+transition airdrop_2 () {
+    from timeOver 
+        to airdrop
+    when {balance >= floorPrice}
+    with effect {isSuccess := true}
+}
+
+transition refund_ () {
+    from timeOver
+        to refund
+    when {balance < floorPrice}
+}
+
+//entrypoints
+entry contribute () {
+    //add donator on map
+    contributors.put(caller, [transferred])
+}
