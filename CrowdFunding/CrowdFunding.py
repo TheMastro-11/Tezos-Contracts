@@ -27,9 +27,9 @@ class CrowdFunding(sp.Contract):
             prvDons = sp.local("prvDons", sp.mutez(0))
             prvDons = self.checkTotal(self.data.contributors[sp.sender])
             sp.verify( prvDons + sp.amount < self.data.maxAmount, message = "Max Amount Reached") 
-            self.data.contributors[sp.sender].push(sp.amount) #se esiste già
+            self.data.contributors[sp.sender].push(sp.amount) #if already exist
         sp.else:
-            self.data.contributors[sp.sender] =  sp.list([sp.amount], t = sp.TMutez) #inserisco indirizzo contribuente
+            self.data.contributors[sp.sender] =  sp.list([sp.amount], t = sp.TMutez) #insert donator address
     
     
     @sp.entry_point
