@@ -57,12 +57,29 @@ entry contribute () {
         fail("Amount incorrect");
 
     //add donator on map
-    var tmp : list<tez> ?= contributors[caller]; //local variable 
+    var tmp : list<tez> =  [0utz]; //local variable 
     if contributors.contains(caller) then begin
-        tmp.prepend(transferred);
-        contributors.put(caller, tmp)
+        //check if it will reach the max amount with other donation
+        tmp ?:= contributors[caller] : "Error";
+        if checkTotal(tmp) + transferred > maxAmount then
+            fail("Reached max Amount");
+        
+        tmp.prepend(transferred); //add new donation with the other
+        contributors.put(caller, tmp) //update value
     end
     else
-        contributors.put(caller, [transferred]) 
+        contributors.put(caller, [transferred]) //add new donator
     
 }
+
+function checkTotal(lst : list<tez>) : tez {
+    var total : tez = 0utz;
+    
+    //sum all the elements of list
+    for e in lst do
+        total += e
+    done;
+
+    return total
+}
+
