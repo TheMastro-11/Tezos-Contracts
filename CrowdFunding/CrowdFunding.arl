@@ -9,7 +9,7 @@ states =
 
 //declare variable, constant and asset
 constant startDate : date = now
-constant endDate : date = now + 1d
+constant endDate : date = now + 5s
 variable contributors : map<address, list<tez>> = []
 constant minAmount : tez = 10utz
 constant maxAmount : tez = 1000utz
@@ -28,7 +28,7 @@ transition airdrop_1 () {
 transition time_Over () {
     from funding 
         to timeOver
-    when {now > endDate}
+    with effect{isSuccess := true}
 }
 
 transition airdrop_2 () {
@@ -83,3 +83,9 @@ function checkTotal(lst : list<tez>) : tez {
     return total
 }
 
+entry checkTime(){
+    //check if time is over
+    if now > endDate then
+        //call transition
+        transfer 0tz to entry self.time_Over()
+}
