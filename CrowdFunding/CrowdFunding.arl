@@ -55,9 +55,14 @@ entry contribute () {
     //check if amount is between min and max
     if transferred < minAmount or transferred > maxAmount then
         fail("Amount incorrect");
-    
-    //add donator on map
-    contributors.put(caller, [transferred]);
 
+    //add donator on map
+    var tmp : list<tez> ?= contributors[caller]; //local variable 
+    if contributors.contains(caller) then begin
+        tmp.prepend(transferred);
+        contributors.put(caller, tmp)
+    end
+    else
+        contributors.put(caller, [transferred]) 
     
 }
