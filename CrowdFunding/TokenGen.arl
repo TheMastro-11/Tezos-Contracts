@@ -1,0 +1,13 @@
+archetype tokengen
+
+//declare constants and variables
+constant supply : int = 12000
+variable contributors : map<address, tez> = []
+
+//entrypoints
+entry airdrop(mapDon : map<address, tez>){
+    //add to contributors
+    for (x,y) in mapDon do
+        contributors.put(x, y*1200)
+    done
+}
