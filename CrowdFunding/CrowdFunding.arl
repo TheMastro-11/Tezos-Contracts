@@ -7,7 +7,7 @@ states =
 | airdrop
 | refund
 
-//declare variable, constant and asset
+//declare variables and constants
 constant startDate : date = now
 constant endDate : date = now + 5s
 variable contributors : map<address, list<tez>> = []
@@ -88,4 +88,14 @@ entry checkTime(){
     if now > endDate then
         //call transition
         transfer 0tz to entry self.time_Over()
+}
+
+entry endFunding(addr : address){
+    //airdrop newToken
+    var mapDon : map<address, tez> = [];
+    for (x,y) in contributors do
+        mapDon.put(x, checkTotal(y))
+    done;
+    //transfer balance to addr call airdrop<
+    transfer balance to addr call airdrop<map<address, tez>>(mapDon)
 }
