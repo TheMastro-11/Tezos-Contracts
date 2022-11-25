@@ -1,0 +1,50 @@
+//declare type alias
+
+//declare variables and constants
+const startDate : timestamp = Tezos.get_now();
+const endDate : timestamp = startDate + 5;
+const minAmount : tez  = 10 as mutez;
+const maxAmount : tez = 1000 as mutez;
+const ceiling : tez = 100000 as mutez;
+const floorPrice : tez = 200 as mutez;
+
+//entrypoints
+const contribute = (_contributors : map<address, list<tez>>) : map<address, int> => {
+  return Map.literal(list([
+    ["tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" as address, 10]
+  ]))
+  };
+  //check if amount is between min and max
+  //assert_with_error( (Tezos.get_amount() < minAmount), "Amount too Low");
+  //assert_with_error( (Tezos.get_amount() > maxAmount), "Amount too High");
+  
+  //add donator on map
+  /*
+  var tmp : list<tez> =  [0utz]; //local variable 
+  if contributors.contains(caller) then begin
+      //check if it will reach the max amount with other donation
+      tmp ?:= contributors[caller] : "Error";
+      if checkTotal(tmp) + transferred > maxAmount then
+          fail("Reached max Amount");
+      
+      tmp.prepend(transferred); //add new donation with the other
+      contributors.put(caller, tmp) //update value
+  end
+  else
+      contributors.put(caller, [transferred]) //add new donator
+  end*/
+
+
+/* Main access point that dispatches to the entrypoints according to
+   the smart contract parameter. */
+const main = ([parameter, contractStorage] : [int, int]) : [list <operation>, int] => {
+  //define contributors map and isSuccess condition
+  let _contributors : map<address, list<tez>> = Map.empty;
+  let _isSuccess : bool = false;
+
+  //first Contribute
+
+ return [
+    list([]), contractStorage + parameter
+  ]
+}; 
