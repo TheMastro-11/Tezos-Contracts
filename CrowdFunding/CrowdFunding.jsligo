@@ -1,4 +1,5 @@
-//declare type alias
+//declare type
+type holder = map<address, list<tez>>;
 
 //declare variables and constants
 const startDate : timestamp = Tezos.get_now();
@@ -8,47 +9,33 @@ const maxAmount : tez = 1000 as mutez;
 const ceiling : tez = 100000 as mutez;
 const floorPrice : tez = 200 as mutez;
 
+
+
 //entrypoints
-const contribute = (contributors : map<address, list<tez>>) : map<address, list<tez>> => {
+const contribute = (contributors : holder) : holder => {
   //check if amount is between min and max
-  //assert_with_error( (Tezos.get_amount() < minAmount), "Amount too Low");
-  //assert_with_error( (Tezos.get_amount() > maxAmount), "Amount too High");
-  
   assert_with_error( Tezos.get_amount() >= minAmount, "Amount too Low");
   assert_with_error( (Tezos.get_amount() <= maxAmount), "Amount too High");
 
   //add donator on map
-  /*
-  var tmp : list<tez> =  [0utz]; //local variable 
-  if contributors.contains(caller) then begin
-  let checkContains = (contributors : map<address, list<tez>>) => {
+  let checkContains = (contributors : holder) => {
     return match(Map.find_opt (Tezos.get_sender(), contributors), {
-      Some : list_tez => 1,
+      Some : _list_tez => 1,
       None : () => 2
     });
   };
   let checkResult : int = checkContains(contributors);
   
-  let newMap : map<address, list<tez>> = Map.empty; //map to return after update
+  let newMap : holder = Map.empty; //map to return after update
   let oldList : list<tez> = list([]); //old list of previous donation(s), if exist
   let total : tez = 0 as tez; //total sum of previous donation(s), if exist
   
   switch (checkResult) { //check result of checkContains
     case 1: //already donated
       //check if it will reach the max amount with other donation
-      tmp ?:= contributors[caller] : "Error";
-      if checkTotal(tmp) + transferred > maxAmount then
-          fail("Reached max Amount");
-      
-      tmp.prepend(transferred); //add new donation with the other
-      contributors.put(caller, tmp) //update value
-  end
-  else
-      contributors.put(caller, [transferred]) //add new donator
-  end*/
       for (const i of oldList) {
         total = total + i
-      }
+      };
       assert_with_error((total <= maxAmount), "Max amount reached");
 
       //add new donation to oldList
@@ -66,14 +53,15 @@ const contribute = (contributors : map<address, list<tez>>) : map<address, list<
 
 /* Main access point that dispatches to the entrypoints according to
    the smart contract parameter. */
-const main = ([parameter, contractStorage] : [int, int]) : [list <operation>, int] => {
+const main = ([_parameter, contractStorage] : [int, holder]) : [list<operation> , holder] => {
   //define contributors map and isSuccess condition
-  let _contributors : map<address, list<tez>> = Map.empty;
+  let contributors : holder = Map.empty;
   let _isSuccess : bool = false;
 
   //first Contribute
+  contributors = contribute(contractStorage);
 
  return [
-    list([]), contractStorage + parameter
+    list([]), contributors
   ]
 }; 
