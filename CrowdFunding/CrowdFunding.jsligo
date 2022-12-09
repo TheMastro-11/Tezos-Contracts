@@ -51,12 +51,10 @@ const contribute = (contributors : holder)  => {
   return newMap
   };
 
-const checkEnding = (contributors : holder) : [list<operation>, holder] => {
-  let refundTxs = list([]) as list<operation>;
+const checkEnding = (contributors : holder) : [bool, holder] => {
   if (Tezos.get_balance() > floorPrice) { //if balance is over than the crowdfunding had reached the goal
-    return [refundTxs, contributors] 
+    return [true, contributors]
   }; else { //otherwise the contract has to refund all the donators
-    let addrsToRemove = list([]);
     for (const i of contributors){
       let total : tez = 0 as tez;
       let [key, value] = i;  
@@ -64,11 +62,9 @@ const checkEnding = (contributors : holder) : [list<operation>, holder] => {
         total += j;
       };
       let refundAddr = Tezos.get_contract_with_error(key, "Contract not found");
-      let tx = Tezos.transaction(unit, total, refundAddr); //refund
-      refundTxs = list([tx, ...refundTxs]);
-      addrsToRemove = list([key, ...addrsToRemove]);
+      let _tx = Tezos.transaction(unit, total, refundAddr); //refund
     };
-    return [refundTxs, Map.empty as holder];
+    return [false, Map.empty as holder];
   };
 };
   
@@ -84,8 +80,10 @@ const main = ([_parameter, contractStorage] : [int, holder]) : [list<operation> 
   contributors = contribute(contractStorage);
   //check if time is over
   if (Tezos.get_now() > endDate){
-    return checkEnding(contributors);
-  } else {
-    return [list([]), contributors]
-  }
+    let [a, b] =  checkEnding(contributors);
+    isSuccess = a;
+    contributors = b;
+  };
+
+  return [list([]), contributors]
 }; 
