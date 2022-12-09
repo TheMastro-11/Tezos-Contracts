@@ -1,16 +1,5 @@
 //declare type
-type holder = {
-  addr : address,
-  amnt : list<tez>
-};
-
-type holders = list<holder>;
-
-type checkResult = {
-  res : int,
-  amnt : list<tez>,
-  lst : holders
-};
+type holder = map<address, list<tez>>;
 
 //declare variables and constants
 const startDate : timestamp = Tezos.get_now();
@@ -23,94 +12,80 @@ const floorPrice : tez = 200 as mutez;
 
 
 //entrypoints
-const contribute = (contributors : holders) : holders=> {
+const contribute = (contributors : holder)  => {
   //check if amount is between min and max
   assert_with_error( Tezos.get_amount() >= minAmount, "Amount too Low");
   assert_with_error( (Tezos.get_amount() <= maxAmount), "Amount too High");
 
   //add donator on map
-  let checkContains = (contributors : holders ) => {
-    let prvList : holders = list([]);
-    let nxtList : holders = list([]);
-    nxtList = List.tail_opt(contributors);
-    for (const i of contributors){
-      if (i.addr == Tezos.get_sender()) {
-        nxtList = list([prvList, nxtList]);
-        return [1, i, nxtList];
-      };
-      prvList = list([i, prvList]);
-      nxtList = List.tail_opt(nxtList);
-    };
-    return [0, list([]), contributors];
+  let checkContains = (contributors : holder ) => {
+    return match(Map.find_opt (Tezos.get_sender(), contributors), {
+      Some : _list_tez => 1,
+      None : () => 2
+    });
   };
-  let checkResult : checkPosition = checkContains(contributors);
-
+  let checkResult : int = checkContains(contributors);
   
-  let newListDon : holders = list([]); //map to return after update
-  let newListAmn : list<tez> = list([]);
-  let oldList : list<tez> = None(); //old list of previous donation(s), if exist
+  let newMap : holder = Map.empty; //map to return after update
+  let oldList : option<list<tez>> = None(); //old list of previous donation(s), if exist
   let total : tez = 0 as tez; //total sum of previous donation(s), if exist
   
-  switch (checkResult.res) { //check result of checkContains
-    case 0: //new bidder  
-      newListAmn = list([Tezos.get_amount(), checkResult.amnt]);
-      newListDon = list([[Tezos.get_sender(), newListAmn], checkResult.lst]);
-      break;
-
+  switch (checkResult) { //check result of checkContains
     case 1: //already donated
       //check if it will reach the max amount with other donation
-      for (const i of checkResult.amnt) {
+      oldList = Map.find_opt(Tezos.get_sender(), contributors);
+      for (const i of oldList) {
         total = total + i
       };
       assert_with_error((total <= maxAmount), "Max amount reached");
 
       //add new donation to oldList
-      newListAmn = list([Tezos.get_amount(), checkResult.amnt]);
-      newListDon = list([[Tezos.get_sender(), newListAmn], checkResult.lst]);
+      oldList = Map.find_opt(Tezos.get_sender(), contributors);
+      newMap = Map.update(Tezos.get_sender(), Some(list([Tezos.get_amount(), oldList])), contributors);
       break;
-    
+    case 2: //new bidder  
+      newMap = Map.add(Tezos.get_sender(), list([Tezos.get_amount()]), contributors);
+      break;
   };
 
-  return newListDon
+  return newMap
   };
-/*
-const checkEnding = (contributors : holder) : bool =>{
-  let donationList : list<tez> = list([]); //list of previous donation(s)
-  let total : tez = 0 as tez; //total sum of donation(s)
+
+const checkEnding = (contributors : holder) : [list<operation>, holder] => {
+  let refundTxs = list([]) as list<operation>;
   if (Tezos.get_balance() > floorPrice) { //if balance is over than the crowdfunding had reached the goal
-    return true
+    return [refundTxs, contributors] 
   }; else { //otherwise the contract has to refund all the donators
+    let addrsToRemove = list([]);
     for (const i of contributors){
-      let key : address = getKey(contributors);   
-      for (const j of donationList){
-        total = total + j
+      let total : tez = 0 as tez;
+      let [key, value] = i;  
+      for (const j of value) {
+        total += j;
       };
-      Tezos.transaction(unit, total,   
-        match ((Tezos.get_contract_opt(i) as option<contract<unit>>), {
-          Some: (contract : contract<unit>) => contract,
-          None: () => (failwith ("Not a contract") as contract<unit>)
-        })) //refund
+      let refundAddr = Tezos.get_contract_with_error(key, "Contract not found");
+      let tx = Tezos.transaction(unit, total, refundAddr); //refund
+      refundTxs = list([tx, ...refundTxs]);
+      addrsToRemove = list([key, ...addrsToRemove]);
     };
-    return false
+    return [refundTxs, Map.empty as holder];
   };
-};*/
+};
   
 
 /* Main access point that dispatches to the entrypoints according to
    the smart contract parameter. */
-const main = ([_parameter, contractStorage] : [int, holders]) : [list<operation> , holders] => {
+const main = ([_parameter, contractStorage] : [int, holder]) : [list<operation> , holder] => {
   //define contributors map and isSuccess condition
-  let contributors : holders = list([]);
+  let contributors : holder = Map.empty;
   let isSuccess : bool = false;
 
   //first Contribute
   contributors = contribute(contractStorage);
   //check if time is over
-  /*if (Tezos.get_now() > endDate){
-    isSuccess = checkEnding(contributors);
-  }*/
-  
- return [
-    list([]), contributors
-  ]
+  if (Tezos.get_now() > endDate){
+    return checkEnding(contributors);
+  } else {
+    return [list([]), contributors]
+  }
 }; 
