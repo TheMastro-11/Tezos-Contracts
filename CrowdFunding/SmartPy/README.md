@@ -27,7 +27,7 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
 #### EntryPoints:
 
-```
+* ```
 
 @sp.entry_point
 
