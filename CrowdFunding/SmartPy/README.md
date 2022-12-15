@@ -39,7 +39,7 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
     ```
 
-    controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
+    Verifica se la scadenza sia stata raggiunta e nel caso restituisce un messaggio di errore.
 
 
 *   ```
@@ -166,7 +166,7 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
     ```
 
-    calcola il totale che è stato raccolto
+    calcola il totale delle donazioni di ogni contribuente
 
 <br><br>
 
