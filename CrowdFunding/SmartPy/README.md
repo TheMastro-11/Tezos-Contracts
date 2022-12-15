@@ -7,7 +7,7 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
  ### CrowdFunding:
 
-* Attributes:
+#### Attributes:
 
 *  `startDate = sp.timestamp(0)` : data di inizio
 
@@ -25,8 +25,7 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
 *  `isSuccess = sp.bool()` : indicatore successo al termine della raccolta
 
-<br>
- EntryPoints:
+#### EntryPoints:
 
 ```
 
@@ -136,9 +135,8 @@ si occupa di richiamare lo SC che si occupa dell'airdrop
 
 *↓↓↓ **[TokenGen](###TokenGen)** descritto sotto ↓↓↓*
 
-  
-<br>
- Methods:
+ 
+#### Methods:
 
 ```
 
@@ -176,14 +174,14 @@ calcola il totale che è stato raccolto
 
 ### TokenGen:
 
-Attributes:
+#### Attributes:
 
 *  `supply = 120000000` : indica la totale supply del token
 
 *  `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TNat` : tiene conto dei donatori e del numero di token che riceveranno
 <br>
 
-EntryPoints:
+#### EntryPoints:
 ```
 @sp.entry_point
 
