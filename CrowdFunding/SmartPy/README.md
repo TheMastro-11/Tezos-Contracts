@@ -199,7 +199,7 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
     ```
 
-    l'invio dei token è simulato inserendo l'ammontare corrispondente nella map 
+    Simula l'invio dei token ai contribuenti inserendo l'ammontare corrispondente in **contributors**.
 
   
   
@@ -210,4 +210,6 @@ Lo scenario in SP ci permette di testare gli entry_points e le classi da noi rea
 
 [Link](https://smartpy.io/docs/scenarios/testing/)
 
-Nella versione di SmartPy non è possibile l'utilizzo degli 'stati' così come sono intesi negli altri linguaggi quindi non sono presenti e di conseguenza non è possibile effettuare un controllo sull'invocazione degli entrypoints.
+
+### Notes
+Nella versione di SmartPy non è possibile l'utilizzo degli 'stati' così come sono inteso in *Archetype* quindi non sono presenti e di conseguenza non è possibile effettuare un controllo sull'invocazione degli entrypoints.
