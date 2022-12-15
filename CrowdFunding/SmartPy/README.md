@@ -39,7 +39,8 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
     ```
 
-    controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato<br>
+    controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
+    <br>
 
 
 *   ```
@@ -78,7 +79,8 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
     ```
 
-    invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna `contributors`<br>
+    invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna `contributors`
+    <br>
 
 
 * ```
@@ -113,7 +115,8 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
     ```
 
-    verifica che `floor` sia raggiunto, in caso positivo aggiorna `isSuccess` altrimenti rimborsa i `contributors`<br>
+    verifica che `floor` sia raggiunto, in caso positivo aggiorna `isSuccess` altrimenti rimborsa i `contributors`
+    <br>
 
   
 
@@ -131,7 +134,8 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
     ```
 
-    si occupa di richiamare lo SC che si occupa dell'airdrop<br>
+    si occupa di richiamare lo SC che si occupa dell'airdrop
+    <br>
 
 *↓↓↓ **[TokenGen](###TokenGen)** descritto sotto ↓↓↓*
 
@@ -146,7 +150,8 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
     ```
 
-    trasforma x giorni nel numero di ore corrispondenti<br>
+    trasforma x giorni nel numero di ore corrispondenti
+    <br>
 
   
 
@@ -201,7 +206,8 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
     ```
 
-    l'invio dei token è simulato inserendo l'ammontare corrispondente nella map <br>
+    l'invio dei token è simulato inserendo l'ammontare corrispondente nella map 
+    <br>
 
   
   
