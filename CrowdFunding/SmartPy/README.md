@@ -39,136 +39,136 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
     ```
 
-controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
+    controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
 
 
-```
+*   ```
 
-@sp.entry_point
+    @sp.entry_point
 
-def contribute(self):
+    def contribute(self):
 
-#check if ceiling is reached
+    #check if ceiling is reached
 
-sp.verify(sp.balance + sp.amount <= self.data.ceiling, message = "Ceiling reached")
+    sp.verify(sp.balance + sp.amount <= self.data.ceiling, message = "Ceiling reached")
 
-#check if amount is between min and max
+    #check if amount is between min and max
 
-sp.verify(sp.amount >= self.data.minAmount, message = "Amount too low")
+    sp.verify(sp.amount >= self.data.minAmount, message = "Amount too low")
 
-sp.verify(sp.amount <= self.data.maxAmount, message = "Amount too high")
+    sp.verify(sp.amount <= self.data.maxAmount, message = "Amount too high")
 
-#add on list
+    #add on list
 
-sp.if (self.data.contributors.contains(sp.sender)):
+    sp.if (self.data.contributors.contains(sp.sender)):
 
-#check if it will reach the max amount with other donation
+    #check if it will reach the max amount with other donation
 
-prvDons = sp.local("prvDons", sp.mutez(0))
+    prvDons = sp.local("prvDons", sp.mutez(0))
 
-prvDons = self.checkTotal(self.data.contributors[sp.sender])
+    prvDons = self.checkTotal(self.data.contributors[sp.sender])
 
-sp.verify( prvDons + sp.amount < self.data.maxAmount, message = "Max Amount Reached")
+    sp.verify( prvDons + sp.amount < self.data.maxAmount, message = "Max Amount Reached")
 
-self.data.contributors[sp.sender].push(sp.amount) #se esiste già
+    self.data.contributors[sp.sender].push(sp.amount) #se esiste già
 
-sp.else:
+    sp.else:
 
-self.data.contributors[sp.sender] = sp.list([sp.amount], t = sp.TMutez) #inserisco indirizzo contribuente
+    self.data.contributors[sp.sender] = sp.list([sp.amount], t = sp.TMutez) #inserisco indirizzo contribuente
 
-```
+    ```
 
-invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna `contributors`
+    invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna `contributors`
 
 
-```
+* ```
 
-@sp.entry_point
+    @sp.entry_point
 
-def checkFloor(self):
+    def checkFloor(self):
 
-#check if floor is reached
+    #check if floor is reached
 
-sp.if sp.balance < self.data.floor:
+    sp.if sp.balance < self.data.floor:
 
-#if not refund all donators
+    #if not refund all donators
 
-addressList = sp.local("addressList", self.data.contributors.keys())
+    addressList = sp.local("addressList", self.data.contributors.keys())
 
-sp.for i in addressList.value:
+    sp.for i in addressList.value:
 
-with sp.match_cons(addressList.value) as x1:
+    with sp.match_cons(addressList.value) as x1:
 
-address = x1.head
+    address = x1.head
 
-addressList.value = x1.tail
+    addressList.value = x1.tail
 
-sp.send(address, self.checkTotal(self.data.contributors[address]))
+    sp.send(address, self.checkTotal(self.data.contributors[address]))
 
-sp.else:
+    sp.else:
 
-#otherwise crowdfunding is finished successfully
+    #otherwise crowdfunding is finished successfully
 
-self.data.isSuccess = True
+    self.data.isSuccess = True
 
-```
+    ```
 
-verifica che `floor` sia raggiunto, in caso positivo aggiorna `isSuccess` altrimenti rimborsa i `contributors`
+    verifica che `floor` sia raggiunto, in caso positivo aggiorna `isSuccess` altrimenti rimborsa i `contributors`
 
   
 
-```
+* ```
 
-@sp.entry_point
+    @sp.entry_point
 
-def endFunding(self, cAddress):
+    def endFunding(self, cAddress):
 
-#airdrop new token
+    #airdrop new token
 
-c = sp.contract(sp.TMap(sp.TAddress, sp.TList(sp.TMutez)), cAddress, entry_point = "airdrop").open_some()
+    c = sp.contract(sp.TMap(sp.TAddress, sp.TList(sp.TMutez)), cAddress, entry_point = "airdrop").open_some()
 
-sp.transfer(self.data.contributors, sp.balance, c)
+    sp.transfer(self.data.contributors, sp.balance, c)
 
-```
+    ```
 
-si occupa di richiamare lo SC che si occupa dell'airdrop
+    si occupa di richiamare lo SC che si occupa dell'airdrop
 
 *↓↓↓ **[TokenGen](###TokenGen)** descritto sotto ↓↓↓*
 
  
 #### Methods:
 
-```
+*  ```
 
-def getHours(self):
+    def getHours(self):
 
-return sp.compute(self.data.endDate * 24)
+    return sp.compute(self.data.endDate * 24)
 
-```
+    ```
 
-trasforma x giorni nel numero di ore corrispondenti
+    trasforma x giorni nel numero di ore corrispondenti
 
   
 
-```
+*   ```
 
-def checkTotal(self, list_):
+    def checkTotal(self, list_):
 
-total = sp.local("totale", sp.mutez(0))
+    total = sp.local("totale", sp.mutez(0))
 
-sp.for j in list_:
+    sp.for j in list_:
 
-with sp.match_cons(list_) as x1:
+    with sp.match_cons(list_) as x1:
 
-total.value += x1.head
+    total.value += x1.head
 
-list_ = x1.tail
+    list_ = x1.tail
 
-return total.value
+    return total.value
 
-```
+    ```
 
-calcola il totale che è stato raccolto
+    calcola il totale che è stato raccolto
 
 <br><br>
 
@@ -182,26 +182,26 @@ calcola il totale che è stato raccolto
 <br>
 
 #### EntryPoints:
-```
-@sp.entry_point
+*   ```
+    @sp.entry_point
 
-def airdrop(self, adMap):
+    def airdrop(self, adMap):
 
-adList = sp.local("adList", adMap.keys())
+    adList = sp.local("adList", adMap.keys())
 
-sp.for i in adList.value:
+    sp.for i in adList.value:
 
-with sp.match_cons(adList.value) as x1:
+    with sp.match_cons(adList.value) as x1:
 
-address = x1.head
+    address = x1.head
 
-adList.value = x1.tail
+    adList.value = x1.tail
 
-self.data.contributors[address] = sp.utils.mutez_to_nat(self.checkTotal(adMap[address])) * 1200
+    self.data.contributors[address] = sp.utils.mutez_to_nat(self.checkTotal(adMap[address])) * 1200
 
-```
+    ```
 
-l'invio dei token è simulato inserendo l'ammontare corrispondente nella map
+    l'invio dei token è simulato inserendo l'ammontare corrispondente nella map
 
   
   
