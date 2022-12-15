@@ -212,4 +212,4 @@ Lo scenario in SP ci permette di testare gli entry_points e le classi da noi rea
 
 
 ### Notes
-Nella versione di SmartPy non è possibile l'utilizzo degli 'stati' così come sono inteso in *Archetype* quindi non sono presenti e di conseguenza non è possibile effettuare un controllo sull'invocazione degli entrypoints.
+Nella versione di SmartPy non è possibile l'utilizzo degli *states* così come sono intesi in *Archetype* quindi non sono presenti e di conseguenza non è possibile effettuare un controllo sull'invocazione degli entrypoints.
