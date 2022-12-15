@@ -29,15 +29,15 @@ Nella versione di smartpy troviamo due SC e uno scenario:
 
 * ```
 
-@sp.entry_point
+    @sp.entry_point
 
-def checkTime(self, time):
+    def checkTime(self, time):
 
-diffTime = time - self.data.startDate
+    diffTime = time - self.data.startDate
 
-sp.verify(diffTime <= self.getHours(), message = "The time is over")
+    sp.verify(diffTime <= self.getHours(), message = "The time is over")
 
-```
+    ```
 
 controlla il frame temporale dall'apertura del crowdfunding al momento in cui viene invocato
 
