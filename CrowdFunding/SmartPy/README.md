@@ -1,8 +1,8 @@
 # SMARTPY [Link](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/CrowdFunding.py)
 Nella versione di smartpy troviamo due SC e uno scenario:
-* [CrowdFunding](###CrowdFunding);
-* [TokenGen](###TokenGen);
-* [Test Scenario](###Test-Scenario).
+* [CrowdFunding](#CrowdFunding);
+* [TokenGen](#TokenGen);
+* [Test Scenario](#Test-Scenario).
 
 
  ### CrowdFunding:
