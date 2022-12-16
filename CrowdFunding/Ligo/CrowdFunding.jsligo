@@ -53,7 +53,7 @@ const contribute = (contributors : holder)  => {
 
 const checkEnding = (contributors : holder) : [bool, holder] => {
   if (Tezos.get_balance() > floorPrice) { //if balance is over than the crowdfunding had reached the goal
-    return [true, contributors]
+    return [true, contributors, list([])]
   }; else { //otherwise the contract has to refund all the donators
     for (const i of contributors){
       let total : tez = 0 as tez;
@@ -62,9 +62,9 @@ const checkEnding = (contributors : holder) : [bool, holder] => {
         total += j;
       };
       let refundAddr = Tezos.get_contract_with_error(key, "Contract not found");
-      let _tx = Tezos.transaction(unit, total, refundAddr); //refund
+      let txs = Tezos.transaction(unit, total, refundAddr); //refund
     };
-    return [false, Map.empty as holder];
+    return [false, Map.empty as holder, tx];
   };
 };
   
@@ -75,15 +75,17 @@ const main = ([_parameter, contractStorage] : [int, holder]) : [list<operation> 
   //define contributors map and isSuccess condition
   let contributors : holder = Map.empty;
   let isSuccess : bool = false;
+  let txs = list([]);
 
   //first Contribute
   contributors = contribute(contractStorage);
   //check if time is over
   if (Tezos.get_now() > endDate){
-    let [a, b] =  checkEnding(contributors);
+    let [a, b, c] =  checkEnding(contributors);
     isSuccess = a;
     contributors = b;
+    txs = c;
   };
 
-  return [list([]), contributors]
+  return [txs, contributors]
 }; 
