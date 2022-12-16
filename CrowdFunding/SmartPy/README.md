@@ -9,11 +9,11 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
 ### Attributes:
 
-*  `startDate = sp.timestamp(0)` : data di inizio
+*  #### startDate `= sp.timestamp(0)` : data di inizio
 
 *  `endDate = x` : data di fine espressa in giorni
 
-*  `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TList(sp.TMutez) )` : mappa dei donatori
+*  #### contributors `= sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TList(sp.TMutez) )` : mappa dei donatori
 
 *  `minAmount = sp.mutez(10)` : minima donazione
 
@@ -78,7 +78,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
     ```
 
-    Invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna `contributors`
+    Invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna [contributors](#contributors)
 
 * ```
 
