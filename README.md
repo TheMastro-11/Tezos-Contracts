@@ -46,10 +46,4 @@ Here are some of the main differences between these three languages:
 
 * Syntax: Ligo has a syntax that is inspired by OCaml and other functional programming languages, while Archetype has a syntax that is inspired by Python and other popular programming languages. SmartPy has a syntax that is similar to Python.
 
-* Built-in libraries and data types: All three languages have a rich set of built-in libraries and data types, including support for integers, strings, lists, tuples, records, and maps. However, the specific set of libraries and data types available in each language may differ slightly.
-
-* Testing and debugging: All three languages have support for testing and debugging, including built-in test frameworks and integration with popular testing tools. However, the specific set of testing and debugging tools available in each language may differ slightly.
-
-* Development tools and frameworks: All three languages have integration with popular development tools and frameworks, including support for IDEs and integration with Git and GitHub. However, the specific set of development tools and frameworks available in each language may differ slightly.
-
 Overall, while Ligo, Archetype, and SmartPy all have similar capabilities and are well-suited for developing smart contracts, they are designed to work with different blockchain platforms and have slightly different syntax and tool sets.
