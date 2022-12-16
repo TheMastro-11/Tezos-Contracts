@@ -39,7 +39,7 @@ Some key features of these languages include:
 * Integration with popular development tools and frameworks, including support for IDEs like Visual Studio Code and integration with Git and GitHub.
 
 
-### Differences:
+### Quick Comparison:
 Here are some of the main differences between these three languages:
 
 * Platform: Ligo is used for writing smart contracts on the Tezos blockchain, while Archetype is used for writing smart contracts on the Ethereum blockchain. SmartPy can also be used for writing smart contracts on the Tezos blockchain.
@@ -47,3 +47,5 @@ Here are some of the main differences between these three languages:
 * Syntax: Ligo has a syntax that is inspired by OCaml and other functional programming languages, while Archetype has a syntax that is inspired by Python and other popular programming languages. SmartPy has a syntax that is similar to Python.
 
 Overall, while Ligo, Archetype, and SmartPy all have similar capabilities and are well-suited for developing smart contracts, they are designed to work with different blockchain platforms and have slightly different syntax and tool sets.
+
+For a detailed analysis, see the comparisons in the different use cases.
