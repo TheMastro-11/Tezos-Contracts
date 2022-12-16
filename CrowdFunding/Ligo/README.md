@@ -113,9 +113,9 @@ Nella versione di Ligo troviamo solamente uno Smart Contract:
     Verifica che **floorPrice** sia raggiunto, in caso positivo aggiorna **isSuccess** altrimenti rimborsa i **contributors**. La funzione restituisce l'elenco di transazioni che andranno poi restituite alla fine del [Main](#Main) in modo tale che vengano effettivamente registrate sulla chain.
 
 ### Main Issues
-    A differenza di altri programmi Ligo non permette una gestione comoda delle mappe e delle liste.
-    Nello specifico ho trovato difficile e senza soluzione: 
-    * Iterare una mappa per trovare uno specifico elemento, come nel caso in cui sia necessario verificare se un *address* sia già presente o meno.
-    * Manipolare le liste per estrarre un elemento, ottenere la *tail* o concatenarne due diverse. Il problema principale l'ho riscontrato nel passaggio da tipo 'option<list<>>' a 'list<>' obbligatorio nel momento in cui si usa la funzione **List.tail_opt()** per ottenere una sottostringa da unire con un'altra successivamente.
-    * Accedere a **contributors** da qualsiasi funzione o entrypoints tramite variabile globale.
-    * Ligo richiede di restituire sempre una lista di operazioni al termine della chiamata del [Main](#Main) per poterle salvare sulla chain, il che significa dover richiamare la funzione principale *x* volte in *y* modi diversi. Se infatti si vuole donare, [Main](#Main) avrà come ritorno la mappa aggiornata dei contributors, se invece si vuole verificare lo stato del CrowdFunding esso dovrà resituire o la [lista di transazioni per il refund](#checkending) o la chiamata al SC che si occupa del nuovo airdrop etc...
+A differenza di altri programmi Ligo non permette una gestione comoda delle mappe e delle liste.
+Nello specifico ho trovato difficile e senza soluzione: 
+* Iterare una mappa per trovare uno specifico elemento, come nel caso in cui sia necessario verificare se un *address* sia già presente o meno.
+* Manipolare le liste per estrarre un elemento, ottenere la *tail* o concatenarne due diverse. Il problema principale l'ho riscontrato nel passaggio da tipo 'option<list<>>' a 'list<>' obbligatorio nel momento in cui si usa la funzione **List.tail_opt()** per ottenere una sottostringa da unire con un'altra successivamente.
+* Accedere a **contributors** da qualsiasi funzione o entrypoints tramite variabile globale.
+* Ligo richiede di restituire sempre una lista di operazioni al termine della chiamata del [Main](#Main) per poterle salvare sulla chain, il che significa dover richiamare la funzione principale *x* volte in *y* modi diversi. Se infatti si vuole donare, [Main](#Main) avrà come ritorno la mappa aggiornata dei contributors, se invece si vuole verificare lo stato del CrowdFunding esso dovrà resituire o la [lista di transazioni per il refund](#checkending) o la chiamata al SC che si occupa del nuovo airdrop etc...
