@@ -1,4 +1,4 @@
-A//declare type
+//declare type
 type holder = map<address, list<tez>>;
 
 //declare variables and constants
