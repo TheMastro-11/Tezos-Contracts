@@ -1,5 +1,5 @@
 # SMARTPY [Link](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/SmartPy/CrowdFunding.py)
-Nella versione di SmartPy troviamo due SC e uno scenario:
+In this version of SmartPy, there are two smart contracts and one scenario:
 * [CrowdFunding](#CrowdFunding);
 * [TokenGen](#TokenGen);
 * [Test Scenario](#Test-Scenario).
@@ -9,21 +9,21 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
 ### Attributes:
 
-*  `startDate = sp.timestamp(0)` : data di inizio
+*  `startDate = sp.timestamp(0)` : start date
 
-*  `endDate = x` : data di fine espressa in giorni
+*  `endDate = x` : end date expressed in days
 
-*  `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TList(sp.TMutez) )` : mappa dei donatori
+*  `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TList(sp.TMutez) )` : map of donors
 
-*  `minAmount = sp.mutez(10)` : minima donazione
+*  `minAmount = sp.mutez(10)` : minimum donation
 
-*  `maxAmount = sp.mutez(1000)` : massima donazione
+*  `maxAmount = sp.mutez(1000)` : maximum donation
 
-*  `ceiling = sp.mutez(100000)` : obiettivo economico
+*  `ceiling = sp.mutez(100000)` : financial goal
 
-*  `floor = sp.mutez(200)` : tetto minimo da raggiungere
+*  `floor = sp.mutez(200)` : minimum target to be reached
 
-*  `isSuccess = sp.bool()` : indicatore successo al termine della raccolta
+*  `isSuccess = sp.bool()` : success indicator at the end of the fundraising
 
 ### EntryPoints:
 
@@ -38,8 +38,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
     sp.verify(diffTime <= self.getHours(), message = "The time is over")
 
     ```
-
-    Verifica se la scadenza sia stata raggiunta e nel caso restituisce un messaggio di errore.
+    Checks if the deadline has been reached and returns an error message if it has.
 
 
 *   ```
@@ -77,8 +76,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
     self.data.contributors[sp.sender] = sp.list([sp.amount], t = sp.TMutez) #inserisco indirizzo contribuente
 
     ```
-
-    Invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna `contributors`.
+    Called at the time of donation, checks that the amount is correct and updates `contributors`.
 
 * ```
 
@@ -111,8 +109,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
     self.data.isSuccess = True
 
     ```
-
-    verifica che `floorPrice` sia raggiunto, in caso positivo aggiorna `isSuccess` altrimenti rimborsa i `contributors`.
+    Checks if `floorPrice` has been reached, if so updates `isSuccess` otherwise it refunds `contributors`.
   
 
 * ```
@@ -128,8 +125,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
     sp.transfer(self.data.contributors, sp.balance, c)
 
     ```
-
-    si occupa di richiamare lo [SC](#TokenGen) che si occupa dell'airdrop
+    Finalizes the crowdfunding sending the funds to the [SC](#TokenGen) for the airdrop.
 
 
 
@@ -144,7 +140,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
     ```
 
-    trasforma x giorni nel numero di ore corrispondenti
+    Convert x days into the corresponding number of hours.
 
   
 
@@ -166,7 +162,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
     ```
 
-    calcola il totale delle donazioni di ogni contribuente
+    Calculate the total donations of each contributor.
 
 <br><br>
 
@@ -174,9 +170,9 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
 ### Attributes:
 
-*  `supply = 120000000` : indica la totale supply del token
+*  `supply = 120000000` : Indicate the total supply of the token
 
-*  `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TNat` : tiene conto dei donatori e del numero di token che riceveranno
+*  `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TNat` : Keep track of donors and the number of tokens they will receive
 <br>
 
 ### EntryPoints:
@@ -198,18 +194,14 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
     self.data.contributors[address] = sp.utils.mutez_to_nat(self.checkTotal(adMap[address])) * 1200
 
     ```
-
-    Simula l'invio dei token ai contribuenti inserendo l'ammontare corrispondente in `contributors`.
+    Simulate the sending of tokens to donators by inserting the corresponding amount in `contributors`.
 
   
   
 
 ## Test Scenario
-
-Lo scenario in SP ci permette di testare gli entry_points e le classi da noi realizzate prima di un'effettiva pubblicazione sulla chain.
-
-[Link](https://smartpy.io/docs/scenarios/testing/)
+The SP [scenario](https://smartpy.io/docs/scenarios/testing/) allows us to test the entry points and classes we have created before actual publication on the chain.
 
 
 ## Notes
-Nella versione di SmartPy non è possibile l'utilizzo degli *states* così come sono intesi in *Archetype* quindi non sono presenti e di conseguenza non è possibile effettuare un controllo sull'invocazione degli entrypoints.
+In the SmartPy version, it is not possible to use *states* as they are intended in Archetype, so they are not present and therefore it is not possible to check the invocation of entry points.
