@@ -78,7 +78,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
     ```
 
-    Invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna **contributors**.
+    Invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna `contributors`.
 
 * ```
 
@@ -112,7 +112,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
     ```
 
-    verifica che **floorPrice** sia raggiunto, in caso positivo aggiorna **isSuccess** altrimenti rimborsa i **contributors**.
+    verifica che `floorPrice` sia raggiunto, in caso positivo aggiorna `isSuccess` altrimenti rimborsa i `contributors`.
   
 
 * ```
@@ -199,7 +199,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
     ```
 
-    Simula l'invio dei token ai contribuenti inserendo l'ammontare corrispondente in **contributors**.
+    Simula l'invio dei token ai contribuenti inserendo l'ammontare corrispondente in `contributors`.
 
   
   
