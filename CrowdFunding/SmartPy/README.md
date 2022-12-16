@@ -13,7 +13,8 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
 *  `endDate = x` : data di fine espressa in giorni
 
-*  #### contributors `= sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TList(sp.TMutez) )` : mappa dei donatori
+*  #### contributors 
+    `= sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TList(sp.TMutez) )` : mappa dei donatori
 
 *  `minAmount = sp.mutez(10)` : minima donazione
 
