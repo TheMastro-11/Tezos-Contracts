@@ -6,7 +6,7 @@ It has to be translated in English.
 
   
 
-# <center> CROWDFUNDING <center>
+# CROWDFUNDING
 
   
 
@@ -52,7 +52,5 @@ Gli attori saranno tre:
 
   
 
-
-
-
+# COMPARISON
 
