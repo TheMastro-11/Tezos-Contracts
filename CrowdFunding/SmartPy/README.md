@@ -5,9 +5,9 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 * [Test Scenario](#Test-Scenario).
 
 
-### CrowdFunding:
+## CrowdFunding:
 
-#### Attributes:
+### Attributes:
 
 *  `startDate = sp.timestamp(0)` : data di inizio
 
@@ -25,7 +25,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
 *  `isSuccess = sp.bool()` : indicatore successo al termine della raccolta
 
-#### EntryPoints:
+### EntryPoints:
 
 * ```
 
@@ -78,7 +78,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
     ```
 
-    invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna `contributors`
+    Invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna `contributors`
 
 * ```
 
@@ -134,7 +134,7 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
 
  
-#### Methods:
+### Methods:
 
 *  ```
 
@@ -170,16 +170,16 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
 
 <br><br>
 
-### TokenGen:
+## TokenGen:
 
-#### Attributes:
+### Attributes:
 
 *  `supply = 120000000` : indica la totale supply del token
 
 *  `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TNat` : tiene conto dei donatori e del numero di token che riceveranno
 <br>
 
-#### EntryPoints:
+### EntryPoints:
 *   ```
     @sp.entry_point
 
@@ -204,12 +204,12 @@ Nella versione di SmartPy troviamo due SC e uno scenario:
   
   
 
-### Test Scenario
+## Test Scenario
 
 Lo scenario in SP ci permette di testare gli entry_points e le classi da noi realizzate prima di un'effettiva pubblicazione sulla chain.
 
 [Link](https://smartpy.io/docs/scenarios/testing/)
 
 
-### Notes
+## Notes
 Nella versione di SmartPy non è possibile l'utilizzo degli *states* così come sono intesi in *Archetype* quindi non sono presenti e di conseguenza non è possibile effettuare un controllo sull'invocazione degli entrypoints.
