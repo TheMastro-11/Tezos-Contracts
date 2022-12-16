@@ -4,9 +4,9 @@ Nella versione di Ligo troviamo solamente uno Smart Contract:
 
     La ragione è che il linguaggio in questione non ci permette una [gestione della mappa](#Issues) come gli altri due e quindi non risulta possibile realizzare completamente il nostro Use Case. 
 
-### CrowdFunding
+## CrowdFunding
 
-#### Attributes
+### Attributes
 * `startDate : timestamp = Tezos.get_now()` = data di inizio
 * `endDate : timestamp = startDate + 5` =data di fine espressa in giorni
 * `minAmount : tez  = 10 as mutez` = minima donazione
@@ -16,8 +16,9 @@ Nella versione di Ligo troviamo solamente uno Smart Contract:
 
     Come si può notare non è presente la mappa dei *contributors* dal momento che il linguaggio non ci permette di gestire delle variabili globali. Di fatto contributors verrà chiamata all'interno del main.
 
-#### EntryPoints
-*   ``` 
+### EntryPoints
+*   #### Main
+    ``` 
     const main = ([_parameter, contractStorage] : [int, holder]) : [list<operation> , holder] => {
         //define contributors map and isSuccess condition
         let contributors : holder = Map.empty;
