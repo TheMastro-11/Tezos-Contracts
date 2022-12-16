@@ -1,4 +1,4 @@
-# SMARTPY [Link](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/CrowdFunding.py)
+# SMARTPY [Link](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/SmartPy/CrowdFunding.py)
 Nella versione di smartpy troviamo due SC e uno scenario:
 * [CrowdFunding](#CrowdFunding);
 * [TokenGen](#TokenGen);
