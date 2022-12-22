@@ -1,16 +1,17 @@
 # ARCHETYPE [Link](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/CrowdFunding.arl)
 
-Anche nella versione di Archetype troviamo due SC:
+Also in the version of Archetype we find two SCs:
 * [CrowdFunding](#CrowdFunding);
 * [TokenGen](#TokenGen).
 
 ### CrowdFunding
 #### States:
-* `funding` : stato iniziale nel quale è consentito effettuare le donazioni. Termina in due casi: o scade il tempo o si raggiunge l'obiettivo economico. 
-* `airdorp` : stato finale di successo nel quale viene invocato l'[SC](#TokenGen) che si occupa dell'airdrop.
-* `refund` : stato finale di fallimento nel quale viene effettuato il rimborso di tutti i donatori.
+* `funding` : initial state in which donations are allowed. It ends in two cases: either the time expires or the economic objective is reached.
+* `airdorp` : final successful state in which the [SC](#TokenGen) , that deals with the Airdrop, is invoked.
+* `refund` : final state of failure in which all donors are refunded.
 
 Tramite gli *states* è possibile controllare lo stato di avanzamento del CrowdFunding. 
+
 Inoltre determinate azioni potranno essere eseguite solo in determinati *states* e in questo modo si evitano problemi o bug legati ad un uso improprio delle funzioni.
 
 #### Constant and Variables:
