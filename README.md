@@ -28,12 +28,11 @@ Specifically, a set of use cases will be proposed that will be implemented in th
 
   
 
-## PROGRAMMING LANGUAGES
+## PROGRAMMING LANGUAGES COMPARISON
 
+*-For a detailed analysis, see the comparisons in the different use cases.-*
+  
 [Archetype](https://archetype-lang.org/), [Ligo](https://tezos.com/developers/ligo/) and [SmartPy](https://smartpy.io/) are a programming languages and toolkit for writing and deploying smart contracts on Tezos blockchain
-
-### COMPARISON
-For a detailed analysis, see the comparisons in the different use cases.
 
 Some in common key features of these languages include:
 * Support for testing and debugging, including a built-in test framework and integration with popular testing tools.
@@ -42,7 +41,7 @@ Some in common key features of these languages include:
 
 Overall, while Ligo, Archetype, and SmartPy all have similar capabilities and are well-suited for developing smart contracts, they have slightly different syntax and tool sets.
 
-#### Smartpy 
+### Smartpy 
 Smartpy took a long time to understand the dynamics of how a Smart Contract works on Tezos and the use of *entrypoint*.
 I was helped by:
 * Using a language (Python) I already knew.
@@ -70,7 +69,7 @@ If I had to use a language among the three I would definitely select this.
 
 Vote: 9/10 (it can always improve)
 
-#### Archetype
+### Archetype
 **Pro**:
 * Archetype has good documentation.
 * A simple, readable syntax that is inspired by other popular programming languages.
@@ -82,7 +81,7 @@ Vote: 9/10 (it can always improve)
 
 Vote: 7/10 (needs a full IDE) 
 
-#### Ligo
+### Ligo
 **Pro**:
 * Ligo has a syntax that is inspired by OCaml so is familiar to those who already know.
 
