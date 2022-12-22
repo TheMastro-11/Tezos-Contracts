@@ -8,11 +8,9 @@ It has to be translated in English.
 
 # CROWDFUNDING
 
-  
+Crowdfunding is a Smart Contract created with the aim of learning to program on the Tezos blockchain.
 
-Crowdfunding è uno Smart Contract realizzato con l'obiettivo di imparare a programmare sulla blockchain Tezos.
-
-Per questo motivo è stato implementato con tutti e tre i linguaggi disponibili:
+For this reason it has been implemented with all three languages available:
 
 -[Smartpy](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/SmartPy/README.md)
 
@@ -22,34 +20,30 @@ Per questo motivo è stato implementato con tutti e tre i linguaggi disponibili:
 
   
 
-Il programma si occupa di gestire un'attività di CrowdFunding: un utente (che rappresenterà il nostro admin),
+The program manages a crowdfunding activity: a user (representing our admin), will hold a fundraiser where anyone can participate, with the promise of a reward for investors once the goal or deadline is reached. (In our case we will simulate the Airdrop of a new token).
 
-indirrà una raccolta fondi a cui chiunque può partecipare, con la promessa di una ricompensa per gli investitori una volta raggiunto l'obiettivo o la scadenza. (Nel nostro caso simuleremo l'airdrop di un nuovo token)
+The money goal and expiration date are defined before opening the funding and cannot be changed.
 
-L'obiettivo di denaro e la scadenza vengono definiti prima di aprire la raccolta e non possono essere modificati.
 
-  
+There will be three actors:
 
-Gli attori saranno tre:
+* Smart Contract that will manage all operations and maintain funds
 
-* Smart Contract che gestirà tutte le operazioni e manterrà i fondi
+* Admin who will start the SC and -eventually- will receive the funds at the end
 
-* Admin che avvierà lo SC e -eventualmente- riceverà i fondi al termine
-
-* Contribuenti, che doneranno i soldi e -eventualmente- riceveranno l'airdrop
+* Contributors, who will donate the money and -eventually- receive the Airdrop
 
   
 
 ## RULES:
 
-* esiste un range di quota di partecipazione, al di fuori del quale non è concesso entrare
+* there is a range of participation fees, outside which it is not allowed to contribute
 
-* i token ditribuiti sono calcolati sulla base della quantità donata
+* tokens are calculated on the basis of the amount donated
 
-* un contribuente (address) può donare più volte
+* a contributor (address) can donate several times
 
-* se alla scadenza non viene raggiunto un tetto minimo(floor) tutti i contribuenti verrano rimborsati e il crowdfunding avrà fallito
-
+* if a minimum cap is not reached (floor) all contributors will be refunded and crowdfunding will have failed
   
 
 # COMPARISON
