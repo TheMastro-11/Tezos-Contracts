@@ -48,23 +48,29 @@ There will be three actors:
 
 ## COMPARISON
 The order with which I realized the SC was:
-1. [SmartPy](#smartpy)
-2. [Archetype](#archetype)
-3. [Ligo](#ligo)
+1. [SmartPy](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding/SmartPy)
+2. [Archetype](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding/Archetype
+3. [Ligo](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding/Ligo)
 
 #### SmartPy
 Beyond the [initial](https://github.com/TheMastro-11/LearningTezos#smartpy) part of general understanding, SmartPy was the language I preferred in the realization of this Use Case.
+
 No hitches or limitations.
+
 The only flaw, the lack of *states* which i used on Archetype version.
 
 #### Archetype
 Archetype took very little time to build.
+
 I appreciated the use of *states* and *transitions*.
+
 It would have been better to keep the two SCs inside the same file.
 
 #### Ligo
 With Ligo, I had enormous difficulties. 
+
 Terrible management of lists and maps that did not allow me to complete the SC as I did on others.
+
 I have no idea how I could make TokenGen and then pass the address to CrowdFunding.
 
 
