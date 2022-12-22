@@ -50,7 +50,7 @@ I was helped by:
 
 Once I took the hand then the realization of several usecases was quite simple. (See the folders above)
 
-Pro:
+**Pro**:
 * Keep several SCs within the same file.
 * The use of the scenario is undoubtedly very convenient.
 * It’s easy to keep the code neat, clean and understandable thanks to nomenclature, e.g.: *@sp.entry_point*, *@sp. -type-*...
@@ -60,7 +60,7 @@ Pro:
 * Python syntax.
 * IDE really well made.
 
-Cons:
+**Cons**:
 * Lack of *states*.
 
 If I had to use a language among the three I would definitely select this.
@@ -68,22 +68,22 @@ If I had to use a language among the three I would definitely select this.
 Vote: 9/10 (it can always improve)
 
 #### Archetype
-Pro:
+**Pro**:
 * Archetype has good documentation.
 * A simple, readable syntax that is inspired by other popular programming languages.
 * Allows the use of *states*. 
 
-Cons:
+**Cons**:
 * Fewer developers in general and therefore less chance of finding specific support.
 * I had difficulty installing the compiler and I ended up using a GitPod workspace.
 
 Vote: 7/10 (needs a full IDE) 
 
 #### Ligo
-Pro:
+**Pro**:
 * Ligo has a syntax that is inspired by OCaml so is familiar to those who already know.
 
-Cons:
+**Cons**:
 * I had difficulty using some constructs like *Option*.
 * Little documentation and few developers.
 * I did not like the fact that there are several versions: JsLIGO, CameLIGO, PascaLIGO and ReasonLIGO. I find it confusing.
