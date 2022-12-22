@@ -38,6 +38,7 @@ For a detailed analysis, see the comparisons in the different use cases.
 Some in common key features of these languages include:
 * Support for testing and debugging, including a built-in test framework and integration with popular testing tools.
 * Integration with popular development tools and frameworks, including support for IDEs like Visual Studio Code and integration with Git and GitHub.
+* High
 
 Overall, while Ligo, Archetype, and SmartPy all have similar capabilities and are well-suited for developing smart contracts, they have slightly different syntax and tool sets.
 
@@ -49,6 +50,8 @@ I was helped by:
 * The great availability of the developers in the Telegram group.
 
 Once I took the hand then the realization of several usecases was quite simple. (See the folders above)
+
+Compared to the classic Python requires strong typing, which can result in a pros or cons depending on your writing method.
 
 **Pro**:
 * Keep several SCs within the same file.
