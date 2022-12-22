@@ -10,30 +10,29 @@ Also in the version of Archetype we find two SCs:
 * `airdorp` : final successful state in which the [SC](#TokenGen) , that deals with the Airdrop, is invoked.
 * `refund` : final state of failure in which all donors are refunded.
 
-Tramite gli *states* è possibile controllare lo stato di avanzamento del CrowdFunding. 
-
-Inoltre determinate azioni potranno essere eseguite solo in determinati *states* e in questo modo si evitano problemi o bug legati ad un uso improprio delle funzioni.
+Through the *states* you can check the progress of crowdfunding. 
+In addition, certain actions can only be performed in certain *states* and this avoids problems or bugs related to improper use of functions.
 
 #### Constant and Variables:
-*  `startDate : date = now` : data di inizio
+*  `startDate : date = now` : start date
 
-*  `endDate : date = now + 5s` : data di fine espressa in giorni
+*  `endDate : date = now + 5s` : end date given in days
 
-*  `contributors : map<address, list<tez>> = []` : mappa dei donatori
+*  `contributors : map<address, list<tez>> = []` : map of donors
 
-*  `minAmount : tez = 10utz` : minima donazione
+*  `minAmount : tez = 10utz` : minimum donation
 
-*  `maxAmount : tez = 1000utz` : massima donazione
+*  `maxAmount : tez = 1000utz` : maximum donation
 
-*  `ceiling : tez = 100000utz` : obiettivo economico
+*  `ceiling : tez = 100000utz` : financial goal
 
-*  `floorPrice : tez = 200utz` : tetto minimo da raggiungere
+*  `floorPrice : tez = 200utz` : minimum target to be reached
 
-*  `isSuccess : bool = false` : indicatore successo al termine della raccolta
+*  `isSuccess : bool = false` : success indicator at the end of the fundraising
 
 #### Transition
-* `airdrop_ (funding -> airdrop)` : viene invocata dalla funzione **contribute** e **checkTime**. Garantisce il passaggio allo stato **airdrop**.
-* `refund_ (funding -> refund)` : viene invocata dalla funzione **checkTime**. Garantisce il passaggio allo stato **refund**.
+* `airdrop_ (funding -> airdrop)` : is invoked by the function ***contribute** and **checkTime**. This ensures that the status is changed to **Airdrop**.
+* `refund_ (funding -> refund)` : is invoked by the **checkTime*** function. Ensures the status switch **refund**.
 
 #### EntryPoints
 *   ```
@@ -67,7 +66,7 @@ Inoltre determinate azioni potranno essere eseguite solo in determinati *states*
         
     }
     ```
-    invocata al momento della donazione, verifica che al cifra sia corretta e aggiorna `contributors`
+    Invoked at the time of donation, verify that the amount is correct and update `contributors`.
 
 *   ```
     entry checkTime(){
@@ -84,7 +83,7 @@ Inoltre determinate azioni potranno essere eseguite solo in determinati *states*
             transfer 0tz to entry self.refund_() //otherwise change to refund
     }
     ```
-    Verifica se la scadenza sia stata raggiunta e nel caso se il CrowfFunding abbia avuto o meno successo.
+    Check whether the expiration date has been reached and whether or not CrowdFunding has been successful.
 
 * ```
     entry dropToken(addr : address){
@@ -101,7 +100,7 @@ Inoltre determinate azioni potranno essere eseguite solo in determinati *states*
         fail("At this state you can't call this entry")
     }
     ```
-    Si occupa di richiamare lo [SC](#TokenGen) che si occupa dell'airdrop.
+    It is responsible for calling up the [SC](#TokenGen) that deals with the Airdrop.
 
 #### Function
 
@@ -117,14 +116,14 @@ Inoltre determinate azioni potranno essere eseguite solo in determinati *states*
     return total
     }   
     ```
-    Calcola il totale delle donazioni di ogni contribuente.
+    Calculate the total donations of each contributor.
 
 <br><br>
 
 ### TokenGen
 #### Constant and Variable
-* `supply : int = 12000` : stabilisce la supply totale del nuovo token.
-* `contributors : map<address, tez> = []` : tiene conto dei donatori e del numero di token che riceveranno.
+* `supply : int = 12000` :indicate the total supply of the token.
+* `contributors : map<address, tez> = []` :  keep track of contributors and the number of tokens they will receive.
 
 ### EntryPoint
 *   ``` 
@@ -135,5 +134,5 @@ Inoltre determinate azioni potranno essere eseguite solo in determinati *states*
     done
     }
     ```
-    Simula l'invio dei token ai contribuenti inserendo l'ammontare corrispondente in **contributors**.
+    Simulate the sending of tokens to donators by inserting the corresponding amount in `contributors`.
 
