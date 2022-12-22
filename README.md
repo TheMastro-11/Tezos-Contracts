@@ -42,6 +42,7 @@ Some key features of these languages include:
 Overall, while Ligo, Archetype, and SmartPy all have similar capabilities and are well-suited for developing smart contracts, they have slightly different syntax and tool sets.
 
 ## COMPARISON
+For a detailed analysis, see the comparisons in the different use cases.
 
 #### Smartpy 
 Smartpy took a long time to understand the dynamics of how a Smart Contract works on Tezos and the use of *entrypoint*.
@@ -68,6 +69,7 @@ Vote: 9/10 (it can always improve)
 
 #### Archetype
 Archetype also has good documentation, but fewer developers in general and therefore less chance of finding specific support.
+
 I had difficulty installing the compiler and I ended up with a GitPod workspace.
 
 Vote: 7/10 (needs a full IDE) 
@@ -83,9 +85,8 @@ I did not like the fact that there are several versions:
 I find it confusing.
 
 I found the system through which the *main* calls *entrypoints* cumbersome.
+
 I didn’t appreciate the fact that I couldn’t create functions outside of the *entries* and couldn’t have global variables.
 
 Vote 5/10 (doesn't suit for me)
 
-
-For a detailed analysis, see the comparisons in the different use cases.
