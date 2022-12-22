@@ -30,7 +30,7 @@ Specifically, a set of use cases will be proposed that will be implemented in th
 
 ## PROGRAMMING LANGUAGES COMPARISON
 
-*-For a detailed analysis, see the comparisons in the different use cases.-*
+*-For a detailed analysis, see the comparisons in the differents use cases.-*
   
 [Archetype](https://archetype-lang.org/), [Ligo](https://tezos.com/developers/ligo/) and [SmartPy](https://smartpy.io/) are a programming languages and toolkit for writing and deploying smart contracts on Tezos blockchain
 
