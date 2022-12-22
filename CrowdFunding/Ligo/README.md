@@ -1,24 +1,24 @@
 # LIGO [Link](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/Ligo/CrowdFunding.jsligo)
-Nella versione di Ligo troviamo solamente uno Smart Contract:
+In the Ligo version we find only one Smart Contract:
 * [CrowdFunding](#CrowdFunding).
 
-    La ragione è che il linguaggio in questione non ci permette una [gestione della mappa](#main-issues) come gli altri due e quindi non risulta possibile realizzare completamente il nostro Use Case. 
+    The reason is that the language in question does not allow us a [map management](#main-issues) like the other two and therefore it is not possible to complete our Use Case.
 
 ## CrowdFunding
 
 ### Type
-* `holder = map <address, list<tez>` = type utilizzato per tenere traccia dei `contributors`. 
-    In Ligo è altamente comodo l'utilizzo dei *type-alias* in modo da rendere più agevole e comprensibile l'utilizzo di tipi *annidati* come in questo caso.   
+* `holder = map <address, list<tez>` = type used to track `contributors`.
+    In Ligo it is highly convenient to use *type-alias* to make easier to understand the use of *nested* types as in this case.
 
 ### Attributes
-* `startDate : timestamp = Tezos.get_now()` = data di inizio
-* `endDate : timestamp = startDate + 5` =data di fine espressa in giorni
-* `minAmount : tez  = 10 as mutez` = minima donazione
-* `maxAmount : tez = 1000 as mutez` = massima donazione
-* `ceiling : tez = 100000 as mutez` = obiettivo economico
-* `floorPrice : tez = 200 as mutez` = tetto minimo da raggiungere
+* `startDate : timestamp = Tezos.get_now()` = start date
+* `endDate : timestamp = startDate + 5` = end date given in days
+* `minAmount : tez  = 10 as mutez` = minimum donation
+* `maxAmount : tez = 1000 as mutez` = maximum donation
+* `ceiling : tez = 100000 as mutez` = financial goal
+* `floorPrice : tez = 200 as mutez` = minimum target to be reached
 
-    Come si può notare non è presente la mappa dei *contributors* dal momento che il linguaggio non ci permette di gestire delle variabili globali. Di fatto `contributors` verrà dichiarata all'interno del [Main](#Main).
+    As you can see there is no map of *contributors* since the language does not allow us to manage global variables. In fact `contributors` will be declared within the [Main](#Main).
 
 ### EntryPoints
 *   #### Main
@@ -85,9 +85,9 @@ Nella versione di Ligo troviamo solamente uno Smart Contract:
         return newMap
     };
     ```
-    Invocata al momento della donazione, verifica che al cifra sia corretta e:
-    * se il donatore è nuovo lo aggiunge alla mappa;
-    * se il donatore esiste già -teoricamente- dovrebbe aggiornare la lista di donazione, in realtà questo [non è possibile](#main-issues).
+    Invoked at the time of donation, verify that the amount is correct and:
+    * if the donor is new add it to the map;
+    * if the donor already exists -theoretically- it should update the donation list, actually this [is not possible](#main-issues).
 
 
 *   #### CheckEnding
@@ -110,12 +110,12 @@ Nella versione di Ligo troviamo solamente uno Smart Contract:
         };
     };
     ```
-    Verifica che `floorPrice` sia raggiunto, in caso positivo aggiorna `isSuccess` altrimenti rimborsa i `contributors`. La funzione restituisce l'elenco di transazioni che andranno poi restituite alla fine del [Main](#Main) in modo tale che vengano effettivamente registrate sulla chain.
+    Check that `floorPrice` is reached, if positive updates `isSuccess` otherwise refunds the `contributors`. The function returns the list of transactions that will be returned at the end of the [Main](#Main) so that they are actually recorded on the chain.
 
 ### Main Issues
-A differenza di altri programmi Ligo non permette una gestione comoda delle mappe e delle liste.
-Nello specifico ho trovato difficile e senza soluzione: 
-* Iterare una mappa per trovare uno specifico elemento, come nel caso in cui sia necessario verificare se un *address* sia già presente o meno.
-* Manipolare le liste per estrarre un elemento, ottenere la *tail* o concatenarne due diverse. Il problema principale l'ho riscontrato nel passaggio da tipo `option<list<>>` a `list<>` obbligatorio nel momento in cui si usa la funzione `List.tail_opt()` per ottenere una sottostringa da unire con un'altra successivamente.
-* Accedere a `contributors` da qualsiasi funzione o entrypoints tramite variabile globale.
-* Ligo richiede di restituire sempre una lista di operazioni al termine della chiamata del [Main](#Main) per poterle salvare sulla chain, il che significa dover richiamare la funzione principale *x* volte in *y* modi diversi. Se infatti si vuole donare, [Main](#Main) avrà come ritorno la mappa aggiornata dei contributors, se invece si vuole verificare lo stato del CrowdFunding esso dovrà resituire o la [lista di transazioni per il refund](#checkending) o la chiamata al SC che si occupa del nuovo airdrop etc...
+Unlike other programs Ligo does not allow a convenient management of maps and lists.
+Specifically I found difficult and without solution:
+* Iterate a map to find a specific element, as in case you need to check whether a *address* is already present or not.
+* Manipulate lists to extract an item, get the *tail* or concatenate two different items. The main problem I found in the transition from type `option<list<>>` to `list<>` required when using the function `List.tail_opt()` to get a substring to join with another later.
+* Access `contributors` from any function or entrypoints via global variable.
+* Ligo requires that you always return a list of operations at the end of the [Main](#Main) in order to save them on chain, which means you have to call the main function *x* times in *y* different ways. If you want to donate, [Main](#Main) will return the updated map of contributors, if you want to check the status of crowdfunding it will have to return either the [list of transactions for the refund](#checkending) or the call to the SC that takes care of the new Airdrop etc...
