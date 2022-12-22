@@ -11,7 +11,7 @@ In this version of SmartPy, there are two smart contracts and one scenario:
 
 *  `startDate = sp.timestamp(0)` : start date
 
-*  `endDate = x` : end date expressed in days
+*  `endDate = x` : end date given in days
 
 *  `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TList(sp.TMutez) )` : map of donors
 
@@ -170,9 +170,9 @@ In this version of SmartPy, there are two smart contracts and one scenario:
 
 ### Attributes:
 
-*  `supply = 120000000` : Indicate the total supply of the token
+*  `supply = 120000000` : indicate the total supply of the token.
 
-*  `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TNat` : Keep track of donors and the number of tokens they will receive
+*  `contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TNat` : keep track of donors and the number of tokens they will receive.
 <br>
 
 ### EntryPoints:
