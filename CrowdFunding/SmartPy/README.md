@@ -41,6 +41,7 @@ In this version of SmartPy, there are two smart contracts and one scenario:
     Checks if the deadline has been reached and returns an error message if it has.
 
 
+#### Contribute
 *   ```
 
     @sp.entry_point
