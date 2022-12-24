@@ -22,7 +22,13 @@ Specifically, a set of use cases will be proposed that will be implemented in th
 
 ## USE CASES
 
-* CrowdFunding [Link](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding)
+* [CrowdFunding](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding)
+
+* [Lottery](https://github.com/TheMastro-11/LearningTezos/tree/contracts/Lottery)
+
+* [King of Tezos](https://github.com/TheMastro-11/LearningTezos/tree/contracts/KingOfTezos)
+
+* [Blind Auction](https://github.com/TheMastro-11/LearningTezos/tree/contracts/BlindAuction)
 
 * (in progress)
 
@@ -67,8 +73,6 @@ Compared to the classic Python requires strong typing, which can result in a pro
 
 If I had to use a language among the three I would definitely select this.
 
-Vote: 9/10 (it can always improve)
-
 ### Archetype
 **Pro**:
 * Archetype has good documentation.
@@ -78,8 +82,6 @@ Vote: 9/10 (it can always improve)
 **Cons**:
 * Fewer developers in general and therefore less chance of finding specific support.
 * I had difficulty installing the compiler and I ended up using a GitPod workspace.
-
-Vote: 7/10 (needs a full IDE) 
 
 ### Ligo
 **Pro**:
@@ -92,5 +94,4 @@ Vote: 7/10 (needs a full IDE)
 * I found the system through which the *main* calls *entrypoints* cumbersome: in Ligo a return value is always required for the entrypoints so that the operations carried out inside can be transmitted to the main.
 * I didn’t appreciate the fact that I couldn’t create functions outside of the *entries* and couldn’t have global variables.
 
-Vote 5/10 (doesn't suit for me)
 
