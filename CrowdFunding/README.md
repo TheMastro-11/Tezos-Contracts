@@ -53,6 +53,15 @@ This project needs two differents contracts:
 
 ### CROWDFUNDING
 
+#### STATES
+There are only 2 states:
+
+* `funding` : during which only `endFunding()` cannot be called. 
+
+* `airdrop` : the fundraising has ended successfully and only `endFunding()` can be called.
+
+* `refund` : the `floor` is not reached, all the refund-transaction have been already sent and from this moment on no further action can be executed. 
+
 #### DATA ITEM
 There are 8 essentials variables/constants:
 
@@ -60,7 +69,7 @@ There are 8 essentials variables/constants:
 
 *  `endDate` : the end of the fundraising calculated in days from the beginning
 
-*  `contributors` : map of contributors to keep trace of who donated during the fundraising
+*  `contributors` : map of contributors, with the address as key and the list of donations as value, to keep trace of who and how donated during the fundraising
 
 *  `minAmount` : minimum donation for single transaction
 
@@ -88,7 +97,7 @@ There are 4 essentials entrypoints:
 The total number and them implementations could be differents based on single language.
 
 
-### TokenGen
+### TOKENGEN
 
 #### DATA ITEM:
 
@@ -100,7 +109,7 @@ The total number and them implementations could be differents based on single la
 #### ENTRYPOINT:
 *   `airdrop()` : Simulate the sending of tokens to donators by inserting the corresponding amount in `contributors`.
 
-#### USE CASE EXAMPLE
+## USE CASE EXAMPLE
 1. A person that we'll call Mario decides to open a fundraising for the creation of his own token called BitMario. 
 2. On 01/01/22 the CrowdFunding's SC is been deployed on the Tezos Blockchain with Mario as Admin, on that moment all the DATA ITEMs are generated and `startDate` has 01/01/22, or the block number, as own value.
 3. The token's project started to spread on internet and some users are interested to make an investement.
@@ -121,25 +130,14 @@ The order with which I realized the SC was:
 2. [Archetype](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding/Archetype)
 3. [Ligo](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding/Ligo)
 
-#### SmartPy
-Beyond the [initial](https://github.com/TheMastro-11/LearningTezos#smartpy) part of general understanding, SmartPy was the language I preferred in the realization of this Use Case.
-
-No hitches or limitations.
-
-The only flaw, the lack of *states* which i used on Archetype version.
-
-#### Archetype
-Archetype took very little time to build.
-
-I appreciated the use of *states* and *transitions*.
-
-It would have been better to keep the two SCs inside the same file.
-
-#### Ligo
-With Ligo, I had enormous difficulties. 
-
-Terrible management of lists and maps that did not allow me to complete the SC as I did on others.
-
-I have no idea how I could make TokenGen and then pass the address to CrowdFunding.
-
+Differences: 
+1. With LIGO is not possible to finish the SC as with the others.
+In fact LIGO is not usually used for this type of USECASE.
+The main issue is with the map and list management: I cannot check if an address already exists in `contributors` or update his *map-value* if donates more than one time.
+I tried to use a *list-based-implementation* but I were not able to concatenate two lists.
+2. Only on Archetype verion I could use the *states-construct* which gives an extra layer of control during SC execution. In fact every time a entry is called is automatically checked if the *state* is compatible, e.g. `contribute()` is only callable on `funding`.
+3. [`sp.verify`](https://smartpy.io/docs/general/checking_condition/#asserts) on SmartPy allowed me to do any checks I needed without using the *if-else* construct.
+Is also very useful because in case of negative outcome declines the *entry-call*. 
+For example in [`contribute()`](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding/SmartPy/#contribute) if the amount is not valid it gives an error and the transaction is not sent.
+In fact on SmartPy the actual transaction and related fee are only processed when the *entry* complete without errors all the actions inside.
 
