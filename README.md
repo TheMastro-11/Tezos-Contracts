@@ -50,7 +50,7 @@ Overall, while Ligo, Archetype, and SmartPy all have similar capabilities and ar
 ### Smartpy 
 Smartpy took a long time to understand the dynamics of how a Smart Contract works on Tezos and the use of *entrypoint*.
 I was helped by:
-* Using a language (Python) I already knew.
+* Using a populare language (Python).
 * Extensive documentation and several online tutorials.
 * The great availability of the developers in the Telegram group.
 
@@ -63,15 +63,12 @@ Compared to the classic Python requires strong typing, which can result in a pro
 * The use of the scenario is undoubtedly very convenient.
 * It’s easy to keep the code neat, clean and understandable thanks to nomenclature, e.g.: *@sp.entry_point*, *@sp. -type-*...
 * SmartPy didn’t give me any trouble for any implementation I wanted to add.
-* I really appreciated the use of attributes in a SC statement.
-* I really enjoyed the list and map management.
+* Use of attributes in a SC statement.
 * Python syntax.
 * IDE really well made.
 
 **Cons**:
 * Lack of *states*.
-
-If I had to use a language among the three I would definitely select this.
 
 ### Archetype
 **Pro**:
@@ -81,17 +78,17 @@ If I had to use a language among the three I would definitely select this.
 
 **Cons**:
 * Fewer developers in general and therefore less chance of finding specific support.
-* I had difficulty installing the compiler and I ended up using a GitPod workspace.
+* Not an easy installation for the compiler (it's recommended to use a GitPod workspace).
 
 ### Ligo
 **Pro**:
 * Ligo has a syntax that is inspired by OCaml so is familiar to those who already know.
 
 **Cons**:
-* I had difficulty using some constructs like *Option*.
+* It's difficult to use some constructs like *Option*.
 * Little documentation and few developers.
-* I did not like the fact that there are several versions: JsLIGO, CameLIGO, PascaLIGO and ReasonLIGO. I find it confusing.
-* I found the system through which the *main* calls *entrypoints* cumbersome: in Ligo a return value is always required for the entrypoints so that the operations carried out inside can be transmitted to the main.
-* I didn’t appreciate the fact that I couldn’t create functions outside of the *entries* and couldn’t have global variables.
+* It could be confusing the fact that there are several versions: JsLIGO, CameLIGO, PascaLIGO and ReasonLIGO.
+* The system through which the *main* calls *entrypoints* could be cumbersome: in Ligo a return value is always required for the entrypoints so that the operations carried out inside can be transmitted to the main.
+* You can't create functions outside of the *entries* and have global variables.
 
 
