@@ -54,16 +54,14 @@ This project needs two differents contracts:
 ### CROWDFUNDING
 
 #### STATES
-There are only 2 states:
 
 * `funding` : during which only `endFunding()` cannot be called. 
 
 * `airdrop` : the fundraising has ended successfully and only `endFunding()` can be called.
 
-* `refund` : the `floor` is not reached, all the refund-transaction have been already sent and from this moment on no further action can be executed. 
+* `refund` : the `floor` is not reached, all the refund-transactions have been already sent and from this moment on no further action can be executed. 
 
 #### DATA ITEM
-There are 8 essentials variables/constants:
 
 *  `startDate` : to pin the time when the fundraising started
 
@@ -83,8 +81,6 @@ There are 8 essentials variables/constants:
 
 
 #### ENTRYPOINTS
-
-There are 4 essentials entrypoints:
 
 * `checkTime()` : Checks if the deadline has been reached.
 
@@ -140,4 +136,9 @@ I tried to use a *list-based-implementation* but I were not able to concatenate 
 Is also very useful because in case of negative outcome declines the *entry-call*. 
 For example in [`contribute()`](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding/SmartPy/#contribute) if the amount is not valid it gives an error and the transaction is not sent.
 In fact on SmartPy the actual transaction and related fee are only processed when the *entry* complete without errors all the actions inside.
+From a developer:
+ ``` Instead of sending back if the amount is too low we fails.
+As everything is transactional the amount is never transferred.```
+referring to : `sp.verify(sp.amount >= self.data.ticketPrice, message="AmountTooLow")` instead of my first version where the SC manually refunds the sender as [`sp.verify`](https://smartpy.io/docs/general/checking_condition/#asserts) fails.
+
 
