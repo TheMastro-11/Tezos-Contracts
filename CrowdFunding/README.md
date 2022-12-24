@@ -137,8 +137,10 @@ Is also very useful because in case of negative outcome declines the *entry-call
 For example in [`contribute()`](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding/SmartPy/#contribute) if the amount is not valid it gives an error and the transaction is not sent.
 In fact on SmartPy the actual transaction and related fee are only processed when the *entry* complete without errors all the actions inside.
 From a developer:
- ``` Instead of sending back if the amount is too low we fails.
-As everything is transactional the amount is never transferred.```
+ ``` 
+    Instead of sending back if the amount is too low we fails.
+    As everything is transactional the amount is never transferred.
+```
 referring to : `sp.verify(sp.amount >= self.data.ticketPrice, message="AmountTooLow")` instead of my first version where the SC manually refunds the sender as [`sp.verify`](https://smartpy.io/docs/general/checking_condition/#asserts) fails.
 
 
