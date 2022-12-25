@@ -1,7 +1,7 @@
 ## DISCLAIMER
 This is just a draft -> NOT definitive
 
-**LEARNING TEZOS**
+# LEARNING TEZOS
 
 "Learning Tezos" is a university project that aims to develop skills in the modeling and analysis of decentralized applications on the blockchain.
 
@@ -9,7 +9,7 @@ For this purpose, I have studied programming languages for smart contracts suppo
 
 Specifically, I have proposed a set of use cases that will be implemented in the Archetype, LIGO, and SmartPy languages, followed by a report on the differences between the various implementations considered. 
 
-**USE CASES**
+## USE CASES
 
 - [CrowdFunding](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding)
 - [Lottery](https://github.com/TheMastro-11/LearningTezos/tree/contracts/Lottery)
@@ -17,7 +17,7 @@ Specifically, I have proposed a set of use cases that will be implemented in the
 - [Blind Auction](https://github.com/TheMastro-11/LearningTezos/tree/contracts/BlindAuction)
 - (in progress)
 
-**PROGRAMMING LANGUAGES COMPARISON**
+## PROGRAMMING LANGUAGES COMPARISON
 
 *-For a more detailed analysis, see the comparison between different use cases.-*
 
@@ -43,7 +43,6 @@ Once I got the hang of it, I was able to realize several use cases with little t
 Compared to Python, SmartPy is a strongly typed language, which can result in pros or cons depending on one’s writing method.
 
 **Pros**:
-
 - Possibility to keep several SCs within the same file.
 - Convenience in using the *scenario*. 
 - Ease in keeping the code neat, clean and understandable thanks to nomenclature, e.g.: *@sp.entry_point*, *@sp.-type-*...
@@ -67,7 +66,7 @@ Compared to Python, SmartPy is a strongly typed language, which can result in pr
 - Not an easy installation for the compiler (it's recommended to use a GitPod workspace).
 
 
-### ligo
+### LIGO
 **Pros**:
 - Ligo has a syntax that is inspired by OCaml, therefore it is familiar to those who already know this language. 
 
