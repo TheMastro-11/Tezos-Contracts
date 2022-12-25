@@ -103,7 +103,8 @@ Differences:
 2. Only on the Archetype version I was able to use the *states-construct* which gives an extra layer of control during SC execution. Every time an entry is called, the compatibility of the *state* is automatically checked, e.g. `contribute()` can only be called on `funding`.
 3. [`sp.verify`]( l ) on SmartPy allowed me to do any checks I needed without using the *if-else* construct. It is also very useful in case of negative outcome, as it declines the *entry-call*. For example in [`contribute()`](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding/SmartPy/#contribute) , if the amount is not valid it sends back an error and the transaction is not sent. In fact, on SmartPy the actual transaction and related fee are only processed when the *entry* is completed without errors in all the actions inside. From a developer:
 >Instead of sending back if the amount is too low we fail.
->As everything is transactional the amount is never transferred.
+As everything is transactional the amount is never transferred.
+
 referring to : `sp.verify(sp.amount >= self.data.ticketPrice, message="AmountTooLow")` instead of my first version where the SC manually refunds the sender as [`sp.verify`](https://smartpy.io/docs/general/checking_condition/#asserts) fails.
 
 
