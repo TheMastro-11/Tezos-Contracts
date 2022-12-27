@@ -8,7 +8,9 @@ class Auction(sp.Contract):
     
     @sp.entry_point
     def bid(self):
-        #add to bidders
+        #check if a bidder has already partecipated
+        sp.verify(self.data.bidders.contains(sp.sender) == False, message = "This address is already registered")
+        #add to bidder
         self.data.bidders[sp.sender] = sp.amount
 
         #check if is top bid
@@ -73,16 +75,20 @@ def auctionTest():
     sofia = sp.test_account("sofia")
     piero = sp.test_account("piero")
     carla = sp.test_account("carla")
+    maria = sp.test_account("maria")
 
     #first bid
     sc.h1("First Bid")
     auction.bid().run(sender = sofia, amount = sp.mutez(100))
+    auction.bid().run(sender = sofia, amount = sp.mutez(100)).run(valid = False)
     #second bid
     sc.h1("Second Bid")
     auction.bid().run(sender = piero, amount = sp.mutez(10))
     #third bid
     sc.h1("Third Bid")
-    auction.bid().run(sender = carla, amount = sp.mutez(100))
+    auction.bid().run(sender = carla, amount = sp.mutez(1000))
+    sc.h1("Fourth Bid")
+    auction.bid().run(sender = maria, amount = sp.mutez(100))
     #ending
     sc.h1("ending")
     auction.getWinner()
