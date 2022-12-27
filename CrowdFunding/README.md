@@ -2,9 +2,6 @@
 
 it's just a draft -> NOT definitive
 
-It has to be translated in English.
-
-  
 
 # CROWDFUNDING
 
@@ -12,11 +9,11 @@ Crowdfunding is a Smart Contract I created with the aim of learning how to progr
 
 For this reason, I have implemented it with all three languages available:
 
--[Smartpy](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/SmartPy/README.md)
+- [Smartpy](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/SmartPy/README.md)
 
--[Archetype](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/Archetype/README.md)
+- [Archetype](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/Archetype/README.md)
 
--[Ligo](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/Ligo/README.md)
+- [Ligo](https://github.com/TheMastro-11/LearningTezos/blob/contracts/CrowdFunding/Ligo/README.md)
 
 The program manages a crowdfunding activity: a user (representing our admin), will hold a fundraiser where anyone can participate, with the promise of a reward for investors once the goal or deadline is reached (in our case, the Airdrop of a new token). 
 
