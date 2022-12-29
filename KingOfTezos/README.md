@@ -62,7 +62,7 @@ This project needs only one Contract:
 
 ## COMPARISON
 The order with which I realized the SC was:
-1. [SmartPy](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding/SmartPy)
+1. [SmartPy](https://github.com/TheMastro-11/LearningTezos/blob/contracts/KingOfTezos/SmartPy/King%20of%20Tezos.py)
 
 Differences:
 - On every languages i cannot set a real timer. It needs an external application.
