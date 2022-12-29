@@ -1,5 +1,5 @@
 # SMARTPY [Link](https://github.com/TheMastro-11/LearningTezos/blob/contracts/BlindAuction/SmartPy/BlindAuction.py)
-In this version of SmartPy, there are two smart contracts and one scenario:
+In this version of SmartPy, there's one smart contract:
 * [BlindAuction](#blindauction).
 
 
