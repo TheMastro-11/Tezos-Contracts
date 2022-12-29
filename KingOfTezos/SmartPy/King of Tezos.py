@@ -17,7 +17,7 @@ class Throne(sp.Contract):
         self.data.floorPrice += sp.fst(sp.ediv(self.data.floorPrice, sp.nat(10)).open_some()) 
 
     @sp.entry_point
-    def deThrone(self):
+    def killKing(self):
         #reset king
         self.data.king = sp.sender
         #reset floorPrice
@@ -51,6 +51,6 @@ def testThrone():
     throne.newKing().run(sender = sergio, amount = sp.mutez(5500))
     #deThrone
     sc.h1("End of reign")
-    throne.deThrone().run(sender = admin)
+    throne.killKing().run(sender = admin)
 
      
