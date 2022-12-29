@@ -49,7 +49,7 @@ def testThrone():
     #second King
     sc.h1("Second King")
     throne.newKing().run(sender = sergio, amount = sp.mutez(5500))
-    #deThrone
+    #if the timer ended kill the old king
     sc.h1("End of reign")
     throne.killKing().run(sender = admin)
 
