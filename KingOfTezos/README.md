@@ -37,7 +37,7 @@ This project needs only one Contract:
 #### STATES
 - `empty` : 1st point of the cycle.
 - `newKing` : 2nd and 3.1th points.
-- `kindIsDead` : 3.2th point.
+- `kingIsDead` : 3.2th point.
 
 
 #### DATA ITEM
