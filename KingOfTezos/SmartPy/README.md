@@ -1,4 +1,4 @@
-# SMARTPY [Link](https://github.com/TheMastro-11/LearningTezos/blob/contracts/KingOfTezos/SmartPy/King Of Tezos.py)
+# SMARTPY [Link]https://github.com/TheMastro-11/LearningTezos/blob/contracts/KingOfTezos/SmartPy/King%20of%20Tezos.py)
 In this version of SmartPy, there's one contract:
 * [BlindAuction](#blindauction).
 
