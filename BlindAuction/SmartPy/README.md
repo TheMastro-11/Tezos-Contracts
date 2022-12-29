@@ -80,5 +80,3 @@ In this version of SmartPy, there's one smart contract:
     Removes all the loosers from the map and refunds them. Only the winner/s remain/s.
 
 
-## NOTES
-In the SmartPy version, it is not possible to use *states* as they are intended in Archetype, so they are not present and therefore it is not possible to check the invocation of entry points.
