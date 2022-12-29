@@ -65,4 +65,5 @@ The order with which I realized the SC was:
 1. [SmartPy](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding/SmartPy)
 
 Differences:
+- On every languages i cannot set a real timer. It needs an external application.
 1. On smartpy i cannot set `king` on a void value.
