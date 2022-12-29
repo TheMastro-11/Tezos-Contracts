@@ -41,13 +41,13 @@ This project needs only one Contract:
 
 
 #### DATA ITEM
-- `king` : the realtime king. (For developing reasons could be the admin address the first time). 
+- `king` : the realtime king. (For developing reasons the default could be the admin address). 
 - `history` : the full kings history. Is a map with address as key and a record combine by amount and date as value, referred to time when the throne has been taken.
 - `floorPrice` : the realtime throne's price.
 
 
 #### ENTRYPOINTS
-- `newKing()` : check if the amount is correct and then replace the king
+- `newKing()` : check if the amount is correct and then replaces the king
 - `killKing()` : the timer ended and the king has to be 'killed'.
 
 
