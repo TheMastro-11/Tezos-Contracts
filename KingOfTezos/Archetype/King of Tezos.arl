@@ -1,6 +1,6 @@
 archetype kingOfTezos
 
-//state machine
+//declare states
 states = 
 | empty initial
 | newKing_
