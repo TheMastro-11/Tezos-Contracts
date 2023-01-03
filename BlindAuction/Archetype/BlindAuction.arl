@@ -1,1 +1,45 @@
+archetype BlindAuction
 
+//declare states
+states = 
+| funding initial 
+| winner
+
+//declare record
+record tops {
+    bidders_ : list<address>;
+    amount : tez;
+}
+
+//declare variables and constants
+variable bidders : map<address, tez> = []
+variable top : tops = {[]; 0tz}
+variable minBid : tez = 0tz
+
+//entrypoints
+entry bid () {
+    //check if a bidder has already partecipated
+    if bidders.contains(caller) then 
+        fail("bidder has already donated");
+
+    //update bidders
+    bidders.put(caller,transferred);
+
+    //check if is a top bid
+    if transferred >= top.amount then 
+        if transferred > top.amount then
+            top := {[caller];transferred}
+        else 
+            top.bidders_.prepend(caller)
+}
+
+entry getWinner() {
+    var tmp = bidders;
+    //refund loosers and remove them from map
+    for (e,i) in tmp do
+        if not (top.bidders_.contains(e)) then
+            bidders.remove(e);
+            transfer i to e
+    done
+
+}
