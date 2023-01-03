@@ -1,1 +1,58 @@
+archetype kingOfTezos
+
+//state machine
+states = 
+| empty initial
+| newKing_
+| kingIsDead
+
+//declare record
+record reign{
+    price : tez;
+    period : date;
+}
+
+//declare variables and constants
+variable king : address = tz1tmptmptmptmptmptmptmptmptmptmptmp //not a real address
+variable history : map<address, reign> = []
+variable floorPrice : tez = 1000tz
+
+//transitions
+transition newReign(){
+    from empty 
+        to newKing_
+    with effect {floorPrice := (floorPrice + (floorPrice div 10)) }
+}
+
+transition reignEnded(){
+    from newKing_
+        to empty
+    with effect {floorPrice := 1000tz}
+}
+
+//entrypoints
+entry newKing () {
+    //verify amount
+    if transferred <> floorPrice then 
+        fail ("Amount incorrect");
+
+    //refund previous King
+    transfer transferred to king;
+
+    //update history
+    var new : reign = {transferred; now};
+    history.put(caller,new);
+    king := caller;
+
+    //update state
+    transfer 0tz to entry self.newReign()
+}
+
+entry killKing() {
+    //reset king
+    king := tz1tmptmptmptmptmptmptmptmptmptmptmp;
+
+    //change state
+    transfer 0tz to entry self.reignEnded()
+}
 
