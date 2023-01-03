@@ -1,6 +1,6 @@
 archetype crowdfunding
 
-//state machine
+//declare states
 states = 
 | funding initial 
 | airdrop
