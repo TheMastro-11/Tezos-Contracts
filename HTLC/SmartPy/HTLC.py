@@ -2,15 +2,15 @@ import smartpy as sp
 
 class HashTimedLockedContract(sp.Contract):
     def __init__(self):
-        self.init(collateral = sp.tez(0), deadline = sp.none, commiter = sp.none , receiver = sp.none, hash = sp.pack("standard"))
+        self.init(collateral = sp.none, deadline = sp.none, commiter = sp.none , receiver = sp.none, hash = sp.none)
 
     @sp.entry_point
     def commission(self, deadline, receiver, hash):
         #save into data
-        self.data.collateral = sp.amount
+        self.data.collateral = sp.some(sp.amount)
         self.data.deadline = sp.some(sp.level + deadline)
         self.data.receiver = sp.some(receiver)
-        self.data.hash = hash
+        self.data.hash = sp.some(hash)
         
         self.data.commiter = sp.some(sp.sender)
 
@@ -19,12 +19,12 @@ class HashTimedLockedContract(sp.Contract):
         #hash
         bytes = sp.pack(word) 
         hash = sp.keccak(bytes) #created
-        sp.verify(self.data.hash == hash, "Wrong word") #checked
+        sp.verify(self.data.hash == sp.some(hash), "Wrong word") #checked
 
         #check receiver
         sp.verify(self.data.receiver == sp.some(sp.sender), "Wrong Address")
         #transfer collateral to receiver
-        sp.send(self.data.receiver.open_some(), self.data.collateral)
+        sp.send(self.data.receiver.open_some(), self.data.collateral.open_some())
 
 
     @sp.entry_point
@@ -34,7 +34,7 @@ class HashTimedLockedContract(sp.Contract):
         sp.verify(self.data.commiter == sp.some(sp.sender), "You're not the commiter")
 
         #transfer collateral to commiter
-        sp.send(self.data.commiter.open_some(), self.data.collateral)
+        sp.send(self.data.commiter.open_some(), self.data.collateral.open_some())
 
         
     
