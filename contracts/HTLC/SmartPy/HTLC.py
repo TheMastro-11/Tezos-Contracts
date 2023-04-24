@@ -17,6 +17,7 @@ class HashTimedLockedContract(sp.Contract):
     @sp.entry_point
     def reveal(self, word):
         #hash
+        sp.set_type(word, sp.TString)
         bytes = sp.pack(word) 
         hash = sp.keccak(bytes) #created
         sp.verify(self.data.hash == sp.some(hash), "Wrong word") #checked
@@ -30,7 +31,7 @@ class HashTimedLockedContract(sp.Contract):
     @sp.entry_point
     def timeout(self):
         #check if deadline is reached and if sender is the commiter
-        sp.verify(self.data.deadline == sp.some(sp.level), "Deadline not reached")
+        sp.verify(self.data.deadline <= sp.some(sp.level), "Deadline not reached")
         sp.verify(self.data.commiter == sp.some(sp.sender), "You're not the commiter")
 
         #transfer collateral to commiter
@@ -53,14 +54,16 @@ def testHTLC():
     pippo = sp.test_account("pippo")
 
     #create hash
-    bytes = sp.pack("love")
+    secret = "love"
+    bytes = sp.pack(secret)
     hash = sp.keccak(bytes)
     #first commission
     htlc.commission(sp.record(deadline = sp.nat(10) , receiver = sofia.address, hash = hash)).run(sender = pippo, amount = sp.tez(1000))
     #reveal after 50 rounds
     htlc.reveal("love").run(sender = sofia)
     #timeout after 100 rounds
-    htlc.timeout().run(sender = pippo, valid = False)
-    
+    htlc.timeout().run(sender = pippo, level = 1000)
 
-    
+
+
+
