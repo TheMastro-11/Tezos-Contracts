@@ -43,7 +43,11 @@ A simple transaction for 1,10,100 or 1000 tez as always the same gas cost of 100
 
 This amount will be added to the gas-cost.
 For example a *minimal* fee transaction results in total of 0,000503tez with 0,000403tez in gas-fee, so 403 nꜩ/gu.
+The minimal amount I used for a transaction is 0,00001tez with a total *baker-fee*[3](#References) of 0,000414 tez with 0,000404tez in gas-fee, so 404 nꜩ/gu.
+In general the nꜩ/gu ranges between 401 and 404.
 
+### Simple Transfer
+Simple transfer
 
 
 
@@ -51,5 +55,6 @@ For example a *minimal* fee transaction results in total of 0,000503tez with 0,0
 
 
 #### References
-[1 - Economics and Rewards](https://opentezos.com/tezos-basics/economics-and-rewards/)
-[2]The wallet used for the test was the TempleWallet
+1. [Economics and Rewards](https://opentezos.com/tezos-basics/economics-and-rewards/)
+2. The wallet used for the test was the TempleWallet
+3. *Baker-fee* are the fees paid to bakers, the [bakers](https://opentezos.com/baking/baking_explained/) are the *miner*-equivalent for other blockchains (with some differents). So *baker-fee* = total-fee.
