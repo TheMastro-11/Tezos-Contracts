@@ -3,24 +3,25 @@ A part of the work in this project also consists in the study of calculation fee
 
 ### The formula
 On the official documentation can be found a formula that describes how much costs a transaction.
-The minimal unit is the *mutez*, 1 tez = 1.000.000 mutez. 
+The standard unit is the **mutez**, 1 tez = 1.000.000 mutez.
+The minimal unit is the **nano-tez**, 1 mutez = 1000 nano-tez 
 
 Let: 
 * Minimal Fees: minFminF​
 * Size of the operation (in bytes "BB"): ss 
   (The size "ss" is the number of bytes in the complete serialized operation).
 * Gas used for the operation (in gas unit "gugu​"): gg
-* Minimal nano-tez per byte: min(nꜩ/B)min(nꜩ/B)
-* Minimal nano-tez per gas unit: min(nꜩ/gu)min(nꜩ/gu​)
+* Minimal nano-tez per byte: min(nꜩ/B)
+* Minimal nano-tez per gas unit: min(nꜩ/gu)
 * Gas unit cost in Tez is defined by the protocol. It does not depend on the fee market; it does not depend on arbitrary defaults in config files; etc 
   
 Then:
 $$Fees≥minF​+min(nꜩ/B)×s+min(nꜩ/gu​)×g$$
 
 The transaction default values are:
-* minF=100 µꜩminF​=100 µꜩ
-* min(nꜩ/B)=250,000 nꜩ/B (250 µꜩ/B)min(nꜩ/B)=250,000 nꜩ/B (250 µꜩ/B)
-* min(nꜩ/gu)=100 nꜩ/gumin(nꜩ/gu​)=100 nꜩ/gu​ [1](####References)
+* minF=100 µꜩ
+* min(nꜩ/B)=250,000 nꜩ/B (250 µꜩ/B)
+* min(nꜩ/gu)=100 nꜩ/gu​ [1](#References)
 
 ### Testnet
 For concenience all the tests made are on the testnet, specifically the *GhostNet*.
@@ -33,8 +34,22 @@ Three differents contracts from this repository are used for these experiments:
 * [HTLC](https://github.com/TheMastro-11/LearningTezos/blob/main/contracts/SimpleTransfer)
 * Token Transfer (NOT DEVELOPED YET)
 
+## Tests
+A simple transaction for 1,10,100 or 1000 tez as always the same gas cost of 1001gu and a three base fees ranges for differents frame time *more pay less wait*:
+* *Minimal* = 0,0001tez
+* *Fast* = 0,00015tez
+* *Rocket* = 0,0002tez 
+* *Custom* [2](#References)  
+
+This amount will be added to the gas-cost.
+For example a *minimal* fee transaction results in total of 0,000503tez with 0,000403tez in gas-fee, so 403 nꜩ/gu.
+
+
+
+
 
 
 
 #### References
 [1 - Economics and Rewards](https://opentezos.com/tezos-basics/economics-and-rewards/)
+[2]The wallet used for the test was the TempleWallet
