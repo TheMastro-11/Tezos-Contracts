@@ -9,6 +9,8 @@ For this purpose, I have studied programming languages for smart contracts suppo
 
 Specifically, I have proposed a set of use cases that will be implemented in the Archetype, LIGO, and SmartPy languages, followed by a report on the differences between the various implementations considered. 
 
+The second part of the study regard the [*experiments*](https://github.com/TheMastro-11/LearningTezos/tree/main/experiments). I will deploy some contracts on chain (actually TestNet) and will do some calculations about fees and effectiveness.
+
 ## USE CASES
 
 - [CrowdFunding](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding)
