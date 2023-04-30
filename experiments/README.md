@@ -104,7 +104,7 @@ Alongside the *allocation-fee* is the same.
 [4](#references)
 (Working on)
 
-## SmartContract Interaction
+## SmartContract Interactions
 Calling an **entry-point** requires ,like other transactions on chain, a specific fee:
 * *baker-fee*
 * *storage-fee* = in this case represents the ***field**-change* from the initial state to the new one.
@@ -152,7 +152,7 @@ The third one is *Timeout*:
 
 
 #### Low rates
-The fee showed above are the standard one proposed by the RPC [5](#references) during deployment.
+The fees showed above are the standard one proposed by the RPC [5](#references) during deployment.
 Doing various tests can be found lowest fees, these are the ones I found:
 | Contract | EntryPoint | Lowest Fee |
 | - | - | :-: |
