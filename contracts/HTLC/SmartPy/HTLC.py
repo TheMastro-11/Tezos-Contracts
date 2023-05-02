@@ -5,7 +5,7 @@ class HashTimedLockedContract(sp.Contract):
         self.init(deadline = sp.none, commiter = sp.none , receiver = sp.none, hash = sp.none)
 
     @sp.entry_point
-    def commission(self, deadline, receiver, hash):
+    def commit(self, deadline, receiver, hash):
         #save into data
         self.data.deadline = sp.some(sp.level + deadline)
         self.data.receiver = sp.some(receiver)
@@ -54,8 +54,8 @@ def testHTLC():
     secret = "love"
     bytes = sp.pack(secret)
     hash = sp.keccak(bytes)
-    #first commission
-    htlc.commission(sp.record(deadline = sp.nat(10) , receiver = sofia.address, hash = hash)).run(sender = pippo, amount = sp.mutez(1000))
+    #first commit
+    htlc.commit(sp.record(deadline = sp.nat(10) , receiver = sofia.address, hash = hash)).run(sender = pippo, amount = sp.mutez(1000))
     #reveal after 50 rounds
     htlc.reveal("love").run(sender = pippo)
     #timeout after 100 rounds
