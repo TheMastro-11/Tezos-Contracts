@@ -20,10 +20,10 @@ In this version of SmartPy, there are one smart contract and one scenario:
 
 ### EntryPoints:
 
-#### Commission
+#### Commit
 * ```
    @sp.entry_point
-    def commission(self, deadline, receiver, hash):
+    def commit(self, deadline, receiver, hash):
         #save into data
         self.data.collateral = sp.some(sp.amount)
         self.data.deadline = sp.some(sp.level + deadline)
