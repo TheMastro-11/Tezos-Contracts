@@ -13,11 +13,13 @@ The second part of the study regard the [*experiments*](https://github.com/TheMa
 
 ## USE CASES
 
-- [CrowdFunding](https://github.com/TheMastro-11/LearningTezos/tree/contracts/CrowdFunding)
-- [Lottery](https://github.com/TheMastro-11/LearningTezos/tree/contracts/Lottery)
-- [King of Tezos](https://github.com/TheMastro-11/LearningTezos/tree/contracts/KingOfTezos)
-- [Blind Auction](https://github.com/TheMastro-11/LearningTezos/tree/contracts/BlindAuction)
-- (in progress)
+- [CrowdFunding](https://github.com/TheMastro-11/LearningTezos/tree/main/contracts/CrowdFunding)
+- [Lottery](https://github.com/TheMastro-11/LearningTezos/tree/main/contracts/Lottery)
+- [King of Tezos](https://github.com/TheMastro-11/LearningTezos/tree/main/contracts/KingOfTezos)
+- [Blind Auction](https://github.com/TheMastro-11/LearningTezos/tree/main/contracts/BlindAuction)
+- [HTLC](https://github.com/TheMastro-11/LearningTezos/tree/main/contracts/HTLC)
+- [Simple Transfer](https://github.com/TheMastro-11/LearningTezos/tree/main/contracts/SimpleTransfer)
+- [Token Transfer](https://github.com/TheMastro-11/LearningTezos/tree/main/contracts/TokenTransfer)
 
 ## PROGRAMMING LANGUAGES COMPARISON
 
