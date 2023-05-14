@@ -77,7 +77,7 @@ The *burn-fee* are divided in:
 All the details can be found [here](https://better-call.dev/ghostnet/KT1JPWgfwodv4j2zD1FATzfGsRCNkAhfVa7D/operations) or [here](https://ghostnet.tzkt.io/KT1JPWgfwodv4j2zD1FATzfGsRCNkAhfVa7D/operations/).
 
 ### Hash Timed Locked Contract
-HTLC requires a total of **0,214686** to be deployed:
+HTLC requires a total of **0,214686tez** to be deployed:
 
 | Type | Cost |
 | - | :-: |
@@ -96,7 +96,23 @@ The *burn-fee* are divided in:
 All the details can be found [here](https://ghost.tzstats.com/oooBfAN2zGv4Mg3GNs8K2zQw7RH3KbmY6bhp8zAq7jM6tKeDePr/162607792171).
 
 ### Token Transfer
-(Working on)
+TokenTransfer requires a total of **0,5145tez** to be deployed:
+
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,00225tez |
+| *burn-fee* | 0,51225tez |
+| *gas* | 2109gu |
+| *bytes* | 1792 |
+
+The *burn-fee* are divided in:
+| Type | Cost |
+| - | :-: |
+| *storage-fee* | 0,448tez |
+| *allocation-fee* | 0,06425tez |
+
+
+All the details can be found [here](https://ghost.tzstats.com/opPfZTiW9ktCULe48nb9QZpA8cm3QooyftcZ3niMuhbUsUXVqS7/166190776352).
 
 ### Differences
 The main differences between the transaction costs for deploy are made by the storage fee.
@@ -111,7 +127,7 @@ Calling an **entry-point** requires ,like other transactions on chain, a specifi
 
 ### Simple Transfer
 In this SC can be called two differents entry-points.
-The first one is the *deposit* and requires a total fee of ** 0,007473tez**:
+The first one is the *deposit* and requires a total fee of **0,007473tez**:
 | Type | Cost |
 | - | :-: |
 | *baker-fee* | 0,000723tez |
@@ -130,7 +146,7 @@ The second one is *Withdraw*:
 
 ### Hash Timeed Locked Contract
 In this SC can be called three differents entry-points.
-The first one is *Commission* and requires a total fee of **0,02603tez**:
+The first one is *Commit* and requires a total fee of **0,02603tez**:
 | Type | Cost |
 | - | :-: |
 | *baker-fee* | 0,00078tez |
@@ -150,6 +166,35 @@ The third one is *Timeout*:
 | *baker-fee* | 0,0007tez |
 | *gas* | 1211gu |
 
+#### Token Transfer
+Un this SC can be called four differents entry-points.
+Three of them are by default for FA2 contracts.
+The first one, created by me, is *Mint* and requires a total fee of **0,05891tez**:
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,00091tez |
+| *storage-fee* | 0,058tez |
+| *gas* | 3311gu |
+| *bytes* | 232 |
+
+The second is *Transfer*:
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,000786tez |
+| *gas* | 2153gu |
+
+The third is *Update_operators* and requires a total fee of **0,017467**:
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,000717tez |
+| *storage-fee* | 0,01675tez |
+| *gas* | 1.457gu |
+| *bytes* | 67 |
+Actually this entrypoint has two differents:
+* add
+* remove
+The first one costs more because requires a storage change meanwhile the *baker-fee* is the same.
+
 
 #### Low rates
 The fees showed above are the standard one proposed by the RPC [5](#references) during deployment.
@@ -158,9 +203,10 @@ Doing various tests can be found lowest fees, these are the ones I found:
 | - | - | :-: |
 | SimpleTransfer | Deposit |  0,00044tez |
 | SimpleTransfer | Withdraw | 0,0012tez |
-| HTLC | Commission | 0,0006tez |
-| HTLC | Commission | 0,00055tez |
-| HTLC | Commission | 0,00055tez |
+| HTLC | Commit | 0,0006tez |
+| HTLC | Reveal | 0,00055tez |
+| HTLC | Timeout | 0,00055tez |
+| TokenTransfer | 
 
 
 
