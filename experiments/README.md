@@ -58,6 +58,7 @@ The transaction cost for SCdeploy is composed by two types:
 
 The *burn-fee* doesn't go to anyone differently then the first one, that's the great difference between **Tez Transaction** and **SmartContract Transaction**.
 Actually an admin can add a balance amount as starter for the contract, that amount must be added to the total cost.
+[4](#references)
 
 ### Simple Transfer
 Simple Transfer requires a total of **0,114275tez** to be deployed:
@@ -115,15 +116,15 @@ The *burn-fee* are divided in:
 All the details can be found [here](https://ghost.tzstats.com/opPfZTiW9ktCULe48nb9QZpA8cm3QooyftcZ3niMuhbUsUXVqS7/166190776352).
 
 ### Differences
-The main differences between the transaction costs for deploy are made by the storage fee.
+The main differences between the transaction costs for deploy are made by the storage fee, so how many contract field are generated.
 Alongside the *allocation-fee* is the same.
-[4](#references)
-(Working on)
+[5](#references)
 
 ## SmartContract Interactions
 Calling an **entry-point** requires ,like other transactions on chain, a specific fee:
 * *baker-fee*
 * *storage-fee* = in this case represents the ***field**-change* from the initial state to the new one.
+[6](#references)
 
 ### Simple Transfer
 In this SC can be called two differents entry-points.
@@ -167,7 +168,7 @@ The third one is *Timeout*:
 | *gas* | 1211gu |
 
 #### Token Transfer
-Un this SC can be called four differents entry-points.
+Un this SC can be called three differents entry-points.
 Three of them are by default for FA2 contracts.
 The first one, created by me, is *Mint* and requires a total fee of **0,05891tez**:
 | Type | Cost |
@@ -197,7 +198,7 @@ The first one costs more because requires a storage change meanwhile the *baker-
 
 
 #### Low rates
-The fees showed above are the standard one proposed by the RPC [5](#references) during deployment.
+The fees showed above are the standard one proposed by the RPC [7](#references) during deployment.
 Doing various tests can be found lowest fees, these are the ones I found:
 | Contract | EntryPoint | Lowest Fee |
 | - | - | :-: |
@@ -206,7 +207,9 @@ Doing various tests can be found lowest fees, these are the ones I found:
 | HTLC | Commit | 0,0006tez |
 | HTLC | Reveal | 0,00055tez |
 | HTLC | Timeout | 0,00055tez |
-| TokenTransfer | 
+| TokenTransfer | Mint | 0,0415tez |
+| TokenTransfer | Transfer | 0,00075tez |
+| TokenTransfer | Update_operators | 0,01743tez |
 
 
 
@@ -215,5 +218,7 @@ Doing various tests can be found lowest fees, these are the ones I found:
 1. [Economics and Rewards](https://opentezos.com/tezos-basics/economics-and-rewards/)
 2. The wallet used for the test was the TempleWallet
 3. *Baker-fee* are the fees paid to bakers, the [bakers](https://opentezos.com/baking/baking_explained/) are the *miner*-equivalent for other blockchains (with some differents).
-4. A detailed explaination of how gas and fees are calculated can be found [here](https://kitchen.stove-labs.com/docs/knowledge/tezos_protocol/operations/gas-fees/).
-5. RPC stands for ['Remote Procedure Call'](https://en.wikipedia.org/wiki/Remote_procedure_call), widely use in the IT. In this case it's used to gain information from the blockchain.
+4. For deploy I used the SmartPy platform.
+5. A detailed explaination of how gas and fees are calculated can be found [here](https://kitchen.stove-labs.com/docs/knowledge/tezos_protocol/operations/gas-fees/).
+6. At the beginning to do the tests I used the SmartPy platform and after a personalized [script](https://github.com/TheMastro-11/SmartContractTestScript-By-Taquito-) using [Taquito](https://tezostaquito.io/).
+7. RPC stands for ['Remote Procedure Call'](https://en.wikipedia.org/wiki/Remote_procedure_call), widely use in the IT. In this case it's used to gain information from the blockchain.
