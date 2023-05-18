@@ -1,15 +1,12 @@
-## DISCLAIMER
-This is just a draft -> NOT definitive
+# Evaluating execution and development costs in the Tezos blockchain
 
-# LEARNING TEZOS
+The goal of this project is to evaluate the costs of developing and executing smart contracts in the [Tezos blockchain](https://tezos.com/).
 
-"Learning Tezos" is a university project that aims to develop skills in the modeling and analysis of decentralized applications on the blockchain.
-
-For this purpose, I have studied programming languages for smart contracts supported by the [blockchain](https://tezos.com/).
-
-Specifically, I have proposed a set of use cases that will be implemented in the Archetype, LIGO, and SmartPy languages, followed by a report on the differences between the various implementations considered. 
-
-The second part of the study regard the [*experiments*](https://github.com/TheMastro-11/LearningTezos/tree/main/experiments). I will deploy some contracts on chain (actually TestNet) and will do some calculations about fees and effectiveness.
+Specifically:
+* I have developed a set of use cases in the Archetype, LIGO, and SmartPy languages;
+* I have compared the implementations in the three languages;
+* Focusing on SmartPy I have [experimented](https://github.com/TheMastro-11/LearningTezos/tree/main/experiments) the Smart Contract to evaluate the paid fees;
+* I have developed a [tool](https://github.com/TheMastro-11/SmartContractTestScript-By-Taquito-) to automatize the estimation of the execution costs;
 
 ## USE CASES
 
