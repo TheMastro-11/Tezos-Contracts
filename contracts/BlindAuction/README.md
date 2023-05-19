@@ -19,7 +19,7 @@ The contract implements three differents rules:
 - `top` : the list of top bidder/s with relative amount, is a list in case there are two or more equals offers
 - `minBid` : the mimimum value for a bid. 
 
-## Entrypoints
+## EntryPoints
 - `bid()` : called at the time of bidding, verifies that the amount is correct and updates bidders and eventually top
 - `getWinner()` : called at the end, refunds the loosers and proclaims the winner.
 
