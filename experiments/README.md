@@ -30,9 +30,9 @@ The testnets are widely used in all of SC's Blockchains (like Ethereum).
 
 ### Contracts
 Three differents contracts from this repository are used for these experiments:
-* [Simple Transfer](https://github.com/TheMastro-11/LearningTezos/blob/main/contracts/SimpleTransfer)
-* [HTLC](https://github.com/TheMastro-11/LearningTezos/blob/main/contracts/SimpleTransfer)
-* Token Transfer (NOT DEVELOPED YET)
+* [Simple Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/SimpleTransfer)
+* [HTLC](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/HTLC)
+* [Token Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/TokenTransfer))
 
 ## Tez Transactions
 A simple transaction for 1,10,100 or 1000 tez as always the same gas cost of 1001gu and a three base fees ranges for differents frame time *more pay less wait*:
@@ -169,7 +169,7 @@ The third one is *Timeout*:
 
 #### Token Transfer
 Un this SC can be called three differents entry-points.
-Three of them are by default for FA2 contracts.
+Two of them are by default for FA2 contracts.
 The first one, created by me, is *Mint* and requires a total fee of **0,05891tez**:
 | Type | Cost |
 | - | :-: |
