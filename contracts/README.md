@@ -1,7 +1,4 @@
-## PROGRAMMING LANGUAGES COMPARISON
-
-*-For a more detailed analysis, see the comparison between different use cases.-*
-
+# Programming Languages Comparison
 [Archetype](https://archetype-lang.org/), [Ligo](https://tezos.com/developers/ligo/) and [SmartPy](https://smartpy.io/) are programming languages and toolkits for writing and deploying smart contracts on the Tezos blockchain.
 
 Some key features that these languages have in common are:
@@ -11,15 +8,14 @@ Some key features that these languages have in common are:
 
 They all have similar capabilities but also they have slightly different syntax and toolsets.
 
-### SMARTPY
-
+## SmartPy
 While using SmartPy, it took me a long time to understand the dynamics of how a Smart Contract works on Tezos and the use of *entrypoints*. 
 I was helped by:
 - The use of a commonly used language (Python).
 - Extensive documentation and several online tutorials.
 - Great availability of the developers of SmartPy for the resolution of problems.
 
-Once I got the hang of it, I was able to realize several use cases with little to no difficulty (see folders above).  
+Once I got the hang of it, I was able to realize several use cases with little to no difficulty.  
 
 Compared to Python, SmartPy is a strongly typed language, which can result in pros or cons depending on one’s writing method.
 
@@ -28,7 +24,6 @@ Compared to Python, SmartPy is a strongly typed language, which can result in pr
 - Convenience in using the *scenario*. 
 - Ease in keeping the code neat, clean and understandable thanks to nomenclature, e.g.: *@sp.entry_point*, *@sp.-type-*...
 - No problems when adding any implementations I wanted. 
-- Use of attributes in an SC statement.
 - Python syntax.
 - Well-made IDE.
 
@@ -36,7 +31,7 @@ Compared to Python, SmartPy is a strongly typed language, which can result in pr
 - Lack of *states*.
 
 
-### ARCHETYPE
+## Archetype
 **Pros**:
 - Good documentation. 
 - A simple, readable syntax that is inspired by other popular programming languages.
@@ -44,10 +39,10 @@ Compared to Python, SmartPy is a strongly typed language, which can result in pr
 
 **Cons**:
 - Fewer developers in general and therefore less chance of finding specific support.
-- Not an easy installation for the compiler (it's recommended to use a GitPod workspace).
+- Not an easy installation for the compiler (I used a GitPod workspace).
 
 
-### LIGO
+## Ligo
 **Pros**:
 - Ligo has a syntax that is inspired by OCaml, therefore it is familiar to those who already know this language. 
 
