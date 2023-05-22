@@ -1,14 +1,8 @@
 # Evaluating execution and development costs in the Tezos blockchain
-
 The goal of this project is to evaluate the costs of developing and executing smart contracts in the [Tezos blockchain](https://tezos.com/).
 
-Specifically:
-* I have developed a set of use cases in the Archetype, LIGO, and SmartPy languages;
-* I have compared the implementations in the three languages;
-* Focusing on SmartPy I have [experimented](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/experiments) the Smart Contract to evaluate the paid fees;
-* I have developed a [tool](https://github.com/TheMastro-11/SmartContractTestScript-By-Taquito-) to automatize the estimation of the execution costs;
-
-## USE CASES
+## Use Cases
+I have developed a set of use cases in the Archetype, LIGO, and SmartPy languages;
 
 - [Blind Auction](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/BlindAuction)
 - [CrowdFunding](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/CrowdFunding)
@@ -18,3 +12,10 @@ Specifically:
 - [Simple Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/SimpleTransfer)
 - [Token Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/TokenTransfer)
 
+## Language Comparison
+After developed a bunch of Contracts in every language available I made a [detailed](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts) comparison between them in order to find out which was the best solution to continue developing and make tests. 
+I choose SmartPy.
+
+## Deploy and test
+I have [experimented](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/experiments) 7 Smart Contracts on *Test net* to evaluate the paid fees fot both [deploy](/experiments/Deployments/) and [interactions](/experiments/Interactions/).
+To help me in this work I have developed a [tool](https://github.com/TheMastro-11/SmartContractTestScript-By-Taquito-) to automatize the estimation of the execution costs.
