@@ -2,7 +2,7 @@
 The transaction cost for SCdeploy is composed by two types:
 * *baker-fee* 
 * *burn-fee* = divided in:
-  1. *storage-fee* = as defined [before](..\README.md)
+  1. *storage-fee* = as defined [before](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/experiments)
   2. *allocation-fee* = a fix amount for every contract created on chain.
 
 The *burn-fee* doesn't go to anyone differently then the first one, that's the great difference between **Tez Transaction** and **SmartContract Transaction**.
