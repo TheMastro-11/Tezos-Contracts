@@ -70,6 +70,63 @@ The *burn-fee* are divided in:
 
 All the details can be found [here](https://ghost.tzstats.com/opPfZTiW9ktCULe48nb9QZpA8cm3QooyftcZ3niMuhbUsUXVqS7/166190776352).
 
+## Blind Auction
+Blind Auction requires a total of **0,297788tez** to be deployed:
+
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,001538tez |
+| *burn-fee* | 0,29625tez |
+| *gas* | 1764gu |
+| *bytes* | 928 |
+
+The *burn-fee* are divided in:
+| Type | Cost |
+| - | :-: |
+| *storage-fee* | 0,232tez |
+| *allocation-fee* | 0,06425tez |
+
+
+All the details can be found [here](https://better-call.dev/ghostnet/KT19Yw7uupmjzkCUsAmLEsujpZoR3LHwHjTJ/operations).
+
+## Crowd Funding
+CrowdFunding requires a total of **0,288781tez** to be deployed:
+
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,001531tez |
+| *burn-fee* | 0,28725tez |
+| *gas* | 1681gu |
+| *bytes* | 892 |
+
+The *burn-fee* are divided in:
+| Type | Cost |
+| - | :-: |
+| *storage-fee* | 0,223tez |
+| *allocation-fee* | 0,06425tez |
+
+
+All the details can be found [here](https://better-call.dev/ghostnet/KT1Hr5tdPyM4asWQTNMeHzDHtYEoRtYYX4jU/operations).
+
+## King of Tezos
+King of Tezos requires a total of **0,161482tez** to be deployed:
+
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,000982tez |
+| *burn-fee* | 0,1605tez |
+| *gas* | 1510gu |
+| *bytes* | 385 |
+
+The *burn-fee* are divided in:
+| Type | Cost |
+| - | :-: |
+| *storage-fee* | 0,09625tez |
+| *allocation-fee* | 0,06425tez |
+
+
+All the details can be found [here](https://better-call.dev/ghostnet/KT1XTv6oPMgX6RbepELh8E6R1GCYU6rArX1x/operations).
+
 ### Differences
 The main differences between the transaction costs for deploy are made by the storage fee, so how many contract field are generated.
 Alongside the *allocation-fee* is the same.
