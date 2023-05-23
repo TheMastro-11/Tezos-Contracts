@@ -89,7 +89,7 @@ I choose SmartPy.
 
 ## Analysis of execution costs
 I have [experimented](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/experiments) 7 Smart Contracts on *Test Net* to evaluate the paid fees fot both [deployment](/experiments/Deployments/) and [interactions](/experiments/Interactions/).
-To help me in this work I have developed a [tool](https://github.com/TheMastro-11/SmartContractTestScript-By-Taquito-) to automatize the estimation of the execution costs.
+To help me in this work I have developed a [tool](https://github.com/TheMastro-11/SmartContract-Execution-Costs-By-Taquito) to automatize the estimation of the execution costs.
 
 ## References
 1. Blockchain article from [Wikipedia](https://en.wikipedia.org/wiki/Blockchain)
