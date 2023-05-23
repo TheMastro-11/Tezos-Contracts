@@ -1,4 +1,4 @@
-# SmartContract Deploy
+# Contract Deployment Fees
 The transaction cost for SCdeploy is composed of two types:
 * *baker-fee* 
 * *burn-fee* = divided in:
