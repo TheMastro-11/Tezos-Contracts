@@ -9,11 +9,6 @@ The *burn-fee* doesn't go to anyone different than the first one, that's the gre
 Actually, an admin can add a balance amount as a starter for the contract, that amount must be added to the total cost.
 [1](#references)
 
-Three different contracts from this repository are used for these experiments:
-* [Simple Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/SimpleTransfer)
-* [HTLC](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/HTLC)
-* [Token Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/TokenTransfer))
-
 
 ## Simple Transfer
 Simple Transfer requires a total of **0,114275tez** to be deployed:
@@ -70,8 +65,8 @@ The *burn-fee* are divided into the:
 
 All the details can be found [here](https://ghost.tzstats.com/opPfZTiW9ktCULe48nb9QZpA8cm3QooyftcZ3niMuhbUsUXVqS7/166190776352).
 
-## Blind Auction
-Blind Auction requires a total of **0,297788tez** to be deployed:
+## Auction
+Auction requires a total of **0,297788tez** to be deployed:
 
 | Type | Cost |
 | - | :-: |
