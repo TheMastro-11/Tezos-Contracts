@@ -6,10 +6,10 @@ Calling an **entry-point** requires ,like other transactions on chain, a specifi
 
 ## Simple Transfer
 In this SC can be called two differents entry-points.
-The first one is the *deposit* and requires a total fee of **0,007473tez**:
+The first one is the *deposit* and requires a total fee of **0,00719tez**:
 | Type | Cost |
 | - | :-: |
-| *baker-fee* | 0,000723tez |
+| *baker-fee* | 0,00044tez |
 | *storage-fee* | 0,00675tez |
 | *gas* | 2141gu |
 | *bytes* | 27 |
@@ -18,17 +18,17 @@ The *storage-fee* is calculated because the Address field is changed.
 The second one is *Withdraw*:
 | Type | Cost |
 | - | :-: |
-| *baker-fee* | 0,00142tez |
+| *baker-fee* | 0,0012tez |
 | *gas* | 1206gu |
 
 *Storage-fee* is not required because there's no change in the Contract field.
 
 ## Hash Timeed Locked Contract
 In this SC can be called three differents entry-points.
-The first one is *Commit* and requires a total fee of **0,02603tez**:
+The first one is *Commit* and requires a total fee of **0,0246tez**:
 | Type | Cost |
 | - | :-: |
-| *baker-fee* | 0,00078tez |
+| *baker-fee* | 0,0006tez |
 | *storage-fee* | 0,024tez |
 | *gas* | 2220gu |
 | *bytes* | 96 |
@@ -36,13 +36,13 @@ The first one is *Commit* and requires a total fee of **0,02603tez**:
 The second one is *Reveal*:
 | Type | Cost |
 | - | :-: |
-| *baker-fee* | 0,000597tez |
+| *baker-fee* | 0,00055tez |
 | *gas* | 1214gu |
 
 The third one is *Timeout*:
 | Type | Cost |
 | - | :-: |
-| *baker-fee* | 0,0007tez |
+| *baker-fee* | 0,00055tez |
 | *gas* | 1211gu |
 
 ## Token Transfer
@@ -59,7 +59,7 @@ The first one, created by me, is *Mint* and requires a total fee of **0,05891tez
 The second is *Transfer*:
 | Type | Cost |
 | - | :-: |
-| *baker-fee* | 0,000786tez |
+| *baker-fee* | 0,00075tez |
 | *gas* | 2153gu |
 
 The third is *Update_operators* and requires a total fee of **0,017467**:
@@ -75,20 +75,62 @@ Actually this entrypoint has two differents:
 The first one costs more because requires a storage change meanwhile the *baker-fee* is the same.
 
 
-### Low rates
-The fees showed above are the standard one proposed by the RPC [2](#references) during deployment.
-Doing various tests can be found lowest fees, these are the ones I found:
-| Contract | EntryPoint | Lowest Fee |
-| - | - | :-: |
-| SimpleTransfer | Deposit |  0,00044tez |
-| SimpleTransfer | Withdraw | 0,0012tez |
-| HTLC | Commit | 0,0006tez |
-| HTLC | Reveal | 0,00055tez |
-| HTLC | Timeout | 0,00055tez |
-| TokenTransfer | Mint | 0,0415tez |
-| TokenTransfer | Transfer | 0,00075tez |
-| TokenTransfer | Update_operators | 0,01743tez |
+## Blind Auction
+In this SC can be called two differents entry-points.
+The first one is the *bid* and requires a total fee of **0,015545tez**:
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,000545tez |
+| *storage-fee* | 0,015tez |
+| *gas* | 2343gu |
+| *bytes* | 60 |
+
+The second one is *getWinner*:
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,000438tez |
+| *gas* | 1211gu |
+
+
+## Crowd Funding
+In this SC can be called three differents entry-points.
+The first one is the *checkResult*:
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,000567tez |
+| *gas* | 1211gu |
+
+The second one is *contribute* and requires a total fee of **0,010048**:
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,000548tez |
+| *storage-fee* | 0,0095tez 
+| *gas* | 2285gu |
+| *bytes* | 38 | 
+
+The second one is *refund*:
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,000535tez |
+| *gas* | 1211gu |
+
+## King of Tezos
+In this SC can be called two differents entry-points.
+The first one is the *newKing* and requires a total fee of **0,010536tez**:
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,000536tez |
+| *storage-fee* | 0,01tez |
+| *gas* | 1210gu |
+| *bytes* | 40 |
+
+The second one is *killKing*:
+| Type | Cost |
+| - | :-: |
+| *baker-fee* | 0,000436tez |
+| *gas* | 1209gu |
+
+
 
 ### Refernces 
 1. At the beginning to do the tests I used the SmartPy platform and after a personalized [script](https://github.com/TheMastro-11/SmartContractTestScript-By-Taquito-) using [Taquito](https://tezostaquito.io/).
-2. RPC stands for ['Remote Procedure Call'](https://en.wikipedia.org/wiki/Remote_procedure_call), widely use in the IT. In this case it's used to gain information from the blockchain.

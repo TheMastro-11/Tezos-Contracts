@@ -2,7 +2,7 @@ import smartpy as sp
 
 class CrowdFunding(sp.Contract):
     def __init__(self, admin, deadline):
-        self.init(admin = admin, startDate = sp.timestamp(0), endDate = deadline, contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TList(sp.TMutez) ), ceiling = sp.mutez(100000))
+        self.init(admin = admin, startDate = sp.timestamp_from_utc_now(), endDate = deadline, contributors = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TList(sp.TMutez) ), ceiling = sp.mutez(100000))
 
     @sp.entry_point
     def checkResult(self, time):
@@ -61,7 +61,7 @@ def testCrowd():
     sofia = sp.test_account("sofia")
     sergio = sp.test_account("sergio")
 
-    time = sp.timestamp(0) #calculate execution time
+    time = sp.timestamp_from_utc_now() #calculate execution time
     time = time.add_minutes(2)
     sc.h1("Check Time")
     crowdFunding.checkResult(time).run(sender = admin).run(valid = False)

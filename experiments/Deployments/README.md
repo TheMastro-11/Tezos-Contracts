@@ -90,23 +90,23 @@ The *burn-fee* are divided in:
 All the details can be found [here](https://better-call.dev/ghostnet/KT19Yw7uupmjzkCUsAmLEsujpZoR3LHwHjTJ/operations).
 
 ## Crowd Funding
-CrowdFunding requires a total of **0,288781tez** to be deployed:
+CrowdFunding requires a total of **0,289781tez** to be deployed:
 
 | Type | Cost |
 | - | :-: |
 | *baker-fee* | 0,001531tez |
-| *burn-fee* | 0,28725tez |
-| *gas* | 1681gu |
-| *bytes* | 892 |
+| *burn-fee* | 0,28825tez |
+| *gas* | 1682gu |
+| *bytes* | 896 |
 
 The *burn-fee* are divided in:
 | Type | Cost |
 | - | :-: |
-| *storage-fee* | 0,223tez |
+| *storage-fee* | 0,224tez |
 | *allocation-fee* | 0,06425tez |
 
 
-All the details can be found [here](https://better-call.dev/ghostnet/KT1Hr5tdPyM4asWQTNMeHzDHtYEoRtYYX4jU/operations).
+All the details can be found [here](https://better-call.dev/ghostnet/KT1XQ3Vkxqd54kbpFozpSGd676zdSfPMqrPS/operations).
 
 ## King of Tezos
 King of Tezos requires a total of **0,161482tez** to be deployed:
