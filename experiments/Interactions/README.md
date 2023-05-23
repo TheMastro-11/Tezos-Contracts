@@ -1,4 +1,4 @@
-# SmartContract Interactions
+# Contract Interaction Fees
 Calling an **entry-point** requires, like other transactions on chain, a specific fee:
 * *baker-fee*
 * *storage-fee* = in this case represents the ***field**-change* from the initial state to the new one.
