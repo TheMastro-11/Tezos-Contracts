@@ -122,7 +122,8 @@ The *burn-fee* are divided into the:
 
 All the details can be found [here](https://better-call.dev/ghostnet/KT1XTv6oPMgX6RbepELh8E6R1GCYU6rArX1x/operations).
 
-### Differences
+## Comparison
+
 The main differences between the transaction costs for deployment are made by the storage fee, so how many state variables are generated.
 Alongside the *allocation-fee* is the same.
 [2](#references)
