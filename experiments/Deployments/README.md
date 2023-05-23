@@ -1,15 +1,15 @@
 # SmartContract Deploy
-The transaction cost for SCdeploy is composed by two types:
+The transaction cost for SCdeploy is composed of two types:
 * *baker-fee* 
 * *burn-fee* = divided in:
   1. *storage-fee* = as defined [before](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/experiments)
-  2. *allocation-fee* = a fix amount for every contract created on chain.
+  2. *allocation-fee* = a fixed amount for every contract created on chain.
 
-The *burn-fee* doesn't go to anyone differently then the first one, that's the great difference between **Tez Transaction** and **SmartContract Transaction**.
-Actually an admin can add a balance amount as starter for the contract, that amount must be added to the total cost.
+The *burn-fee* doesn't go to anyone different than the first one, that's the great difference between **Tez Transaction** and **SmartContract Transaction**.
+Actually, an admin can add a balance amount as a starter for the contract, that amount must be added to the total cost.
 [1](#references)
 
-Three differents contracts from this repository are used for these experiments:
+Three different contracts from this repository are used for these experiments:
 * [Simple Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/SimpleTransfer)
 * [HTLC](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/HTLC)
 * [Token Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/TokenTransfer))
@@ -24,7 +24,7 @@ Simple Transfer requires a total of **0,114275tez** to be deployed:
 | *gas* | 1454gu |
 | *bytes* | 454 |
 
-The *burn-fee* are divided in:
+The *burn-fee* are divided into the:
 | Type | Cost |
 | - | :-: |
 | *storage-fee* | 0,04925tez |
@@ -42,7 +42,7 @@ HTLC requires a total of **0,214686tez** to be deployed:
 | *gas* | 1568gu |
 | *bytes* | 597 |
 
-The *burn-fee* are divided in:
+The *burn-fee* are divided into the:
 | Type | Cost |
 | - | :-: |
 | *storage-fee* | 0,14925tez |
@@ -61,7 +61,7 @@ TokenTransfer requires a total of **0,5145tez** to be deployed:
 | *gas* | 2109gu |
 | *bytes* | 1792 |
 
-The *burn-fee* are divided in:
+The *burn-fee* are divided into the:
 | Type | Cost |
 | - | :-: |
 | *storage-fee* | 0,448tez |
@@ -80,7 +80,7 @@ Blind Auction requires a total of **0,297788tez** to be deployed:
 | *gas* | 1764gu |
 | *bytes* | 928 |
 
-The *burn-fee* are divided in:
+The *burn-fee* are divided into the:
 | Type | Cost |
 | - | :-: |
 | *storage-fee* | 0,232tez |
@@ -99,7 +99,7 @@ CrowdFunding requires a total of **0,289781tez** to be deployed:
 | *gas* | 1682gu |
 | *bytes* | 896 |
 
-The *burn-fee* are divided in:
+The *burn-fee* are divided into the:
 | Type | Cost |
 | - | :-: |
 | *storage-fee* | 0,224tez |
@@ -118,7 +118,7 @@ King of Tezos requires a total of **0,161482tez** to be deployed:
 | *gas* | 1510gu |
 | *bytes* | 385 |
 
-The *burn-fee* are divided in:
+The *burn-fee* are divided into the:
 | Type | Cost |
 | - | :-: |
 | *storage-fee* | 0,09625tez |
@@ -128,10 +128,10 @@ The *burn-fee* are divided in:
 All the details can be found [here](https://better-call.dev/ghostnet/KT1XTv6oPMgX6RbepELh8E6R1GCYU6rArX1x/operations).
 
 ### Differences
-The main differences between the transaction costs for deploy are made by the storage fee, so how many contract field are generated.
+The main differences between the transaction costs for deployment are made by the storage fee, so how many contract fields are generated.
 Alongside the *allocation-fee* is the same.
 [2](#references)
 
 ### References
-1. For deploy I used the SmartPy platform.
-2. A detailed explaination of how gas and fees are calculated can be found [here](https://kitchen.stove-labs.com/docs/knowledge/tezos_protocol/operations/gas-fees/).
+1. For deployment I used the SmartPy platform.
+2. A detailed explanation of how gas and fees are calculated can be found [here](https://kitchen.stove-labs.com/docs/knowledge/tezos_protocol/operations/gas-fees/).

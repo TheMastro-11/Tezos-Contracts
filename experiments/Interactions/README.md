@@ -1,5 +1,5 @@
 # SmartContract Interactions
-Calling an **entry-point** requires ,like other transactions on chain, a specific fee:
+Calling an **entry-point** requires, like other transactions on chain, a specific fee:
 * *baker-fee*
 * *storage-fee* = in this case represents the ***field**-change* from the initial state to the new one.
 [1](#references)
@@ -69,14 +69,14 @@ The third is *Update_operators* and requires a total fee of **0,017467**:
 | *storage-fee* | 0,01675tez |
 | *gas* | 1.457gu |
 | *bytes* | 67 |
-Actually this entrypoint has two differents:
+Actually, this entrypoint has two different:
 * add
 * remove
 The first one costs more because requires a storage change meanwhile the *baker-fee* is the same.
 
 
 ## Blind Auction
-In this SC can be called two differents entry-points.
+In this SC can be called two different entry-points.
 The first one is the *bid* and requires a total fee of **0,015545tez**:
 | Type | Cost |
 | - | :-: |
@@ -115,7 +115,7 @@ The second one is *refund*:
 | *gas* | 1211gu |
 
 ## King of Tezos
-In this SC can be called two differents entry-points.
+In this SC can be called two different entry-points.
 The first one is the *newKing* and requires a total fee of **0,010536tez**:
 | Type | Cost |
 | - | :-: |
@@ -132,5 +132,5 @@ The second one is *killKing*:
 
 
 
-### Refernces 
+### References 
 1. At the beginning to do the tests I used the SmartPy platform and after a personalized [script](https://github.com/TheMastro-11/SmartContractTestScript-By-Taquito-) using [Taquito](https://tezostaquito.io/).

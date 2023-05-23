@@ -13,9 +13,9 @@ I have developed a set of use cases in the Archetype, LIGO, and SmartPy language
 - [Token Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/TokenTransfer)
 
 ## Language Comparison
-After developed a bunch of Contracts in every language available I made a [detailed](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts) comparison between them in order to find out which was the best solution to continue developing and make tests. 
+After developing a bunch of Contracts in every language available I made a [detailed](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts) comparison between them to find out which was the best solution to continue developing and make tests. 
 I choose SmartPy.
 
 ## Deploy and test
-I have [experimented](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/experiments) 7 Smart Contracts on *Test net* to evaluate the paid fees fot both [deploy](/experiments/Deployments/) and [interactions](/experiments/Interactions/).
+I have [experimented](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/experiments) 7 Smart Contracts on *Test Net* to evaluate the paid fees fot both [deployment](/experiments/Deployments/) and [interactions](/experiments/Interactions/).
 To help me in this work I have developed a [tool](https://github.com/TheMastro-11/SmartContractTestScript-By-Taquito-) to automatize the estimation of the execution costs.
