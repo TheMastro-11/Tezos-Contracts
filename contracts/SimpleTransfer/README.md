@@ -14,4 +14,4 @@ available in the contract.
 
 ## Use Case
 1. Pippo wants to send 100tz to Sofia as a gift.
-2. He send money to the contract and knows she will withdraw that on her birthday.
+2. He sends money to the contract and knows she will withdraw that on her birthday.

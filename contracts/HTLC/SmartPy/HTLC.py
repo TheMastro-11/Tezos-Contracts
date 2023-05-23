@@ -2,7 +2,7 @@ import smartpy as sp
 
 class HashTimedLockedContract(sp.Contract):
     def __init__(self):
-        self.init(deadline = sp.none, commiter = sp.none , receiver = sp.none, hash = sp.none)
+        self.init(deadline = sp.none, committer = sp.none , receiver = sp.none, hash = sp.none)
 
     @sp.entry_point
     def commit(self, deadline, receiver, hash):
@@ -11,7 +11,7 @@ class HashTimedLockedContract(sp.Contract):
         self.data.receiver = sp.some(receiver)
         self.data.hash = sp.some(hash)
         
-        self.data.commiter = sp.some(sp.sender)
+        self.data.committer = sp.some(sp.sender)
 
     @sp.entry_point
     def reveal(self, word):
@@ -22,7 +22,7 @@ class HashTimedLockedContract(sp.Contract):
         sp.verify(self.data.hash == sp.some(hash), "Wrong word") #checked
 
         #transfer collateral to commiter
-        sp.send(self.data.commiter.open_some(), sp.balance)
+        sp.send(self.data.committer.open_some(), sp.balance)
 
 
     @sp.entry_point
