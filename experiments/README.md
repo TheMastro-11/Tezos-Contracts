@@ -2,12 +2,12 @@
 A part of the work in this project also consists in the study of calculation fees on the Texos's Blockchain.
 
 ### The formula
-On the official documentation can be found a formula that describes how much costs a transaction.
+On the official [documentation](https://opentezos.com/tezos-basics/economics-and-rewards/) can be found a formula that describes how much costs a transaction.
 The standard unit is the **mutez**, 1 tez = 1.000.000 mutez.
 The minimal unit is the **nano-tez**, 1 mutez = 1000 nano-tez 
 
 Let: 
-* Minimal Fees: minFminF​
+* Minimal Fees: minF
 * Size of the operation (in bytes "BB"): ss 
   (The size "ss" is the number of bytes in the complete serialized operation).
 * Gas used for the operation (in gas unit "gugu​"): gg
