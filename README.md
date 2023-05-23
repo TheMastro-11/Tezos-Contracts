@@ -44,7 +44,7 @@ class HashTimedLockedContract(sp.Contract):
         self.init(deadline = sp.none, committer = sp.none , receiver = sp.none, hash = sp.none)
 
 ```
-at the origination this contract has four empty field
+at the origination this contract has four empty fields
 ```
  def commit(self, deadline, receiver, hash):
         #save into data
