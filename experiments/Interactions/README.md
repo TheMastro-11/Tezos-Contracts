@@ -23,7 +23,7 @@ The second one is *Withdraw*:
 
 *Storage-fee* is not required because there's no change in the Contract field.
 
-## Hash Timeed Locked Contract
+## Hash Timed Locked Contract
 In this SC can be called three differents entry-points.
 The first one is *Commit* and requires a total fee of **0,0246tez**:
 | Type | Cost |
