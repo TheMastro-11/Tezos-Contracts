@@ -1,6 +1,6 @@
 # Contract Interaction Fees
 Here are all the interaction costs of each entrypoints of every [contract](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts) developed.
-At the beginning to do the tests I used the SmartPy platform and after a personalized [script](https://github.com/TheMastro-11/SmartContractTestScript-By-Taquito-) using [Taquito](https://tezostaquito.io/).
+At the beginning to do the tests I used the SmartPy platform and after a personalized [script](https://github.com/TheMastro-11/SmartContract-Execution-Costs-By-Taquito) using [Taquito](https://tezostaquito.io/).
 
 ## Simple Transfer
 In this SC can be called two differents entry-points.
