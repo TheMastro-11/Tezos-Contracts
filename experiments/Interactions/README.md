@@ -127,7 +127,7 @@ The first one, shows above, costs more because requires a storage change meanwhi
 
 
 ## Comparison
-| Contract | EntryPoints | Cost |
+| Contract | EntryPoint | Cost |
 | - | - |:-: | 
 | Simple Transfer | deposit | 0,00719tez |
 | Simple Transfer | withdraw | 0,0012tez  |
