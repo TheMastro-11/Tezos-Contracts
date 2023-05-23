@@ -91,4 +91,3 @@ The average nꜩ/gu ranges between 401 and 404.
 ## References
 1. [Economics and Rewards](https://opentezos.com/tezos-basics/economics-and-rewards/)
 2. The wallet used for the test was the TempleWallet
-3. *Baker-fee* are the fees paid to bakers, the [bakers](https://opentezos.com/baking/baking_explained/) are the *miner*-equivalent for other blockchains (with some differents).
