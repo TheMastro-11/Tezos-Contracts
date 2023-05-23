@@ -8,7 +8,7 @@ The minimal unit is the **nano-tez**, 1 mutez = 1000 nano-tez
 
 Let: 
 * Minimal Fees: minF
-* Size of the operation (in bytes "BB"): ss 
+* Storage Fee (in bytes "BB"): ss 
   (The size "ss" is the number of bytes in the complete serialized operation).
 * Gas used for the operation (in gas unit "gugu​"): gg
 * Minimal nano-tez per byte: min(nꜩ/B)
