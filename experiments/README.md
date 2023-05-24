@@ -22,7 +22,7 @@ The transaction default values are:
 * minF=100 µꜩ
 * min(nꜩ/B)=250,000 nꜩ/B (250 µꜩ/B)
 * min(nꜩ/gu)=100 nꜩ/gu​ 
- [1](#References)
+[[1]](#References)
 
 ### Contract Deployment
 The transaction cost for deployment is composed of two types:
@@ -30,7 +30,7 @@ The transaction cost for deployment is composed of two types:
 * *burn-fee* = divided in:
   1. *storage-fee* = changes according to storage size (min(nꜩ/B)=250,000 nꜩ/B (250 µꜩ/B))
   2. *allocation-fee* = a fixed amount for every contract created on chain.
-The *baker-fee* are the fees payed to validators. Are divided in *gas-fee* (min(nꜩ/gu)=100 nꜩ/gu) and a variable amount choosen by the transaction sender (if it's too low the transacton may not be validate).
+The *baker-fee* are the fees payed to validators[[2]](#references). Are divided in *gas-fee* (min(nꜩ/gu)=100 nꜩ/gu) and a variable amount choosen by the transaction sender (if it's too low the transacton may not be validate).[[3]](#references)
 The *burn-fee* doesn't go to anyone compared to the first one and they represent the great difference between **Tez Transaction** and **SmartContract Transaction**.
 Actually, an admin can add a balance amount as a starter for the contract, that amount must be added to the total cost.
 
@@ -68,9 +68,9 @@ def withdraw(self):
 ```
 
 ## Testnet
-For concenience all the tests made are on the testnet, specifically the *GhostNet*.
-This gives the opportunity to do unlimited tests whitout spending money or risk any cyber-attack from outside.
-The testnets are widely used in all of SC's Blockchains (like Ethereum).
+In the blockchain ecosystem, testnets are considered to be entirely separate networks that are used for testing purposes. As such, testnet tokens allow developers to build and test their applications all without risking any monetary value.[[4]](#references)
+I used the *GhostNet*, a testnet that follows *Mainnet* updates.[[5]](#references).
+
 
 ## Tez Transactions
 A simple transaction for 1,10,100 or 1000 tez as always the same gas cost of 1001gu and a three base fees ranges for differents frame time *more pay less wait*:
@@ -81,13 +81,17 @@ A simple transaction for 1,10,100 or 1000 tez as always the same gas cost of 100
 | *Rocket*  | 0,0002tez  |
 | *Custom*  |  variable  | 
 
-[2](#References)   
+[[6]](#References)   
 This amount will be added to the gas-cost.
 For example a *minimal* fee transaction results in total of **0,000503tez** with **0,000403tez** in gas-fee, so 403 nꜩ/gu.
-The minimal amount I used for a transaction is **0,00001tez** with a total *baker-fee* [3](#References) of **0,000414tez** with **0,000404tez** in gas-fee, so 404 nꜩ/gu.
+The minimal amount I used for a transaction is **0,00001tez** with a total *baker-fee* of **0,000414tez** with **0,000404tez** in gas-fee, so 404 nꜩ/gu.
 The average nꜩ/gu ranges between 401 and 404.
 
 
 ## References
 1. [Economics and Rewards](https://opentezos.com/tezos-basics/economics-and-rewards/)
-2. The wallet used for the test was the TempleWallet
+2. A baker is a validator, as a miner in a PoW chain like Bitcoin. More [info](https://opentezos.com/contribute/baker/)
+3. A detailed explanation of how gas and fees are calculated can be found [here](https://kitchen.stove-labs.com/docs/knowledge/tezos_protocol/operations/gas-fees/).
+4. Testnets article from [Tezos Wiki](https://wiki.tezos.com/build/clients/testnets)
+5. GhostNet article from [Medium](https://medium.com/the-aleph/introducing-ghostnet-1bf39976e61f)
+6. The wallet used for the test was the TempleWallet

@@ -9,7 +9,8 @@ Some key features that these languages have in common are:
 They all have similar capabilities but also they have slightly different syntax and toolsets.
 
 ## SmartPy
-While using SmartPy, it took me a long time to understand the dynamics of how a Smart Contract works on Tezos and the use of *entrypoints*. 
+SmartPy is a comprehensive solution for developing, testing, and deploying smart contracts on the Tezos blockchain. With its easy-to-use Python syntax, developers can create contracts in a familiar and intuitive way, while SmartPy's type inference provides added safety.[[1]](#references)
+It took me a long time to understand the dynamics of how a Smart Contract works on Tezos and the use of *entrypoints*. 
 I was helped by:
 - The use of a commonly used language (Python).
 - Extensive documentation and several online tutorials.
@@ -32,6 +33,8 @@ Compared to Python, SmartPy is a strongly typed language, which can result in pr
 
 
 ## Archetype
+Archetype is an elegant generic-purpose language to develop Smart Contracts on the Tezos blockchain.
+It supports all Michelson features, but also provides exclusive high-level features for a precise and concise source code, that make contracts easier to develop, read and maintain.[[2]](#references)
 **Pros**:
 - Good documentation. 
 - A simple, readable syntax that is inspired by other popular programming languages.
@@ -43,12 +46,21 @@ Compared to Python, SmartPy is a strongly typed language, which can result in pr
 
 
 ## Ligo
+LIGO is a functional language designed to include the features you need while avoiding patterns that make formal verification hard. Most useful smart contracts can express their core functionality in under a thousand lines of code. This makes them a good target for formal methods, and what can't be easily proven can at least be extensively tested. The simplicity of LIGO also keeps its compiled output unbloated. Our hope is to have a simple, strongly typed language with a low footprint.[[3]](#references)
+
 **Pros**:
 - Ligo has a syntax that is inspired by OCaml, therefore it is familiar to those who already know this language. 
 
 **Cons**:
 - Difficulty in using constructs like *Option*.
-- Little documentation and few developers.
+- Documentation can be improved.
+- Few developers.
 - The several versions of this language (JsLIGO, CameLIGO, PascaLIGO and ReasonLIGO) could cause some confusion in their use.
 - The system through which the *main* calls *entrypoints* is quite complex: in Ligo, a return value is always required for the entrypoints so that the operations carried inside can be transmitted to the main.
 - Inability to create functions outside of the *entries* and have global variables.
+
+
+## References
+1. SmartPy [introduction](https://smartpy.io/docs/manual/introduction/overview)
+2. Archetype [introduction](https://archetype-lang.org/docs/introduction)
+3. Ligo [introduction](https://ligolang.org/docs/intro/introduction?lang=jsligo)
