@@ -1,4 +1,4 @@
-# Blind Auction
+# Auction
 This contract manages an auction where each participant knows only their bid and not the others.
 In this way, each contestant tries to offer the biggest amount because afraid of the other proposal.
 Also following this method an auction does not require a long time to be completed, once the time starts and all the bidders sent their money (usually in minutes through blockchain), the winner could be discovered minutes right after.
