@@ -1,7 +1,5 @@
 # Auction
-This contract manages an auction where each participant knows only their bid and not the others.
-In this way, each contestant tries to offer the biggest amount because afraid of the other proposal.
-Also following this method an auction does not require a long time to be completed, once the time starts and all the bidders sent their money (usually in minutes through blockchain), the winner could be discovered minutes right after.
+This contract manages an auction where each participant knows only their bid and not the others'. This way, each contestant bids higher to have a better chance at winning. Furthermore, through this method an auction doesn't require long to be completed: once the time starts and all the bidders send their money (which usually happens in minutes through the blockchain), the winner is announced within minutes.
 
 There will be three actors:
 
@@ -16,7 +14,7 @@ The contract implements three different rules:
  
 ## State Variables
 - `bidders` : map of bidders with the address as key and the offer as value 
-- `top` : the list of top bidder/s with the related amount, is a list in case there are two or more equal offers
+- `top` : the list of top bidder/s with the related amount; it is used in case there are two or more equal offers
 - `minBid` : the minimum value for a bid. 
 
 ## EntryPoints
