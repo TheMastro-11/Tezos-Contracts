@@ -2,54 +2,53 @@
 The goal of this project is to evaluate the costs of developing and executing smart contracts in the [Tezos blockchain](https://tezos.com/).
 
 ## The Tezos Blockchain
-A blockchain is a distributed ledger with growing lists of records (blocks) that are securely linked together via cryptographic hashes.[[1]](#references)
-In a few words, blockchains represent the new frontier in the finance world.
-Born in 2008 with Bitcoin (the first ever published), a blockchain is a fully decentralized system that gives to millions (potentially billions) users around the world the opportunity to exchange money (like bitcoin) with [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) transactions and very low fees.
+A blockchain is a distributed ledger with growing lists of records (blocks) that are securely linked together via cryptographic hashes.[[1]](#references)<br>
+In a few words, blockchains represent the new frontier in the finance world.<br>
+Born in 2008 with Bitcoin (the first ever published), a blockchain is a fully decentralized system that gives to millions (potentially billions) users around the world the opportunity to exchange money (like bitcoin) with [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) transactions and very low fees.<br>
 Due to its growth, new mechanics were born and the system's functionalities were expanded, one of which was the smart contract.
 
-Launched in 2018, Tezos is an open-source platform for assets and applications that can evolve by upgrading itself.[[2]](#references)
-It is designed to enable secure, efficient, and scalable smart contracts and decentralized applications (dApps). 
-It uses an on-chain governance model that enables the protocol to be amended when upgrade proposals receive a favorable vote from the community[[3]](#references), offering stakeholders the ability to actively participate in the decision-making process of protocol upgrades.
+Launched in 2018, Tezos is an open-source platform for assets and applications that can evolve by upgrading itself.[[2]](#references)<br>
+It is designed to enable secure, efficient, and scalable smart contracts and decentralized applications (dApps). <br>
+It uses an on-chain governance model that enables the protocol to be amended when upgrade proposals receive a favorable vote from the community[[3]](#references), offering stakeholders the ability to actively participate in the decision-making process of protocol upgrades.<br>
 Tezos uses a proof-of-stake (PoS[[4]](#references)) consensus mechanism, allowing token holders to participate in the validation of transactions and the creation of new blocks. PoS system promotes energy efficiency and reduces the environmental impact typically associated with traditional proof-of-work (PoW[[4]](#references)) blockchains, like Bitcoin.
-Its core language, Michelson, is designed for formal verification, a technique that ensures the correctness of smart contracts by mathematically proving their properties. By leveraging formal verification, Tezos aims to minimize the risks associated with coding errors, making it a robust and reliable platform for developers.
-Additionally, Tezos supports tokenization, enabling the creation of digital assets and facilitating the issuance of new tokens on the platform. This functionality opens up opportunities for crowdfunding, asset tokenization, and the creation of decentralized financial applications.
+Its core language, Michelson, is designed for formal verification, a technique that ensures the correctness of smart contracts by mathematically proving their properties. By leveraging formal verification, Tezos aims to minimize the risks associated with coding errors, making it a robust and reliable platform for developers.<br>
+Additionally, Tezos supports tokenization, enabling the creation of digital assets and facilitating the issuance of new tokens on the platform. This functionality opens up opportunities for crowdfunding, asset tokenization, and the creation of decentralized financial applications.<br>
 Tezos offers three different programming languages:
 - SmartPy
 - Archetype
 - Ligo
 
-each one with unique properties and funtionalities.
+each one with unique properties and funtionalities.<br>
 Therefore at the beginning of my work, i tested all three of them.
 
 
 ## Smart contract in Tezos
-A smart contract is a computer program or a transaction protocol that is intended to automatically execute, control or document events and actions according to the terms of a contract or an agreement. The objectives of smart contracts are the reduction of need for trusted intermediators, arbitration costs, and fraud losses, as well as the reduction of malicious and accidental exceptions. [[5]](#references)
+A smart contract is a computer program or a transaction protocol that is intended to automatically execute, control or document events and actions according to the terms of a contract or an agreement. The objectives of smart contracts are the reduction of need for trusted intermediators, arbitration costs, and fraud losses, as well as the reduction of malicious and accidental exceptions. [[5]](#references)<br>
 An example:
-in the traditional finance ecosystem, if someone wants to buy something, whether it's a videogame or a car, they have a series of guarantees that allow them to make the purchase in complete safety.
-In the first case, they would buy the product from an official shop, and if it doesn't work, they have a receipt that they can use to get a refund. In the second case, if they buy the car in a private deal, they then have to go to an authorized official to make a change of ownership, or if they buy from a dealer they'll have to sign a contract to complete the purchase, either way they have a strong guarantee.
-Because the blockchain is fully decentralized, hence there are no intermediaries, that's what the smart contract is used for.
-A smart contract is a program which runs perpetually on the blockchain since its deployment; it gives users a safe place where they can make transactions for services or *tokenized items*[[6]](#references).
-Another example: 
+in the traditional finance ecosystem, if someone wants to buy something, whether it's a videogame or a car, they have a series of guarantees that allow them to make the purchase in complete safety.<br>
+In the first case, they would buy the product from an official shop, and if it doesn't work, they have a receipt that they can use to get a refund. In the second case, if they buy the car in a private deal, they then have to go to an authorized official to make a change of ownership, or if they buy from a dealer they'll have to sign a contract to complete the purchase, either way they have a strong guarantee.<br>
+Because the blockchain is fully decentralized, hence there are no intermediaries, that's what the smart contract is used for.<br>
+A smart contract is a program which runs perpetually on the blockchain since its deployment; it gives users a safe place where they can make transactions for services or *tokenized items*[[6]](#references).<br>
+Another example: <br>
 person **A** from the USA wants to buy an item from person **B** in Australia; they could make the purchase privately with a simple transaction, but **A** would then have no guarantee that **B** wouldn't disappear once the purchase is finalized. This is where the smart contract comes in: if **B** doesn't send the item for the purchase, the smart contract automatically refunds **A** and the deal is off.
 
 By default, Tezos smart contracts are written in Michelson[[7]](#references), but it is an hard to learn low level formal language and is the reason why the above mentioned languages are available.<br>
 This is the *transpile* process:
 ![alt text](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/blob/main/src/smartml.png)<br>
-The SmartPy library is used to access SmartML definitions; We can get a SmartML piece from a SmartPy piece. SmartPy offers a compiler to translate SmartML to Michelson.[[8]](#references)
+The SmartPy library is used to access SmartML definitions; We can get a SmartML piece from a SmartPy piece. SmartPy offers a compiler to translate SmartML to Michelson.[[8]](#references)<br>
 
 A smart contract has two fundamental parts:
 * Storage or State Variables
 * Entrypoints
 
-The first one is the memory, publicly visible.
+The first one is the memory, publicly visible.<br>
 At the origination an admin can give some value to the contract:
 ```
 class Throne(sp.Contract):
     def __init__(self, admin):
         self.init(king = admin, history = sp.map(l = {}, tkey = sp.TAddress, tvalue = sp.TRecord(value = sp.TMutez, data = sp.TTimestamp)), floorPrice = sp.mutez(5000))
 ```
-in this case `admin` is passed as parameter during deployment meanwhile `floorprice` is setted before and `history` is empty.
-<br>
+in this case `admin` is passed as parameter during deployment meanwhile `floorprice` is setted before and `history` is empty.<br><br>
 Otherwise a contract could have all empty field:
 
 ```
@@ -67,14 +66,15 @@ and they will be modified during *entrypoint* executions
         
         self.data.committer = sp.some(sp.sender)
 ```
-an *entrypoint* could have some parameters, here are used to update the *storage*, that will keep the values for the next time they are necessary.
-The *storage* partially replaces the lack of a *return*, in fact we will never receive a response from the contract as a function do.
-In some cases we could use a *callback*:
-The *callback* contract is a combination of an address and an optional entrypoint, which is type-checked on-chain at runtime — which means we can be certain that it supports the required callback parameters, which is a list of responses (requests + balance).
-List of responses is sent to the *callback* contract in an operation emitted internally by the TZIP-12 contract.
+an *entrypoint* could have some parameters, here are used to update the *storage*, that will keep the values for the next time they are necessary.<br>
+The *storage* partially replaces the lack of a *return*, in fact we will never receive a response from the contract as a function do.<br>
+In some cases we could use a *callback*:<br>
+The *callback* contract is a combination of an address and an optional entrypoint, which is type-checked on-chain at runtime — which means we can be certain that it supports the required callback parameters, which is a list of responses (requests + balance).<br>
+List of responses is sent to the *callback* contract in an operation emitted internally by the TZIP-12 contract.<br>
 It’s up to the receiving contract to decide what to do with the incoming data, however none of those transaction can fail, otherwise the whole chain of transactions will be rolled back.[[9]](#references)
 <br>
 Here the **committer** and **hash** values are taken from storage.
+
 ```
 def reveal(self, word):
         #hash
@@ -86,8 +86,7 @@ def reveal(self, word):
         #transfer collateral to commiter
         sp.send(self.data.committer.open_some(), sp.balance)
 ```
-Both **commit** and **reveal** are *entrypoints*, essentially what allows a user to interact with the smart contract.
-<br>
+Both **commit** and **reveal** are *entrypoints*, essentially what allows a user to interact with the smart contract.<br>
 Here an example of how interact with the contract via [client](https://github.com/TheMastro-11/SmartContractTestScript-By-Taquito-).
 ```
 contract.methods.commit(deadline, secret, receiver).send({fee : 2000, amount: 1000, mutez: true});
