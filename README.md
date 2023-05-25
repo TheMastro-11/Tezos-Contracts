@@ -34,7 +34,7 @@ person **A** from the USA wants to buy an item from person **B** in Australia; t
 
 By default, Tezos smart contracts are written in Michelson[[7]](#references), but it is an hard to learn low level formal language and is the reason why the above mentioned languages are available.
 This is the *transpile* process:
-![alt text](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/src/smartml.png)
+![alt text](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/blob/main/src/smartml.png)
 The SmartPy library is used to access SmartML definitions; We can get a SmartML piece from a SmartPy piece. SmartPy offers a compiler to translate SmartML to Michelson.[[8]](#references)
 
 A smart contract has two fundamental parts:
