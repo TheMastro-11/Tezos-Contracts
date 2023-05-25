@@ -8,7 +8,7 @@ A smart contract is a program which runs perpetually on the blockchain since its
 Another example: <br> 
 person **A** from the USA wants to buy an item from person **B** in Australia; they could make the purchase privately with a simple transaction, but **A** would then have no guarantee that **B** wouldn't disappear once the purchase is finalized. This is where the smart contract comes in: if **B** doesn't send the item for the purchase, the smart contract automatically refunds **A** and the deal is off. <br>
 By default, Tezos smart contracts are written in Michelson[[7]](#references), but it is an hard to learn low level formal language and is the reason why are avaiable three different languages.<br> 
-This is the *transpile* process: 
+This is the *transpile* process: <br>
 ![alt text](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/blob/master/src/smartml.png)<br> 
 The SmartPy library is used to access SmartML definitions; We can get a SmartML piece from a SmartPy piece. SmartPy offers a compiler to translate SmartML to Michelson.[[8]](#references)<br> 
 
