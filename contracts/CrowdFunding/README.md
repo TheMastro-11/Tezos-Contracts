@@ -1,5 +1,5 @@
 # CrowdFunding
-Crowdfunding is a Smart Contract I created to learn how to program on the Tezos blockchain.
+Crowdfunding is a smart contract I created to learn how to program on the Tezos blockchain.
 
 For this reason, I have implemented it with all three languages available.
 
@@ -11,7 +11,7 @@ The contract allows users to donate native cryptocurrency to fund a campaign. To
 The goal and expiration date for the fundraiser are defined before opening the latter and cannot be changed.
 
 There will be three actors:
-- Smart Contract, that will manage all operations and maintain funds.
+- Smart contract, that will manage all operations and maintain funds.
 - Admin, who will start the SC and will -eventually- receive the funds.
 - Contributors, who will donate the money.
 

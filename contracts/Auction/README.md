@@ -3,7 +3,7 @@ This contract manages an auction where each participant knows only their bid and
 
 There will be three actors:
 
-- Smart Contract, that will manage all operations and maintain funds.
+- Smart contract, that will manage all operations and maintain funds.
 - Admin, who will start the SC and will receive the biggest bid at the end of the auction.
 - Bidders, who will try to achieve the prize with their offer.
 

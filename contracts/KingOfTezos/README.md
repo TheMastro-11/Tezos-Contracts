@@ -10,7 +10,7 @@ The SC works like a cycle:
     2. Otherwise, if the timer ends the king will be 'killed' and the SC goes back on 1st point. This is how the admin earns money.
 
 There will be three actors:
-- Smart Contract, that will manage all operations and maintain funds.
+- Smart contract, that will manage all operations and maintain funds.
 - Admin, who will start the SC and will earn money in case of point 3.2.
 - Players who will try to achieve and maintain the throne during the game.
 
