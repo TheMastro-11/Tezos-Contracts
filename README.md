@@ -10,7 +10,7 @@ Due to its growth, new mechanics were born and the system's functionalities were
 Launched in 2018, Tezos is an open-source platform for assets and applications that can evolve by upgrading itself.[[2]](#references)<br> 
 It is designed to enable secure, efficient, and scalable smart contracts and decentralized applications (dApps). <br> 
 It uses an on-chain governance model that enables the protocol to be amended when upgrade proposals receive a favorable vote from the community[[3]](#references), offering stakeholders the ability to actively participate in the decision-making process of protocol upgrades.<br> 
-Tezos uses a proof-of-stake (PoS[[4]](#references)) consensus mechanism, allowing token holders to participate in the validation of transactions and the creation of new blocks. PoS system promotes energy efficiency and reduces the environmental impact typically associated with traditional proof-of-work (PoW[[4]](#references)) blockchains, like Bitcoin. 
+Tezos uses a proof-of-stake (PoS[[4]](#references)) consensus mechanism, allowing token holders to participate in the validation of transactions and the creation of new blocks. PoS system promotes energy efficiency and reduces the environmental impact typically associated with traditional proof-of-work (PoW[[5]](#references)) blockchains, like Bitcoin. 
 Its core language, Michelson, is designed for formal verification, a technique that ensures the correctness of smart contracts by mathematically proving their properties. By leveraging formal verification, Tezos aims to minimize the risks associated with coding errors, making it a robust and reliable platform for developers.<br> 
 Additionally, Tezos supports tokenization, enabling the creation of digital assets and facilitating the issuance of new tokens on the platform. This functionality opens up opportunities for crowdfunding, asset tokenization, and the creation of decentralized financial applications.<br> 
 Tezos offers three different programming languages: 
@@ -41,12 +41,8 @@ I have [experimented](https://github.com/TheMastro-11/Evaluating-execution-and-d
 To help me in this work I have developed a [tool](https://github.com/TheMastro-11/SmartContract-Execution-Costs-By-Taquito) to automatize the estimation of the execution costs. 
 
 ## References 
-1. Blockchain article from [Wikipedia](https://en.wikipedia.org/wiki/Blockchain) 
-2. Tezos [basics](https://tezos.com/learn/what-is-tezos/) 
-3. Tezos article from [Wikipedia](https://en.wikipedia.org/wiki/Tezos) 
-4. You can find a more detailed description of PoS [here](https://en.wikipedia.org/wiki/Proof_of_stake) and PoW [here](https://en.wikipedia.org/wiki/Proof_of_work) 
-5. Smart contract article from [Wikipedia](https://en.wikipedia.org/wiki/Smart_contract) 
-6. You can find an example of how *Tokenization* works [here](https://www.nasdaq.com/articles/what-is-tokenization-and-how-does-it-work) 
-7. [Michelson.org](https://www.michelson.org/) 
-8. [Tezos Developer Portal](https://tezos.b9lab.com/smartpy/intro) 
-9. An example article from [Medium](https://medium.com/@matej.sima/tutorial-implementing-a-mini-token-contract-on-tezos-with-on-chain-callbacks-tzip-12-b04cf7ee2059) 
+1. [Blockchain](https://en.wikipedia.org/wiki/Blockchain) (last update 22 May 2023) Wikipedia, *The free encyclopedia*. Retrieved May 23, 2023.
+2. [Tezos basics](https://tezos.com/learn/what-is-tezos/) (n.d.) Tezos. Retrieved May 24, 2023 
+3. [Tezos](https://en.wikipedia.org/wiki/Tezos) (last update 13 May 2023), Wikipedia, *The free encyclopedia*. Retrieved May 24, 2023.
+4. [Proof of stake](https://en.wikipedia.org/wiki/Proof_of_stake) (last update 07 May 2023), Wikipedia, *The free encyclopedia*. Retrieved May 24, 2023.
+5. [Proof of work](https://en.wikipedia.org/wiki/Proof_of_work) (last update 13 May 2023), Wikipedia, *The free encyclopedia*. Retrieved May 24, 2023.

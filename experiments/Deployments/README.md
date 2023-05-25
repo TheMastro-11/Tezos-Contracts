@@ -129,4 +129,4 @@ Alongside the *allocation-fee* is the same.
 [1](#references)
 
 ## References
-1. A detailed explanation of how gas and fees are calculated can be found [here](https://kitchen.stove-labs.com/docs/knowledge/tezos_protocol/operations/gas-fees/).
+1. [Gas & Fees](https://kitchen.stove-labs.com/docs/knowledge/tezos_protocol/operations/gas-fees/) (n.d.), Stove Labs' Kitchen. Retrieved May 20, 2023.

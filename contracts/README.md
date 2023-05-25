@@ -135,6 +135,11 @@ LIGO is a functional language designed to include the features you need while av
 
 
 ## References
-1. SmartPy [introduction](https://smartpy.io/docs/manual/introduction/overview)
-2. Archetype [introduction](https://archetype-lang.org/docs/introduction)
-3. Ligo [introduction](https://ligolang.org/docs/intro/introduction?lang=jsligo)
+1. [SmartPy Introduction](https://smartpy.io/docs/manual/introduction/overview) (n.d.), SmartPy. Retrieved on May 23, 2023.
+2. [Archetype introduction](https://archetype-lang.org/docs/introduction) (n.d.), Archetype-lang. Retrieved on May 23, 2023.
+3. [Ligo introduction](https://ligolang.org/docs/intro/introduction?lang=jsligo) (n.d.), Ligolang. Retrieved on May 23, 2023.
+4. [Smart contract](https://en.wikipedia.org/wiki/Smart_contract) (last update 03 May 2023), Wikipedia, *The free encyclopedia*. Retrieved May 24, 2023.
+5. [What Is Tokenization and How Does It Work?](https://www.nasdaq.com/articles/what-is-tokenization-and-how-does-it-work) (01 September 2022), Nasdaq - GOBankingRates, Taylor DeJesus. Retrieved May 22, 2023. 
+6. [Michelson, the language of Tezos smart-contracts](https://www.michelson.org/) (n.d.), Michelson. Retrieved May 24, 2023. 
+7. [SmartPy - First Steps](https://tezos.b9lab.com/smartpy/intro) (n.d.), Tezod Developer Portal. Retrieved May 24, 2023.
+8. [Implementing a mini token contract with on-chain callbacks (TZIP-12)](https://medium.com/@matej.sima/tutorial-implementing-a-mini-token-contract-on-tezos-with-on-chain-callbacks-tzip-12-b04cf7ee2059) (28 February 2020), Medium - Matej Šima. Retrieved May 24, 2023.

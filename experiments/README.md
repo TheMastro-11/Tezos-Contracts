@@ -30,7 +30,7 @@ The transaction cost for deployment is composed of two types:
 * *burn-fee* = divided in:
   1. *storage-fee* = changes according to storage size (min(nꜩ/B)=250,000 nꜩ/B (250 µꜩ/B))
   2. *allocation-fee* = a fixed amount for every contract created on chain.
-The *baker-fee* are the fees payed to validators[[2]](#references). Are divided in *gas-fee* (min(nꜩ/gu)=100 nꜩ/gu) and a variable amount choosen by the transaction sender (if it's too low the transacton may not be validate).[[3]](#references)
+A baker is a validator, as a miner in a PoW chain like Bitcoin, the *baker-fee* are the fees payed to them [[2]](#references). Are divided in *gas-fee* (min(nꜩ/gu)=100 nꜩ/gu) and a variable amount choosen by the transaction sender (if it's too low the transacton may not be validate).[[3]](#references)
 The *burn-fee* doesn't go to anyone compared to the first one and they represent the great difference between **Tez Transaction** and **SmartContract Transaction**.
 Actually, an admin can add a balance amount as a starter for the contract, that amount must be added to the total cost.
 
@@ -89,9 +89,9 @@ The average nꜩ/gu ranges between 401 and 404.
 
 
 ## References
-1. [Economics and Rewards](https://opentezos.com/tezos-basics/economics-and-rewards/)
-2. A baker is a validator, as a miner in a PoW chain like Bitcoin. More [info](https://opentezos.com/contribute/baker/)
-3. A detailed explanation of how gas and fees are calculated can be found [here](https://kitchen.stove-labs.com/docs/knowledge/tezos_protocol/operations/gas-fees/).
-4. Testnets article from [Tezos Wiki](https://wiki.tezos.com/build/clients/testnets)
-5. GhostNet article from [Medium](https://medium.com/the-aleph/introducing-ghostnet-1bf39976e61f)
+1. [Economics and Rewards](https://opentezos.com/tezos-basics/economics-and-rewards/) (n.d.), Open Tezos. Retrieved May 20, 2023.
+2. [Become a baker or a delegator](https://opentezos.com/contribute/baker/) (n.d.), Open Tezos. Retrieved May 22, 2023.
+3. [Gas & Fees](https://kitchen.stove-labs.com/docs/knowledge/tezos_protocol/operations/gas-fees/) (n.d.), Stove Labs' Kitchen. Retrieved May 20, 2023.
+4. [Testnets](https://wiki.tezos.com/build/clients/testnets) (n.d.), Tezos Wiki. Retrieved May 24, 2023.
+5. [Introducing Ghostnet](https://medium.com/the-aleph/introducing-ghostnet-1bf39976e61f) (30 June 2022), Medium - The Aleph, Nicolas Ochem. Retrieved May 24, 2023.
 6. The wallet used for the test was the TempleWallet
