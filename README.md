@@ -22,8 +22,8 @@ each one with unique properties and functionalities.<br>
 Therefore at the beginning of my work, i tested all three of them. 
 
 ## Use Cases 
-First I read all the manuals in order to understand how a smart contract works and what were the available features and the various generalities on: types, methods, utils, etc.. in each languages.
-Than I have developed a set of use cases trying to explore all possible features and complexity levels: 
+First I read all the manuals in order to understand how a smart contract works and what were the available features and the various generalities on: types, methods, utils, etc.. in each language.
+Then I have developed a set of use cases trying to explore all possible features and complexity levels: 
 - [Simple Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/master/contracts/SimpleTransfer) 
 - [Auction](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/master/contracts/Auction) 
 - [King of Tezos](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/master/contracts/KingOfTezos) 
@@ -49,7 +49,7 @@ At the end I introduced the two main sections which are:
 * [deployment](/experiments/Deployments/) : the publication of contracts on chain
 * [interactions](/experiments/Interactions/) : the call of individual entrypoints
 <br> <br>
-To help me in this work I have developed a [tool](https://github.com/TheMastro-11/SmartContract-Execution-Costs-By-Taquito) to automatize the estimation of the execution costs.<br>
+To help me in this work I have developed a [script](https://github.com/TheMastro-11/SmartContract-Execution-Costs-By-Taquito) to automatize the estimation of the execution costs.<br>
 The script is based on the Taquito boilerplate repository and offers a set of tools aimed at creating a client or a DAPP to interact with the Tezos blockchain.<br>
 Is written in TypeScript and use HTML and CSS for Browser interaction.
 My script consists of two modified files from original: "App.ts" and "index.html."

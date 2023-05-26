@@ -1,7 +1,7 @@
 # Smart contract in Tezos 
 A smart contract is a computer program or transaction protocol designed to automate, control or record events and actions based on predefined terms and conditions.[[1]](#references)<br>
 Because the blockchain is fully decentralized the main goals include minimizing the reliance on trusted intermediaries, reducing arbitration expenses, preventing fraud losses, and mitigating both intentional and unintentional errors or exceptions.<br>
-A smart contract runs perpetually on the blockchain since its deployment and its terms are written into code (publicy visible) and executed automatically, ensuring transparency and efficiency in the agreement's enforcement.
+A smart contract runs perpetually on the blockchain since its deployment and its terms are written into code (publicly visible) and executed automatically, ensuring transparency and efficiency in the agreement's enforcement.
 These contracts have the potential to revolutionize various industries by streamlining processes, increasing trust, and enabling new business models. They can be utilized in areas such as supply chain management, financial services, real estate transactions through a process call *tokenization*[[2]](#references) and more, offering benefits in terms of speed, cost savings, and enhanced security.<br> 
 An example: 
 in the traditional finance ecosystem, if someone wants to buy something, whether it's a videogame or a car, they have a series of guarantees that allow them to make the purchase in complete safety.<br> 
@@ -9,8 +9,8 @@ In the first case, they would buy the product from an official shop, and if it d
 
 Another example: <br> 
 person **A** from the USA wants to buy an item from person **B** in Australia; they could make the purchase privately with a simple transaction, but **A** would then have no guarantee that **B** wouldn't disappear once the purchase is finalized. This is where the smart contract comes in: if **B** doesn't send the item for the purchase, the smart contract automatically refunds **A** and the deal is off. <br> <br>
-By default, Tezos smart contracts are written in Michelson[[3]](#references), which is an hard to learn, low level formal language and is the reason why are avaiable three different languages.<br> 
-This is the *transpile* process: <br>
+By default, Tezos smart contracts are written in Michelson[[3]](#references), which is an hard to learn, low level formal language and is the reason why are available three different languages.<br> 
+This is the conversion process: <br>
 ![alt text](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/blob/master/src/smartml.png)<br> 
 The SmartPy library is used to access SmartML definitions; We can get a SmartML piece from a SmartPy piece. SmartPy offers a compiler to translate SmartML to Michelson.[[4]](#references)<br> 
 
@@ -57,7 +57,7 @@ contract.methods.deposit(—B-Address—).send({amount: 100});
 Now the *storage* is updated, and will keep the values for the next time they are necessary.<br>
 The *storage* partially replaces the lack of a *return*, in fact we will never receive a response from the contract as a function do.<br> 
 In some cases we could use a *callback*:<br> 
-The *callback* contract is a combination of an address and an optional entrypoint, which is type-checked on-chain at runtime — which means we can be certain that it supports the required callback parameters, which is a list of responses (requests + balance).<br> 
+The *callback* contract is a combination of an address and an optional entrypoint, which is type-checked on-chain at runtime which means we can be certain that it supports the required callback parameters, which is a list of responses (requests + balance).<br> 
 List of responses is sent to the *callback* contract in an operation emitted internally by the TZIP-12 contract.<br> 
 It’s up to the receiving contract to decide what to do with the incoming data, however none of those transaction can fail, otherwise the whole chain of transactions will be rolled back.[[5]](#references) <br> 
 
@@ -122,7 +122,7 @@ It supports all Michelson features, but also provides exclusive high-level featu
 
 
 ## Ligo
-LIGO is a functional language designed to include the features you need while avoiding patterns that make formal verification hard. Most useful smart contracts can express their core functionality in under a thousand lines of code. This makes them a good target for formal methods, and what can't be easily proven can at least be extensively tested. The simplicity of LIGO also keeps its compiled output unbloated. Our hope is to have a simple, strongly typed language with a low footprint.[[8]](#references)
+LIGO is a functional language designed to include the features you need while avoiding patterns that make formal verification hard. Most useful smart contracts can express their core functionality in under a thousand lines of code. This makes them a good target for formal methods, and what can't be easily proven can at least be extensively tested. Our hope is to have a simple, strongly typed language with a low footprint.[[8]](#references)
 
 **Pros**:
 - Ligo has a syntax that is inspired by OCaml, therefore it is familiar to those who already know this language. 
