@@ -18,7 +18,7 @@ Tezos offers three different programming languages:
 - Archetype 
 - Ligo 
 
-each one with unique properties and funtionalities.<br> 
+each one with unique properties and functionalities.<br> 
 Therefore at the beginning of my work, i tested all three of them. 
 
 ## Use Cases 
