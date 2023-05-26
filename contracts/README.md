@@ -1,8 +1,8 @@
 # Smart contract in Tezos 
-A smart contract is a computer program or transaction protocol designed to automate, control or record events and actions based on predefined terms and conditions.<br>
+A smart contract is a computer program or transaction protocol designed to automate, control or record events and actions based on predefined terms and conditions.[[1]](#references)<br>
 Because the blockchain is fully decentralized the main goals include minimizing the reliance on trusted intermediaries, reducing arbitration expenses, preventing fraud losses, and mitigating both intentional and unintentional errors or exceptions.<br>
 A smart contract runs perpetually on the blockchain since its deployment and its terms are written into code (publicy visible) and executed automatically, ensuring transparency and efficiency in the agreement's enforcement.
-These contracts have the potential to revolutionize various industries by streamlining processes, increasing trust, and enabling new business models. They can be utilized in areas such as supply chain management, financial services, real estate transactions through a process call *tokenization*[[1]](#references) and more, offering benefits in terms of speed, cost savings, and enhanced security.<br> [[2]](#references)
+These contracts have the potential to revolutionize various industries by streamlining processes, increasing trust, and enabling new business models. They can be utilized in areas such as supply chain management, financial services, real estate transactions through a process call *tokenization*[[2]](#references) and more, offering benefits in terms of speed, cost savings, and enhanced security.<br> 
 An example: 
 in the traditional finance ecosystem, if someone wants to buy something, whether it's a videogame or a car, they have a series of guarantees that allow them to make the purchase in complete safety.<br> 
 In the first case, they would buy the product from an official shop, and if it doesn't work, they have a receipt that they can use to get a refund. In the second case, if they buy the car in a private deal, they then have to go to an authorized official to make a change of ownership, or if they buy from a dealer they'll have to sign a contract to complete the purchase, either way they have a strong guarantee.<br>  
@@ -137,8 +137,8 @@ LIGO is a functional language designed to include the features you need while av
 
 
 ## References
-1. [What Is Tokenization and How Does It Work?](https://www.nasdaq.com/articles/what-is-tokenization-and-how-does-it-work) (01 September 2022), Nasdaq - GOBankingRates, Taylor DeJesus. Retrieved May 22, 2023. 
-2. [Smart contract](https://en.wikipedia.org/wiki/Smart_contract) (last update 03 May 2023), Wikipedia, *The free encyclopedia*. Retrieved May 24, 2023.
+1. [Smart contract](https://en.wikipedia.org/wiki/Smart_contract) (last update 03 May 2023), Wikipedia, *The free encyclopedia*. Retrieved May 24, 2023.
+2. [What Is Tokenization and How Does It Work?](https://www.nasdaq.com/articles/what-is-tokenization-and-how-does-it-work) (01 September 2022), Nasdaq - GOBankingRates, Taylor DeJesus. Retrieved May 22, 2023. 
 3. [Michelson, the language of Tezos smart-contracts](https://www.michelson.org/) (n.d.), Michelson. Retrieved May 24, 2023. 
 4. [SmartPy - First Steps](https://tezos.b9lab.com/smartpy/intro) (n.d.), Tezod Developer Portal. Retrieved May 24, 2023.
 5. [Implementing a mini token contract with on-chain callbacks (TZIP-12)](https://medium.com/@matej.sima/tutorial-implementing-a-mini-token-contract-on-tezos-with-on-chain-callbacks-tzip-12-b04cf7ee2059) (28 February 2020), Medium - Matej Šima. Retrieved May 24, 2023.
