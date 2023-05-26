@@ -1,5 +1,5 @@
 # Contract Deployment
-Here are all the deployment costs of every [contract](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts) developed.
+Here are all the deployment costs of every [contract](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/master/contracts) developed.
 
 ## Simple Transfer
 Simple Transfer requires a total of **0,114275tez** to be deployed:
