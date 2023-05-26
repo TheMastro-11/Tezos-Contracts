@@ -22,7 +22,8 @@ each one with unique properties and funtionalities.<br>
 Therefore at the beginning of my work, i tested all three of them. 
 
 ## Use Cases 
-I have developed a set of use cases: 
+First I read all the documents related to the various languages in order to understand what were the available features and the various generalities on: types, methods, utils, etc.. in each.
+Than I have developed a set of use cases trying to explore all possible features and complexity levels: 
 
 - [Simple Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/master/contracts/SimpleTransfer) 
 - [Auction](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/master/contracts/Auction) 
@@ -32,9 +33,8 @@ I have developed a set of use cases:
 - [Token Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/master/contracts/TokenTransfer) 
 
 ## Language Comparison 
-After developing several contracts in every language available, I made a [detailed](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/master/contracts) comparison between them to find out which one was the best to continue developing and test. 
-Between all of them, I chose SmartPy 
-
+After developing several contracts, I made a [detailed](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/master/contracts) comparison between languages to find out which one was the best to continue developing and test. 
+Between all of them, I chose SmartPy
 
 ## Analysis of execution costs 
 I have [experimented](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/master/experiments) 7 smart contracts on *Test Net* to evaluate the paid fees fot both [deployment](/experiments/Deployments/) and [interactions](/experiments/Interactions/). 
