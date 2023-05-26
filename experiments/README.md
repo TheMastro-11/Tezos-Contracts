@@ -73,7 +73,7 @@ I used the *GhostNet*, a testnet that follows *Mainnet* updates.[[5]](#reference
 
 
 ## Tez Transactions
-A simple transaction for 1,10,100 or 1000 tez as always the same gas cost of 1001gu and a three base fees ranges for differents frame time *more pay less wait*:
+A simple transaction for 1,10,100 or 1000 tez as always the same gas cost of 1001gu and three base fees ranges for different frame time *more pay less wait*:
 | Type | Cost |
 | - | :-: |
 | *Minimal* | 0,0001tez  |
