@@ -33,7 +33,7 @@ self.init(deadline = sp.none, committer = sp.none , receiver = sp.none, hash = s
 and they will be modified during *entrypoint* executions 
 <br>
 Let’s see an example: <br>
-**A** wants to send 100tz to **B** using a smart contract, [Simple Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/main/contracts/SimpleTransfer ). <br>
+**A** wants to send 100tz to **B** using a smart contract, [Simple Transfer](https://github.com/TheMastro-11/Evaluating-execution-and-development-costs-in-the-Tezos-blockchain/tree/master/contracts/SimpleTransfer ). <br>
 
 Simple Transfer has only one state variable `receiver`, setted as empty
 ```
