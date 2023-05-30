@@ -8,9 +8,9 @@ The minimal unit is the **nano-tez**, 1 mutez = 1000 nano-tez
 
 Let: 
 * Minimal Fees: minF
-* Storage Fee (in bytes "BB"): ss 
+* Storage Fee (in bytes "B"): s
   (The size "ss" is the number of bytes in the complete serialized operation).
-* Gas used for the operation (in gas unit "gugu​"): gg
+* Gas used for the operation (in gas unit "gu"): g
 * Minimal nano-tez per byte: min(nꜩ/B)
 * Minimal nano-tez per gas unit: min(nꜩ/gu)
 * Gas unit cost in Tez is defined by the protocol. It does not depend on the fee market; it does not depend on arbitrary defaults in config files; etc 
