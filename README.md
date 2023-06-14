@@ -1,5 +1,5 @@
 # Evaluating execution and development costs in the Tezos blockchain 
-The goal of this project is to evaluate the costs of developing and executing smart contracts in the [Tezos blockchain](https://tezos.com/). 
+The purpose of this thesis is to calculate the cost of developing and executing smart contracts in the Tezos blockchain. To achieve this goal I have studied the documentation related to the blockchain and the languages available. Later I made a series of use cases in order to test all the available features. Finally I compared the various languages to understand which was the best to continue the work. Once I chose I created the last contracts and then a tool to calculate the costs of Deployment and Interaction of smart contracts. ​
 
 ## The Tezos Blockchain 
 A blockchain refers to a fully decentralized digital ledger that consists of an expanding collection of records, aka transactions, known as blocks and are interconnected using cryptographic hashes to ensure a high level of security.[[1]](#references)<br> 
